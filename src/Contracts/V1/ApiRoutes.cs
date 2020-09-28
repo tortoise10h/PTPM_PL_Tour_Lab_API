@@ -18,7 +18,7 @@ namespace src.Contracts.V1
 
         public static class TourCategory
         {
-            public const string Ping = Base + "/tourCategories/ping";
+            public const string Create = Base + "/tourCategories";
         }
     }
 }

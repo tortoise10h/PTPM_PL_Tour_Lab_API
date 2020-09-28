@@ -1,4 +1,5 @@
 using AutoMapper;
+using src.Contracts.V1.ResponseModels.TourCategory;
 using src.Contracts.V1.ResponseModels.User;
 using src.Entities;
 
@@ -8,8 +9,8 @@ namespace src.MapperProfiles
     {
         public EntityToResponseProfile()
         {
-            /** User */
             CreateMap<ApplicationUser, UserResponse>();
+            CreateMap<TourCategory, TourCategoryResponse>();
         }
     }
 }

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using src.Helpers;
 using src.Services;
 
 namespace src.Installers
@@ -12,6 +13,7 @@ namespace src.Installers
         {
             services.AddScoped<ITourCategoryService, TourCategoryService>();
             services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
         }
     }
 }
