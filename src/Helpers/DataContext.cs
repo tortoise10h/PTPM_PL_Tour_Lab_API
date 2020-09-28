@@ -18,11 +18,13 @@ namespace src.Helpers
 
         protected readonly IConfiguration Configuration;
         private readonly ICurrentUserService _currentUserService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public DataContext(DbContextOptions options, IConfiguration configuration)
+        public DataContext(DbContextOptions options, IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
             : base(options)
         {
             Configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public DataContext()
@@ -49,22 +51,6 @@ namespace src.Helpers
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
             AutoTrack();
-            // foreach (Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<BaseEntity> entry in ChangeTracker.Entries<BaseEntity>())
-            // {
-            //     switch (entry.State)
-            //     {
-            //         case EntityState.Added:
-            //             entry.Entity.CreatedBy = _currentUserService.UserId;
-            //             entry.Entity.CreatedAt = DateTime.Now;
-            //             break;
-
-            //         case EntityState.Modified:
-            //             entry.Entity.LastModifiedBy = _currentUserService.UserId;
-            //             entry.Entity.LastModifiedAt = DateTime.Now;
-            //             break;
-            //     }
-            // }
-
             int result = await base.SaveChangesAsync();
 
             return result;
@@ -79,11 +65,15 @@ namespace src.Helpers
                 if (entity.State == EntityState.Added)
                 {
                     ((BaseEntity)entity.Entity).CreatedAt = DateTime.UtcNow;
-                    ((BaseEntity)entity.Entity).CreatedBy = null;
+                    ((BaseEntity)entity.Entity).CreatedBy = _httpContextAccessor.HttpContext.User.Claims.Count() > 0
+                        ? _httpContextAccessor.HttpContext.User.Claims.First(x => x.Type == "id").Value
+                        : null;
                 }
 
                 ((BaseEntity)entity.Entity).LastModifiedAt = DateTime.UtcNow;
-                ((BaseEntity)entity.Entity).LastModifiedBy = null;
+                ((BaseEntity)entity.Entity).LastModifiedBy = _httpContextAccessor.HttpContext.User.Claims.Count() > 0
+                        ? _httpContextAccessor.HttpContext.User.Claims.First(x => x.Type == "id").Value
+                        : null;
             }
         }
     }

@@ -80,6 +80,7 @@ namespace src.Installers
 
             services.AddAutoMapper(typeof(Startup));
             services.AddMediatR(typeof(Startup));
+            services.AddHttpContextAccessor();
         }
     }
 }

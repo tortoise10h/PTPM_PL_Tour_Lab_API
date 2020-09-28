@@ -62,29 +62,6 @@ namespace src.Controllers.V1
                 }
             ));
         }
-        // [HttpPost(ApiRoutes.Auth.Login)]
-        // public async Task<IActionResult> Login(
-        //     [FromBody] LoginRequest loginInfo)
-        // {
-        //     var loginResult = await _identityService.LoginAsync(
-        //         loginInfo.Email,
-        //         loginInfo.Password);
-
-        //     if (!loginResult.IsSuccess)
-        //     {
-        //         return BadRequest(loginResult.Errors);
-        //     }
-
-        //     return Ok(new Response<LoginResponse>(
-        //         new LoginResponse
-        //         {
-        //             Token = loginResult.Token,
-        //             UserResponse = loginResult.UserResponse,
-        //             TokenExpireTime = loginResult.TokenExpireTime,
-        //             RefreshToken = loginResult.RefreshToken
-        //         }
-        //     ));
-        // }
 
         [HttpGet(ApiRoutes.Auth.Profile)]
         public IActionResult GetProfile()

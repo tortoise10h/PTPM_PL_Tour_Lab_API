@@ -16,11 +16,9 @@ namespace src.Contracts.V1.ResponseModels
         }
 
         public IEnumerable<T> Data { get; set; }
-        public int? PageNumber { get; set; }
+        public int? CurrentPage { get; set; }
         public int? PageSize { get; set; }
-        public string NextPage { get; set; }
-        public string PreviousPage { get; set; }
-        public int TotalPage { get; set; }
-
+        public int TotalPages { get; set; }
+        public int TotalItems { get; set; }
     }
 }

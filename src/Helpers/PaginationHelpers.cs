@@ -1,51 +1,53 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using src.Contracts.V1.RequestModels;
 using src.Contracts.V1.ResponseModels;
 
 namespace src.Helpers
 {
     public class PaginationHelpers
     {
-        // internal static PagedResponse<T> CreatePaginatedResponse<T>(
-        //     IUriService uriService,
-        //     PaginationFilter paginationFilter,
-        //     List<T> response,
-        //     int total,
-        //     string getAllApiPath)
-        // {
-        //     var nextPage = paginationFilter.PageNumber >= 1
-        //         ? uriService
-        //             .GetAllUri(
-        //                 getAllApiPath,
-        //                 new PaginationQuery(
-        //                     paginationFilter.PageNumber + 1, paginationFilter.PageSize)).ToString()
-        //         : null;
+        public static PagedResponse<T> CreatePaginatedResponse<T>(
+            PaginationQuery query,
+            List<T> response,
+            int total)
+        {
+            int totalPage = (int)Math.Ceiling((double)total / query.Limit);
 
-        //     var previousPage = paginationFilter.PageNumber - 1 >= 1
-        //         ? uriService
-        //             .GetAllUri(
-        //                 getAllApiPath,
-        //                 new PaginationQuery(
-        //                     paginationFilter.PageNumber - 1, paginationFilter.PageSize)).ToString()
-        //         : null;
+            return new PagedResponse<T>
+            {
+                Data = response,
+                CurrentPage = query.Page,
+                PageSize = query.Limit,
+                TotalPages = totalPage == 0 ? 1 : totalPage,
+                TotalItems = total
+            };
+        }
+        public static async Task<PagedResponse<T>> Paginate<T>(
+            IQueryable<T> queryable,
+            PaginationQuery query)
+        {
+            int skip = (query.Page - 1) * query.Limit;
 
-        //     int totalPage = (int)Math.Ceiling((double)total / paginationFilter.PageSize);
+            var result = await queryable
+                .Select(e => e)
+                .Take(query.Limit)
+                .Skip(skip)
+                .GroupBy(e => new { Total = queryable.Count() })
+                .FirstOrDefaultAsync();
+            if (result != null)
+            {
+                int total = result.Key.Total;
+                List<T> entities = result.Select(e => e).ToList();
 
-        //     return new PagedResponse<T>
-        //     {
-        //         Data = response,
-        //         PageNumber = paginationFilter.PageNumber >= 1 ? paginationFilter.PageNumber : (int?)null,
-        //         PageSize = paginationFilter.PageSize >= 1 ? paginationFilter.PageSize : (int?)null,
-        //         // calculate that we have next page or not
-        //         NextPage = response.LongCount() < paginationFilter.PageSize
-        //             ? null
-        //             : (paginationFilter.PageNumber * paginationFilter.PageSize < total
-        //                 ? nextPage
-        //                 : null),
-        //         PreviousPage = previousPage,
-        //         TotalPage = totalPage == 0 ? 1 : totalPage
-        //     };
-        // }
+                return CreatePaginatedResponse(query, entities, total);
+            }
+
+            return CreatePaginatedResponse(query, new List<T>(), 0);
+
+        }
     }
 }
