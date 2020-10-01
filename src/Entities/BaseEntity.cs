@@ -8,5 +8,6 @@ namespace src.Entities
         public string CreatedBy { get; set; }
         public DateTime LastModifiedAt { get; set; }
         public String LastModifiedBy { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

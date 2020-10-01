@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FluentValidation.AspNetCore;
-using src.Filters;
-using Newtonsoft.Json.Serialization;
 
 namespace src.Installers
 {
@@ -16,7 +14,7 @@ namespace src.Installers
             services
                 .AddControllers(options =>
                 {
-                    options.Filters.Add<ValidationFilter>();
+                    // options.Filters.Add<ValidationFilter>();
                 })
                     .ConfigureApiBehaviorOptions(options =>
                     {
@@ -36,9 +34,7 @@ namespace src.Installers
 
                             return result;
                         };
-                    })
-                .AddFluentValidation(
-                    config => config.RegisterValidatorsFromAssemblyContaining<Startup>());
+                    });
 
         }
     }

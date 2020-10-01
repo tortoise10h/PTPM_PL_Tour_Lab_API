@@ -9,6 +9,9 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Identity;
 using src.Entities;
 using MediatR;
+using FluentValidation;
+using src.PipelineBehaviours;
+using System.Reflection;
 
 namespace src.Installers
 {
@@ -79,8 +82,10 @@ namespace src.Installers
             });
 
             services.AddAutoMapper(typeof(Startup));
-            services.AddMediatR(typeof(Startup));
             services.AddHttpContextAccessor();
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
         }
     }
 }

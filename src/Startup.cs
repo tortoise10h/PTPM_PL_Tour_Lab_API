@@ -8,6 +8,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using src.Helpers;
 using src.Installers;
+using src.Middlewares;
 
 namespace src
 {
@@ -72,6 +73,8 @@ namespace src
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseMiddleware(typeof(ErrorsHandlingMiddleware));
 
             app.UseEndpoints(endpoints =>
             {

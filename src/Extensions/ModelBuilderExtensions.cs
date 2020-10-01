@@ -94,7 +94,10 @@ namespace src.Extensions
 
         public static void ConfigTablesRequirements(this ModelBuilder modelBuilder)
         {
-
+            /** User */
+            modelBuilder.Entity<BaseEntity>()
+                .Property(be => be.IsDeleted)
+                .HasDefaultValue(false);
         }
 
         public static void Seed(this ModelBuilder modelBuilder)

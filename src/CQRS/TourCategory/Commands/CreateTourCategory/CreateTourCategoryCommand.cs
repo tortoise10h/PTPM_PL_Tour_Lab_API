@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using LanguageExt.Common;
 using MediatR;
+using src.Contracts.V1.Exceptions;
 using src.Contracts.V1.ResponseModels;
 using src.Contracts.V1.ResponseModels.TourCategory;
 using src.Helpers;
@@ -10,12 +12,13 @@ using E = src.Entities;
 
 namespace src.CQRS.TourCategory.Commands.CreateTourCategory
 {
-    public class CreateTourCategoryCommand : IRequest<CreateResult<TourCategoryResponse>>
+    public class CreateTourCategoryCommand : IRequest<Result<TourCategoryResponse>>
     {
         public string Name { get; set; }
     }
 
-    public class CreateTourCategoryHandler : IRequestHandler<CreateTourCategoryCommand, CreateResult<TourCategoryResponse>>
+
+    public class CreateTourCategoryHandler : IRequestHandler<CreateTourCategoryCommand, Result<TourCategoryResponse>>
     {
         private readonly DataContext _context;
         private readonly IMapper _mapper;
@@ -24,7 +27,7 @@ namespace src.CQRS.TourCategory.Commands.CreateTourCategory
             _context = context;
             _mapper = mapper;
         }
-        public async Task<CreateResult<TourCategoryResponse>> Handle(CreateTourCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<Result<TourCategoryResponse>> Handle(CreateTourCategoryCommand request, CancellationToken cancellationToken)
         {
             var newTourCategory = new E.TourCategory
             {
@@ -35,22 +38,14 @@ namespace src.CQRS.TourCategory.Commands.CreateTourCategory
             var created = await _context.SaveChangesAsync();
             if (created > 0)
             {
-                return new CreateResult<TourCategoryResponse>
-                {
-                    IsSuccess = true,
-                    EntityReturn = _mapper.Map<TourCategoryResponse>(newTourCategory)
-                };
+                return new Result<TourCategoryResponse>(
+                    _mapper.Map<TourCategoryResponse>(newTourCategory)
+                );
             }
 
-            return new CreateResult<TourCategoryResponse>
-            {
-                IsSuccess = false,
-                Errors = new List<string>() {
-                    "Create tour category failed"
-                }
-            };
-
+            return new Result<TourCategoryResponse>(
+                new BadRequestException(new ApiError("Create tour category failed, please try again"))
+            );
         }
     }
-
 }

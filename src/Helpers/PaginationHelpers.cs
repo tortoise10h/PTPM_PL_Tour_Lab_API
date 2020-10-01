@@ -32,22 +32,12 @@ namespace src.Helpers
         {
             int skip = (query.Page - 1) * query.Limit;
 
-            var result = await queryable
-                .Select(e => e)
-                .Take(query.Limit)
+            var entities = await queryable
                 .Skip(skip)
-                .GroupBy(e => new { Total = queryable.Count() })
-                .FirstOrDefaultAsync();
-            if (result != null)
-            {
-                int total = result.Key.Total;
-                List<T> entities = result.Select(e => e).ToList();
-
-                return CreatePaginatedResponse(query, entities, total);
-            }
-
-            return CreatePaginatedResponse(query, new List<T>(), 0);
-
+                .Take(query.Limit)
+                .ToListAsync();
+            var totalEntities = await queryable.CountAsync();
+            return CreatePaginatedResponse(query, entities, totalEntities);
         }
     }
 }
