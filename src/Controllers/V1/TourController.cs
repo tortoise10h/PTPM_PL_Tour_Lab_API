@@ -1,13 +1,18 @@
+using System;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using src.Contracts.V1;
+using src.Contracts.V1.ResponseModels;
+using src.Contracts.V1.ResponseModels.Tour;
 using src.CQRS.Tour.Commands.CreateTour;
 using src.CQRS.Tour.Queries;
 
 namespace src.Controllers.V1
 {
-    // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class TourController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -23,7 +28,9 @@ namespace src.Controllers.V1
             var result = await _mediator.Send(command);
 
             return result.Match<IActionResult>(
-                tourResponse => Created("", tourResponse),
+                tourResponse => Created("", new Response<TourResponse>(
+                    tourResponse
+                )),
                 exp =>
                 {
                     throw exp;
@@ -37,7 +44,9 @@ namespace src.Controllers.V1
             var result = await _mediator.Send(query);
 
             return result.Match<IActionResult>(
-                tourResponse => Ok(tourResponse),
+                data => Ok(new Response<PagedResponse<TourResponse>>(
+                    data
+                )),
                 exp =>
                 {
                     throw exp;
@@ -45,6 +54,22 @@ namespace src.Controllers.V1
             );
         }
 
+        [HttpGet(ApiRoutes.Tour.GetById)]
+        public async Task<IActionResult> GetById([FromRoute] Guid tourId)
+        {
+            var query = new GetTourByIdQuery(tourId);
+            var result = await _mediator.Send(query);
+
+            return result.Match<IActionResult>(
+                tourResponse => Ok(new Response<TourResponse>(
+                    tourResponse
+                )),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
 
     }
 }

@@ -4,6 +4,8 @@ using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using src.Contracts.V1;
+using src.Contracts.V1.ResponseModels;
+using src.Contracts.V1.ResponseModels.TouristAttraction;
 using src.CQRS.TouristAttraction.Commands.CreateTouristAttraction;
 using src.CQRS.TouristAttraction.Commands.DeleteTouristAttraction;
 using src.CQRS.TouristAttraction.Commands.UpdateTouristAttraction;
@@ -27,7 +29,11 @@ namespace src.Controllers.V1
             var result = await _mediator.Send(command);
 
             return result.Match<IActionResult>(
-                touristAttractionResponse => Created("", touristAttractionResponse),
+                touristAttractionResponse => Created(
+                    "",
+                    new Response<TouristAttractionResponse>(
+                        touristAttractionResponse
+                    )),
                 exp =>
                 {
                     throw exp;
@@ -62,7 +68,11 @@ namespace src.Controllers.V1
             var result = await _mediator.Send(getTouristAttractionById);
 
             return result.Match<IActionResult>(
-                touristAttractionResponse => Ok(touristAttractionResponse),
+                touristAttractionResponse => Ok(
+                    new Response<TouristAttractionResponse>(
+                        touristAttractionResponse
+                    )
+                ),
                 exp =>
                 {
                     throw exp;
@@ -80,7 +90,7 @@ namespace src.Controllers.V1
 
             return result.Match<IActionResult>(
                 touristAttractionResponse => NoContent(),
-                exp => 
+                exp =>
                 {
                     throw exp;
                 }
@@ -95,7 +105,11 @@ namespace src.Controllers.V1
             var result = await _mediator.Send(query);
 
             return result.Match<IActionResult>(
-                touristAttractionResponse => Ok(touristAttractionResponse),
+                data => Ok(
+                    new Response<PagedResponse<TouristAttractionResponse>>(
+                        data
+                    )
+                ),
                 exp =>
                 {
                     throw exp;
