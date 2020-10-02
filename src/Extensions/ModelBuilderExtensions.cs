@@ -1,5 +1,8 @@
 using src.Entities;
 using Microsoft.EntityFrameworkCore;
+using src.Enums;
+using System;
+using Microsoft.AspNetCore.Identity;
 
 namespace src.Extensions
 {
@@ -94,15 +97,85 @@ namespace src.Extensions
 
         public static void ConfigTablesRequirements(this ModelBuilder modelBuilder)
         {
-            /** User */
-            modelBuilder.Entity<BaseEntity>()
-                .Property(be => be.IsDeleted)
-                .HasDefaultValue(false);
+            // /** BaseEntity */
+            // modelBuilder.Entity<BaseEntity>()
+            //     .HasNoKey()
+            //     .Property(be => be.IsDeleted)
+            //     .HasDefaultValue(false);
+
+            /** Tour */
+            modelBuilder.Entity<Tour>()
+                .Property(t => t.Status)
+                .HasDefaultValue(TourStatusEnum.Opening);
         }
 
         public static void Seed(this ModelBuilder modelBuilder)
         {
+            string adminRoleId = Guid.NewGuid().ToString();
+            string superAdminRoleId = Guid.NewGuid().ToString();
 
+            string adminId = Guid.NewGuid().ToString();
+            string superAdminId = Guid.NewGuid().ToString();
+
+            modelBuilder.Entity<IdentityRole>()
+                .HasData(
+                    new IdentityRole
+                    {
+                        Id = adminRoleId,
+                        Name = "Admin",
+                        NormalizedName = "admin"
+                    },
+                    new IdentityRole
+                    {
+                        Id = superAdminRoleId,
+                        Name = "SuperAdmin",
+                        NormalizedName = "superadmin"
+                    }
+                );
+
+            var hasher = new PasswordHasher<ApplicationUser>();
+            modelBuilder.Entity<ApplicationUser>()
+                .HasData(
+                    new ApplicationUser
+                    {
+                        Id = superAdminId,
+                        FirstName = "Super Admin",
+                        LastName = "Lil",
+                        UserName = "lilsuperadmin@gmail.com",
+                        NormalizedUserName = "lilsuperadmin@gmail.com".ToUpper(),
+                        Email = "lilsuperadmin@gmail.com",
+                        NormalizedEmail = "lilsuperadmin@gmail.com".ToUpper(),
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "12345678"),
+                        SecurityStamp = string.Empty
+                    },
+                    new ApplicationUser
+                    {
+                        Id = adminId,
+                        FirstName = "Admin",
+                        LastName = "Yung",
+                        UserName = "yungadmin@gmail.com",
+                        NormalizedUserName = "yungadmin@gmail.com".ToUpper(),
+                        Email = "yungadmin@gmail.com",
+                        NormalizedEmail = "yungadmin@gmail.com".ToUpper(),
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "12345678"),
+                        SecurityStamp = string.Empty
+                    });
+
+            modelBuilder.Entity<IdentityUserRole<string>>()
+                .HasData(
+                    new IdentityUserRole<string>
+                    {
+                        RoleId = adminRoleId,
+                        UserId = adminId
+                    },
+                    new IdentityUserRole<string>
+                    {
+                        RoleId = superAdminRoleId,
+                        UserId = superAdminId
+                    }
+                );
         }
     }
 }

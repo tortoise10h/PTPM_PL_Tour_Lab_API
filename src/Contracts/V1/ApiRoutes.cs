@@ -24,5 +24,14 @@ namespace src.Contracts.V1
             public const string GetById = Base + "/tourCategories/{tourCategoryId}";
             public const string Delete = Base + "/tourCategories/{tourCategoryId}";
         }
+
+        public static class Tour
+        {
+            public const string Create = Base + "/tours";
+            public const string GetAll = Base + "/tours";
+            public const string Update = Base + "/tours/{tourId}";
+            public const string GetById = Base + "/tours/{tourId}";
+            public const string Delete = Base + "/tours/{tourId}";
+        }
     }
 }

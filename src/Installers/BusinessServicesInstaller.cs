@@ -11,6 +11,7 @@ namespace src.Installers
     {
         public void InstallServices(IConfiguration configuration, IServiceCollection services)
         {
+            services.AddScoped<IPaginationHelpers, PaginationHelpers>();
             services.AddScoped<ITourCategoryService, TourCategoryService>();
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddScoped<ICurrentUserService, CurrentUserService>();

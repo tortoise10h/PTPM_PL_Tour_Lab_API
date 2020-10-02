@@ -44,6 +44,22 @@ namespace src.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "37fc7a29-8c34-4e01-9c57-9d29d8934830",
+                            ConcurrencyStamp = "92e0d9c8-3e59-4708-8c46-b57b4d5406bb",
+                            Name = "Admin",
+                            NormalizedName = "admin"
+                        },
+                        new
+                        {
+                            Id = "fcd681a4-6e6b-4654-ad05-6ee4116a0068",
+                            ConcurrencyStamp = "b2c6b3d6-48ba-49b8-9df7-d17da0266343",
+                            Name = "SuperAdmin",
+                            NormalizedName = "superadmin"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -129,6 +145,18 @@ namespace src.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "e067df51-60cc-4a43-9d88-278ceaf3f2e5",
+                            RoleId = "37fc7a29-8c34-4e01-9c57-9d29d8934830"
+                        },
+                        new
+                        {
+                            UserId = "9fc9c686-189c-4790-9415-3f74bcdf9743",
+                            RoleId = "fcd681a4-6e6b-4654-ad05-6ee4116a0068"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -219,6 +247,44 @@ namespace src.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "9fc9c686-189c-4790-9415-3f74bcdf9743",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "89f1085c-cb71-412b-b3ae-85b7e5851171",
+                            Email = "lilsuperadmin@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Super Admin",
+                            LastName = "Lil",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "LILSUPERADMIN@GMAIL.COM",
+                            NormalizedUserName = "LILSUPERADMIN@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJr4n6vj1zCSslygm42fSlSf5Ai37i47lKeNvgjiIBOmBMkC431T4+kRiA3Rqya+Ew==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "lilsuperadmin@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "e067df51-60cc-4a43-9d88-278ceaf3f2e5",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "6a02bdee-9dd7-43ce-9ea7-cb986b9381c3",
+                            Email = "yungadmin@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Admin",
+                            LastName = "Yung",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "YUNGADMIN@GMAIL.COM",
+                            NormalizedUserName = "YUNGADMIN@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAECJZjZh+OWcQMAdpIT6kGAlnkb4X9A1nflya27F11PG6oYJOrS2ACBfRbx1WYVjFGA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "yungadmin@gmail.com"
+                        });
                 });
 
             modelBuilder.Entity("src.Entities.CostType", b =>
@@ -468,11 +534,16 @@ namespace src.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Price")
-                        .HasColumnType("bigint");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("Specification")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
 
                     b.Property<Guid>("TourCategoryId")
                         .HasColumnType("uniqueidentifier");

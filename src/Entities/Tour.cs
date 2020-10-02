@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using src.Enums;
 
 namespace src.Entities
 {
@@ -9,7 +10,8 @@ namespace src.Entities
         public string Name { get; set; }
         public string Specification { get; set; }
         public Guid TourCategoryId { get; set; }
-        public long Price { get; set; }
+        public double Price { get; set; }
+        public TourStatusEnum Status { get; set; }
 
         public TourCategory TourCategory { get; set; }
         public ICollection<TourPrice> TourPrices { get; set; }

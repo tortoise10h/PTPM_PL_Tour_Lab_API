@@ -2,32 +2,47 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using src.Contracts.V1.RequestModels;
 using src.Contracts.V1.ResponseModels;
 
 namespace src.Helpers
 {
-    public class PaginationHelpers
+    public interface IPaginationHelpers
     {
-        public static PagedResponse<T> CreatePaginatedResponse<T>(
+        Task<PagedResponse<TResponse>> Paginate<TEntity, TResponse>(
+            IQueryable<TEntity> queryable,
+            PaginationQuery query);
+    }
+
+    public class PaginationHelpers : IPaginationHelpers
+    {
+        private readonly IMapper _mapper;
+
+        public PaginationHelpers(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
+
+        private PagedResponse<TResponse> CreatePaginatedResponse<TEntity, TResponse>(
             PaginationQuery query,
-            List<T> response,
+            List<TEntity> entities,
             int total)
         {
             int totalPage = (int)Math.Ceiling((double)total / query.Limit);
 
-            return new PagedResponse<T>
+            return new PagedResponse<TResponse>
             {
-                Data = response,
+                Data = _mapper.Map<IEnumerable<TResponse>>(entities),
                 CurrentPage = query.Page,
                 PageSize = query.Limit,
                 TotalPages = totalPage == 0 ? 1 : totalPage,
                 TotalItems = total
             };
         }
-        public static async Task<PagedResponse<T>> Paginate<T>(
-            IQueryable<T> queryable,
+        public async Task<PagedResponse<TResponse>> Paginate<TEntity, TResponse>(
+            IQueryable<TEntity> queryable,
             PaginationQuery query)
         {
             int skip = (query.Page - 1) * query.Limit;
@@ -37,7 +52,8 @@ namespace src.Helpers
                 .Take(query.Limit)
                 .ToListAsync();
             var totalEntities = await queryable.CountAsync();
-            return CreatePaginatedResponse(query, entities, totalEntities);
+            return CreatePaginatedResponse<TEntity, TResponse>(
+                query, entities, totalEntities);
         }
     }
 }

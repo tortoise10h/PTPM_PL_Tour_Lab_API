@@ -57,6 +57,7 @@ namespace src.Migrations
                     CreatedBy = table.Column<string>(nullable: true),
                     LastModifiedAt = table.Column<DateTime>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -73,6 +74,7 @@ namespace src.Migrations
                     CreatedBy = table.Column<string>(nullable: true),
                     LastModifiedAt = table.Column<DateTime>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -89,6 +91,7 @@ namespace src.Migrations
                     CreatedBy = table.Column<string>(nullable: true),
                     LastModifiedAt = table.Column<DateTime>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -105,6 +108,7 @@ namespace src.Migrations
                     CreatedBy = table.Column<string>(nullable: true),
                     LastModifiedAt = table.Column<DateTime>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true)
                 },
@@ -228,10 +232,12 @@ namespace src.Migrations
                     CreatedBy = table.Column<string>(nullable: true),
                     LastModifiedAt = table.Column<DateTime>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Specification = table.Column<string>(nullable: true),
                     TourCategoryId = table.Column<Guid>(nullable: false),
-                    Price = table.Column<long>(nullable: false)
+                    Price = table.Column<double>(nullable: false),
+                    Status = table.Column<int>(nullable: false, defaultValue: 1)
                 },
                 constraints: table =>
                 {
@@ -252,6 +258,7 @@ namespace src.Migrations
                     CreatedBy = table.Column<string>(nullable: true),
                     LastModifiedAt = table.Column<DateTime>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Price = table.Column<long>(nullable: false),
                     StartDate = table.Column<DateTime>(nullable: false),
@@ -277,6 +284,7 @@ namespace src.Migrations
                     CreatedBy = table.Column<string>(nullable: true),
                     LastModifiedAt = table.Column<DateTime>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     TourId = table.Column<Guid>(nullable: false),
                     TouristAttractionId = table.Column<Guid>(nullable: false)
                 },
@@ -304,6 +312,7 @@ namespace src.Migrations
                     CreatedBy = table.Column<string>(nullable: true),
                     LastModifiedAt = table.Column<DateTime>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     TourId = table.Column<Guid>(nullable: false),
                     Price = table.Column<long>(nullable: false),
                     StartDate = table.Column<DateTime>(nullable: false),
@@ -328,6 +337,7 @@ namespace src.Migrations
                     CreatedBy = table.Column<string>(nullable: true),
                     LastModifiedAt = table.Column<DateTime>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     GroupId = table.Column<Guid>(nullable: false),
                     CostTypeId = table.Column<Guid>(nullable: false),
                     Price = table.Column<long>(nullable: false),
@@ -357,6 +367,7 @@ namespace src.Migrations
                     CreatedBy = table.Column<string>(nullable: true),
                     LastModifiedAt = table.Column<DateTime>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     UserId = table.Column<string>(nullable: true),
                     GroupId = table.Column<Guid>(nullable: false),
                     Description = table.Column<string>(nullable: true)
@@ -385,6 +396,7 @@ namespace src.Migrations
                     CreatedBy = table.Column<string>(nullable: true),
                     LastModifiedAt = table.Column<DateTime>(nullable: false),
                     LastModifiedBy = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     StaffId = table.Column<string>(nullable: true),
                     GroupId = table.Column<Guid>(nullable: false),
                     GroupRoleId = table.Column<Guid>(nullable: false)
@@ -408,6 +420,34 @@ namespace src.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "37fc7a29-8c34-4e01-9c57-9d29d8934830", "92e0d9c8-3e59-4708-8c46-b57b4d5406bb", "Admin", "admin" },
+                    { "fcd681a4-6e6b-4654-ad05-6ee4116a0068", "b2c6b3d6-48ba-49b8-9df7-d17da0266343", "SuperAdmin", "superadmin" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "9fc9c686-189c-4790-9415-3f74bcdf9743", 0, "89f1085c-cb71-412b-b3ae-85b7e5851171", "lilsuperadmin@gmail.com", true, "Super Admin", "Lil", false, null, "LILSUPERADMIN@GMAIL.COM", "LILSUPERADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEJr4n6vj1zCSslygm42fSlSf5Ai37i47lKeNvgjiIBOmBMkC431T4+kRiA3Rqya+Ew==", null, false, "", false, "lilsuperadmin@gmail.com" },
+                    { "e067df51-60cc-4a43-9d88-278ceaf3f2e5", 0, "6a02bdee-9dd7-43ce-9ea7-cb986b9381c3", "yungadmin@gmail.com", true, "Admin", "Yung", false, null, "YUNGADMIN@GMAIL.COM", "YUNGADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAECJZjZh+OWcQMAdpIT6kGAlnkb4X9A1nflya27F11PG6oYJOrS2ACBfRbx1WYVjFGA==", null, false, "", false, "yungadmin@gmail.com" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "UserId", "RoleId" },
+                values: new object[] { "9fc9c686-189c-4790-9415-3f74bcdf9743", "fcd681a4-6e6b-4654-ad05-6ee4116a0068" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "UserId", "RoleId" },
+                values: new object[] { "e067df51-60cc-4a43-9d88-278ceaf3f2e5", "37fc7a29-8c34-4e01-9c57-9d29d8934830" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

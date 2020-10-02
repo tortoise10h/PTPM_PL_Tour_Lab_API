@@ -58,10 +58,19 @@ namespace src.Middlewares
 
                 return context.Response.WriteAsync("");
             }
+            else if (exceptionType == typeof(ArgumentNullException))
+            {
+                var code = HttpStatusCode.BadRequest;
+                var result = JsonConvert.SerializeObject(new { ApiErr = exception.Message });
+                context.Response.ContentType = "application/json";
+                context.Response.StatusCode = (int)code;
+
+                return context.Response.WriteAsync(result);
+            }
             else
             {
                 var code = HttpStatusCode.InternalServerError;
-                var result = JsonConvert.SerializeObject(new { isSuccess = false, error = exception.Message });
+                var result = JsonConvert.SerializeObject(new { ApiErr = exception.Message });
                 context.Response.ContentType = "application/json";
                 context.Response.StatusCode = (int)code;
 

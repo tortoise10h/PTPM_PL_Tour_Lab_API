@@ -1,4 +1,6 @@
 using AutoMapper;
+using src.CQRS.Tour.Commands.CreateTour;
+using src.Entities;
 
 namespace src.MapperProfiles
 {
@@ -6,7 +8,7 @@ namespace src.MapperProfiles
     {
         public RequestToEntityProfile()
         {
-
+            CreateMap<CreateTourCommand, Tour>();
         }
     }
 }
