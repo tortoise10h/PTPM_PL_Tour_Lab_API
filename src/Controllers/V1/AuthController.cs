@@ -47,26 +47,23 @@ namespace src.Controllers.V1
         {
             var result = await _mediator.Send(command);
 
-            if (!result.IsSuccess)
-            {
-                return BadRequest(result.Errors);
-            }
-
-            return Ok(new Response<LoginResponse>(
-                new LoginResponse
+            return result.Match<IActionResult>(
+                loginResult => Ok(
+                    new Response<LoginResponse>(
+                        new LoginResponse
+                        {
+                            Token = loginResult.Token,
+                            UserResponse = loginResult.UserResponse,
+                            TokenExpireTime = loginResult.TokenExpireTime,
+                            RefreshToken = loginResult.RefreshToken
+                        }
+                    )
+                ),
+                exp =>
                 {
-                    Token = result.Token,
-                    UserResponse = result.UserResponse,
-                    TokenExpireTime = result.TokenExpireTime,
-                    RefreshToken = result.RefreshToken
+                    throw exp;
                 }
-            ));
-        }
-
-        [HttpGet(ApiRoutes.Auth.Profile)]
-        public IActionResult GetProfile()
-        {
-            return Ok("Ok");
+            );
         }
     }
 }

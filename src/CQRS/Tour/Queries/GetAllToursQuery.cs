@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using LanguageExt.Common;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using src.Contracts.V1.RequestModels;
 using src.Contracts.V1.ResponseModels;
 using src.Contracts.V1.ResponseModels.Tour;
@@ -34,9 +35,12 @@ namespace src.CQRS.Tour.Queries
         public async Task<Result<PagedResponse<TourResponse>>> Handle(GetAllToursQuery query, CancellationToken cancellationToken)
         {
             var queryable = _context.Tours.AsQueryable();
+
+            /** Custom get all tour business before pass to paginate method */
             queryable = queryable.Where(
                 tc => tc.IsDeleted == false
             );
+
             var result = await _paginationHelper.Paginate<E.Tour, TourResponse>(
                 queryable, query);
 

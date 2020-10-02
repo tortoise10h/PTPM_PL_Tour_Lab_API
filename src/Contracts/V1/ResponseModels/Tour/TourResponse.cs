@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using src.Contracts.V1.ResponseModels.TourDetail;
 using src.Enums;
 
 namespace src.Contracts.V1.ResponseModels.Tour
@@ -13,5 +15,7 @@ namespace src.Contracts.V1.ResponseModels.Tour
         public TourStatusEnum Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime LastModifiedAt { get; set; }
+
+        public IEnumerable<TourDetailResponse> TourDetails { get; set; }
     }
 }

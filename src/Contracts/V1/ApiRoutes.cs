@@ -33,5 +33,22 @@ namespace src.Contracts.V1
             public const string GetById = Base + "/tours/{tourId}";
             public const string Delete = Base + "/tours/{tourId}";
         }
+        public static class TouristAttraction
+        {
+            public const string Create = Base + "/touristAttractions";
+            public const string GetAll = Base + "/touristAttractions";
+            public const string Update = Base + "/touristAttractions/{touristAttractionId}";
+            public const string GetById = Base + "/touristAttractions/{touristAttractionId}";
+            public const string Delete = Base + "/touristAttractions/{touristAttractionId}";
+        }
+
+        public static class CostType
+        {
+            public const string Create = Base + "/costTypes";
+            public const string GetAll = Base + "/costTypes";
+            public const string Update = Base + "/costTypes/{costTypeId}";
+            public const string GetById = Base + "/costTypes/{costTypeId}";
+            public const string Delete = Base + "/costTypes/{costTypeId}";
+        }
     }
 }

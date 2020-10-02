@@ -15,9 +15,10 @@ namespace src.Helpers
     {
         public DbSet<TourCategory> TourCategories { get; set; }
         public DbSet<Tour> Tours { get; set; }
+        public DbSet<TouristAttraction> TouristAttraction { get; set; }
+        public DbSet<CostType> CostType { get; set; }
 
         protected readonly IConfiguration Configuration;
-        private readonly ICurrentUserService _currentUserService;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         public DataContext(DbContextOptions options, IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
