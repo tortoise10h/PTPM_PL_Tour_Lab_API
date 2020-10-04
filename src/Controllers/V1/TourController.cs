@@ -8,8 +8,6 @@ using src.Contracts.V1;
 using src.Contracts.V1.ResponseModels;
 using src.Contracts.V1.ResponseModels.Tour;
 using src.CQRS.Tour.Commands.CreateTour;
-using src.CQRS.Tour.Commands.DeleteTour;
-using src.CQRS.Tour.Commands.UpdateTour;
 using src.CQRS.Tour.Queries;
 
 namespace src.Controllers.V1
@@ -66,45 +64,6 @@ namespace src.Controllers.V1
                 tourResponse => Ok(new Response<TourResponse>(
                     tourResponse
                 )),
-                exp =>
-                {
-                    throw exp;
-                }
-            );
-        }
-
-
-        [HttpPut(ApiRoutes.Tour.Update)]
-        public async Task<IActionResult> Update(
-            [FromRoute] Guid tourId,
-            [FromBody] UpdateTourCommand command)
-        {
-            command.Id = tourId;
-            var result = await _mediator.Send(command);
-
-            return result.Match<IActionResult>(
-                tourResponse => NoContent(),
-                exp =>
-                {
-                    throw exp;
-                }
-            );
-        }
-
-        /** When delete tour then it will relate to another tables
-         * So I will handle all of them later
-         * it work for delete only tour, just command http attribute to stop access api to this
-        */
-        // [HttpPut(ApiRoutes.Tour.Delete)]
-        public async Task<IActionResult> Delete(
-            [FromRoute] Guid tourId
-        )
-        {
-            var deleteTourCommand = new DeleteTourCommand(tourId);
-            var result = await _mediator.Send(deleteTourCommand);
-
-            return result.Match<IActionResult>(
-                tourResponse => NoContent(),
                 exp =>
                 {
                     throw exp;
