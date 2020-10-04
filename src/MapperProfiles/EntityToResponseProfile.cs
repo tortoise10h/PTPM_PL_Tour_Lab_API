@@ -1,4 +1,5 @@
 using AutoMapper;
+using src.Contracts.V1.ResponseModels.CostType;
 using src.Contracts.V1.ResponseModels.Tour;
 using src.Contracts.V1.ResponseModels.TourCategory;
 using src.Contracts.V1.ResponseModels.TourDetail;
@@ -17,6 +18,7 @@ namespace src.MapperProfiles
             CreateMap<Tour, TourResponse>();
             CreateMap<TouristAttraction, TouristAttractionResponse>();
             CreateMap<TourDetail, TourDetailResponse>();
+            CreateMap<CostType, CostTypeResponse>();
         }
     }
 }

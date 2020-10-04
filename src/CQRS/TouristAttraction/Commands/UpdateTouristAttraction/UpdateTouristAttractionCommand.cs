@@ -44,6 +44,8 @@ namespace src.CQRS.TouristAttraction.Commands.UpdateTouristAttraction
 
             touristAttraction.Name = request.Name;
             touristAttraction.Description = request.Description;
+            _context.Entry(touristAttraction).Property(ta => ta.Name).IsModified = request.Name != null;
+            _context.Entry(touristAttraction).Property(ta => ta.Description).IsModified = request.Description != null;
 
             _context.TouristAttraction.Update(touristAttraction);
             var updated = await _context.SaveChangesAsync();
