@@ -15,35 +15,9 @@ namespace src
 {
     public class Program
     {
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
-            var host = CreateHostBuilder(args).Build();
-
-            using (var serviceScope = host.Services.CreateScope())
-            {
-                var dbContext = serviceScope
-                    .ServiceProvider
-                        .GetRequiredService<DataContext>();
-
-                await dbContext.Database.MigrateAsync();
-
-                var roleManager = serviceScope
-                    .ServiceProvider
-                        .GetRequiredService<RoleManager<IdentityRole>>();
-                if (!await roleManager.RoleExistsAsync("Admin"))
-                {
-                    var adminRole = new IdentityRole("Admin");
-                    await roleManager.CreateAsync(adminRole);
-                }
-
-                if (!await roleManager.RoleExistsAsync("SuperAdmin"))
-                {
-                    var superAdminRole = new IdentityRole("SuperAdmin");
-                    await roleManager.CreateAsync(superAdminRole);
-                }
-            }
-
-            await host.RunAsync();
+            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
