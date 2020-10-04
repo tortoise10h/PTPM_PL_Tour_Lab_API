@@ -8,6 +8,7 @@ using src.Contracts.V1;
 using src.Contracts.V1.ResponseModels;
 using src.Contracts.V1.ResponseModels.Tour;
 using src.CQRS.Tour.Commands.CreateTour;
+using src.CQRS.Tour.Commands.UpdateTour;
 using src.CQRS.Tour.Queries;
 
 namespace src.Controllers.V1
@@ -64,6 +65,23 @@ namespace src.Controllers.V1
                 tourResponse => Ok(new Response<TourResponse>(
                     tourResponse
                 )),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
+
+        [HttpPut(ApiRoutes.Tour.Update)]
+        public async Task<IActionResult> Update(
+            [FromRoute] Guid tourId,
+            [FromBody] UpdateTourCommand command)
+        {
+            command.Id = tourId;
+            var result = await _mediator.Send(command);
+
+            return result.Match<IActionResult>(
+                tourResponse => NoContent(),
                 exp =>
                 {
                     throw exp;
