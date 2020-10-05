@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using src.Contracts.V1.ResponseModels.TourDetail;
-using src.Enums;
+using src.Common.Enums;
 
 namespace src.Contracts.V1.ResponseModels.Tour
 {

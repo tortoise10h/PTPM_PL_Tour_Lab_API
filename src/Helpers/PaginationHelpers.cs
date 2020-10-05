@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using src.Common.Enums;
 using src.Contracts.V1.RequestModels;
 using src.Contracts.V1.ResponseModels;
 
@@ -47,6 +50,7 @@ namespace src.Helpers
         {
             int skip = (query.Page - 1) * query.Limit;
 
+            queryable = CustomSortQuery<TEntity>(queryable, query.SortName, query.IsAscending);
             var entities = await queryable
                 .Skip(skip)
                 .Take(query.Limit)
@@ -54,6 +58,38 @@ namespace src.Helpers
             var totalEntities = await queryable.CountAsync();
             return CreatePaginatedResponse<TEntity, TResponse>(
                 query, entities, totalEntities);
+        }
+
+        public IQueryable<TEntity> CustomSortQuery<TEntity>(
+            IQueryable<TEntity> queryable,
+            string sortName,
+            bool isAscending
+        )
+        {
+            var type = typeof(TEntity);
+            var field = type.GetField(sortName);
+            var parameter = Expression.Parameter(type, "p");
+            PropertyInfo property = typeof(TEntity).GetProperty(sortName);
+            if (property == null)
+            {
+                /** If field name is provided by client is not exist 
+                 * then take the default field
+                 */
+                property = typeof(TEntity).GetProperty(PaginationDefault.SortName);
+            }
+
+            Expression propertyAccess = Expression.MakeMemberAccess(parameter, property);
+
+            var orderByExp = Expression.Lambda(propertyAccess, parameter);
+            MethodCallExpression resultExp = Expression.Call(
+                typeof(Queryable),
+                isAscending ? "OrderBy" : "OrderByDescending",
+                new[] { type, property.PropertyType },
+                queryable.Expression,
+                Expression.Quote(orderByExp)
+            );
+
+            return queryable.Provider.CreateQuery<TEntity>(resultExp);
         }
     }
 }

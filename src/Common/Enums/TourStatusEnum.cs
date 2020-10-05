@@ -1,4 +1,4 @@
-namespace src.Enums
+namespace src.Common.Enums
 {
     public enum TourStatusEnum
     {
