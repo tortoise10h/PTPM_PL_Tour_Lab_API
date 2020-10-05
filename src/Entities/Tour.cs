@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using src.Enums;
+using src.Common.Enums;
 
 namespace src.Entities
 {

@@ -7,7 +7,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using src.Contracts.V1.Exceptions;
 using src.Contracts.V1.ResponseModels.Tour;
-using src.Enums;
+using src.Common.Enums;
 using src.Helpers;
 using E = src.Entities;
 

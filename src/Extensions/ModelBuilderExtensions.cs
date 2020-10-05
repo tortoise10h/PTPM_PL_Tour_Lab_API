@@ -1,6 +1,6 @@
 using src.Entities;
 using Microsoft.EntityFrameworkCore;
-using src.Enums;
+using src.Common.Enums;
 using System;
 using Microsoft.AspNetCore.Identity;
 
