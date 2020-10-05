@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using src.Contracts.V1.Exceptions;
 using src.Contracts.V1.ResponseModels.TouristAttraction;
 using src.Helpers;
+using E = src.Entities;
 
 namespace src.CQRS.TouristAttraction.Commands.UpdateTouristAttraction
 {
@@ -42,11 +43,7 @@ namespace src.CQRS.TouristAttraction.Commands.UpdateTouristAttraction
                 );
             }
 
-            touristAttraction.Name = request.Name;
-            touristAttraction.Description = request.Description;
-            _context.Entry(touristAttraction).Property(ta => ta.Name).IsModified = request.Name != null;
-            _context.Entry(touristAttraction).Property(ta => ta.Description).IsModified = request.Description != null;
-
+            _mapper.Map<UpdateTouristAttractionCommand, E.TouristAttraction>(request, touristAttraction);
             _context.TouristAttraction.Update(touristAttraction);
             var updated = await _context.SaveChangesAsync();
 
@@ -58,7 +55,7 @@ namespace src.CQRS.TouristAttraction.Commands.UpdateTouristAttraction
             }
 
             return new Result<TouristAttractionResponse>(
-                new BadRequestException(new ApiError("Update tourist attraction failed, please try again"))  
+                new BadRequestException(new ApiError("Update tourist attraction failed, please try again"))
             );
         }
     }

@@ -27,11 +27,7 @@ namespace src.CQRS.TouristAttraction.Commands.CreateTouristAttraction
         }
         public async Task<Result<TouristAttractionResponse>> Handle(CreateTouristAttractionCommand request, CancellationToken cancellationToken)
         {
-            var newTouristAttraction = new E.TouristAttraction
-            {
-                Name = request.Name,
-                Description = request.Description
-            };
+            var newTouristAttraction = _mapper.Map<E.TouristAttraction>(request);
 
             await _context.AddAsync(newTouristAttraction);
             var created = await _context.SaveChangesAsync();

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using src.Contracts.V1.Exceptions;
 using src.Contracts.V1.ResponseModels.CostType;
 using src.Helpers;
+using E = src.Entities;
 
 namespace src.CQRS.CostType.Commands.UpdateCostType
 {
@@ -42,7 +43,7 @@ namespace src.CQRS.CostType.Commands.UpdateCostType
                 );
             }
 
-            costType.Name = request.Name;
+            _mapper.Map<UpdateCostTypeCommand, E.CostType>(request, costType);
             _context.CostType.Update(costType);
             var updated = await _context.SaveChangesAsync();
 
