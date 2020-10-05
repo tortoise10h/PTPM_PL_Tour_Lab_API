@@ -13,7 +13,6 @@ namespace src.CQRS.CostType.Commands.CreateCostType
 {
     public class CreateCostTypeCommand : IRequest<Result<CostTypeResponse>>
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
     }
 
@@ -29,9 +28,7 @@ namespace src.CQRS.CostType.Commands.CreateCostType
 
         public async Task<Result<CostTypeResponse>> Handle(CreateCostTypeCommand request, CancellationToken cancellationToken)
         {
-            var newCostType = new E.CostType {
-                Name = request.Name
-            };
+            var newCostType = _mapper.Map<E.CostType>(request);
 
             await _context.AddAsync(newCostType);
             var created = await _context.SaveChangesAsync();
