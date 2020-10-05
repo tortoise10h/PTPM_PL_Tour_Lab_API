@@ -15,6 +15,7 @@ namespace src.Helpers
     {
         public DbSet<TourCategory> TourCategories { get; set; }
         public DbSet<Tour> Tours { get; set; }
+        public DbSet<TourPrice> TourPrice { get; set; }
         public DbSet<TouristAttraction> TouristAttraction { get; set; }
         public DbSet<CostType> CostType { get; set; }
 

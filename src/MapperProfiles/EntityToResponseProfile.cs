@@ -4,6 +4,7 @@ using src.Contracts.V1.ResponseModels.Tour;
 using src.Contracts.V1.ResponseModels.TourCategory;
 using src.Contracts.V1.ResponseModels.TourDetail;
 using src.Contracts.V1.ResponseModels.TouristAttraction;
+using src.Contracts.V1.ResponseModels.TourPrice;
 using src.Contracts.V1.ResponseModels.User;
 using src.Entities;
 
@@ -19,6 +20,7 @@ namespace src.MapperProfiles
             CreateMap<TouristAttraction, TouristAttractionResponse>();
             CreateMap<TourDetail, TourDetailResponse>();
             CreateMap<CostType, CostTypeResponse>();
+            CreateMap<TourPrice, TourPriceResponse>();
         }
     }
 }

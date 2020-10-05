@@ -14,14 +14,14 @@ namespace src.CQRS.TouristAttraction.Queries
 {
     public class GetAllTouristAttractionQuery : PaginationQuery, IRequest<Result<PagedResponse<TouristAttractionResponse>>>
     {
-        
+
     }
 
     public class GetAllTouristAttractionHandler : IRequestHandler<GetAllTouristAttractionQuery, Result<PagedResponse<TouristAttractionResponse>>>
-    {   
+    {
         private readonly DataContext _context;
         private readonly IMapper _mapper;
-         private readonly IPaginationHelpers _paginationHelper;
+        private readonly IPaginationHelpers _paginationHelper;
         public GetAllTouristAttractionHandler(DataContext context, IMapper mapper, IPaginationHelpers paginationHelper)
         {
             _context = context;

@@ -50,5 +50,14 @@ namespace src.Contracts.V1
             public const string GetById = Base + "/costTypes/{costTypeId}";
             public const string Delete = Base + "/costTypes/{costTypeId}";
         }
+
+        public static class TourPrice
+        {
+            public const string Create = Base + "/tourPrices";
+            public const string GetAll = Base + "/tourPrices";
+            public const string Update = Base + "/tourPrices/{tourPriceId}";
+            public const string GetById = Base + "/tourPrices/{tourPriceId}";
+            public const string Delete = Base + "/tourPrices/{tourPriceId}";
+        }
     }
 }
