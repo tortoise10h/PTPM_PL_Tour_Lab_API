@@ -11,6 +11,8 @@ using src.Contracts.V1.ResponseModels.TourPrice;
 using src.CQRS.Tour.Commands.UpdateTour;
 using src.CQRS.Tour.Queries;
 using src.CQRS.TourPrice.Commands.CreateTourPrice;
+using src.CQRS.TourPrice.Commands.DeleteTourPrice;
+using src.CQRS.TourPrice.Queries;
 
 namespace src.Controllers.V1
 {
@@ -40,12 +42,13 @@ namespace src.Controllers.V1
             );
         }
 
-        public async Task<IActionResult> GetAll([FromQuery] GetAllToursQuery query)
+        [HttpGet(ApiRoutes.TourPrice.GetAll)]
+        public async Task<IActionResult> GetAll([FromQuery] GetAllTourPricesQuery query)
         {
             var result = await _mediator.Send(query);
 
             return result.Match<IActionResult>(
-                data => Ok(new Response<PagedResponse<TourResponse>>(
+                data => Ok(new Response<PagedResponse<TourPriceResponse>>(
                     data
                 )),
                 exp =>
@@ -55,13 +58,14 @@ namespace src.Controllers.V1
             );
         }
 
-        public async Task<IActionResult> GetById([FromRoute] Guid tourId)
+        [HttpGet(ApiRoutes.TourPrice.GetById)]
+        public async Task<IActionResult> GetById([FromRoute] Guid tourPriceId)
         {
-            var query = new GetTourByIdQuery(tourId);
+            var query = new GetTourPriceById(tourPriceId);
             var result = await _mediator.Send(query);
 
             return result.Match<IActionResult>(
-                tourResponse => Ok(new Response<TourResponse>(
+                tourResponse => Ok(new Response<TourPriceResponse>(
                     tourResponse
                 )),
                 exp =>
@@ -71,11 +75,12 @@ namespace src.Controllers.V1
             );
         }
 
+        [HttpPut(ApiRoutes.TourPrice.Update)]
         public async Task<IActionResult> Update(
-            [FromRoute] Guid tourId,
-            [FromBody] UpdateTourCommand command)
+            [FromRoute] Guid tourPriceId,
+            [FromBody] UpdateTourPriceCommand command)
         {
-            command.Id = tourId;
+            command.Id = tourPriceId;
             var result = await _mediator.Send(command);
 
             return result.Match<IActionResult>(
@@ -87,5 +92,21 @@ namespace src.Controllers.V1
             );
         }
 
+        [HttpDelete(ApiRoutes.TourPrice.Delete)]
+        public async Task<IActionResult> Delete(
+            [FromRoute] Guid tourPriceId
+        )
+        {
+            var deleteTourPriceCommand = new DeleteTourPriceCommand(tourPriceId);
+            var result = await _mediator.Send(deleteTourPriceCommand);
+
+            return result.Match<IActionResult>(
+                tourPriceResponse => NoContent(),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
     }
 }

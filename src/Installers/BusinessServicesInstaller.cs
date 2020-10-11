@@ -16,6 +16,7 @@ namespace src.Installers
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddScoped<ITourDetailService, TourDetailService>();
+            services.AddScoped<ITourPricesService, TourPricesService>();
         }
     }
 }

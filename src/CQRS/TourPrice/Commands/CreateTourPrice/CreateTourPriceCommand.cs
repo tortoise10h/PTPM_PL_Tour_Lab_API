@@ -6,9 +6,9 @@ using LanguageExt.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using src.Contracts.V1.Exceptions;
-using src.Contracts.V1.ResponseModels.Tour;
 using src.Contracts.V1.ResponseModels.TourPrice;
 using src.Helpers;
+using src.Services;
 using E = src.Entities;
 
 namespace src.CQRS.TourPrice.Commands.CreateTourPrice
@@ -25,11 +25,13 @@ namespace src.CQRS.TourPrice.Commands.CreateTourPrice
     {
         private readonly DataContext _context;
         private readonly IMapper _mapper;
+        private readonly ITourPricesService _tourPricesService;
 
-        public CreateTourPriceHandler(DataContext context, IMapper mapper)
+        public CreateTourPriceHandler(DataContext context, IMapper mapper, ITourPricesService tourPricesService = null)
         {
             _context = context;
             _mapper = mapper;
+            _tourPricesService = tourPricesService;
         }
 
         public async Task<Result<TourPriceResponse>> Handle(
@@ -52,18 +54,13 @@ namespace src.CQRS.TourPrice.Commands.CreateTourPrice
             }
 
             /** Do not allow start date and end date conflict */
-            var conflictDateTourPrice = await _context.TourPrice
-                .SingleOrDefaultAsync(tp =>
-                    tp.TourId == Guid.Parse(request.TourId) &&
-                    tp.IsDeleted == false &&
-                    tp.StartDate <= request.StartDate && tp.EndDate >= request.StartDate ||
-                    tp.StartDate <= request.EndDate && tp.EndDate >= request.EndDate);
-            if (conflictDateTourPrice != null)
+            var checkConflictResult = await this._tourPricesService.CheckConflictTimeWhenCreateTourPrice(Guid.Parse(request.TourId), request.StartDate, request.EndDate);
+
+            if (!checkConflictResult.Equals(""))
             {
                 return new Result<TourPriceResponse>(
                     new BadRequestException(
-                        new ApiError($"Duplicate tour price in date range between [{request.StartDate.ToString()}] - [{request.EndDate.ToString()}]")
-                    )
+                        new ApiError(checkConflictResult))
                 );
             }
 
