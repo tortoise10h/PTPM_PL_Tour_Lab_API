@@ -8,6 +8,8 @@ using src.CQRS.TourDetail.Commands.CreateTourDetail;
 using src.CQRS.TouristAttraction.Commands.CreateTouristAttraction;
 using src.CQRS.TouristAttraction.Commands.UpdateTouristAttraction;
 using src.Entities;
+using src.CQRS.Group.Commands.CreateGroup;
+using src.CQRS.Group.Commands.UpdateGroup;
 
 namespace src.MapperProfiles
 {
@@ -23,6 +25,8 @@ namespace src.MapperProfiles
             CreateMap<CreateCostTypeCommand, CostType>();
             CreateMap<UpdateCostTypeCommand, CostType>();
             CreateMap<CreateTourDetailCommand, TourDetail>();
+            CreateMap<CreateGroupCommand, Group>();
+            CreateMap<UpdateGroupCommand, Group>();
         }
     }
 }

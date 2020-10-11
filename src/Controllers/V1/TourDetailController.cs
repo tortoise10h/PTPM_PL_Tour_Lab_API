@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using src.Contracts.V1;
 using src.Contracts.V1.ResponseModels;
@@ -12,6 +14,7 @@ using src.CQRS.TourDetail.Commands.DeleteTourDetail;
 
 namespace src.Controllers.V1
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class TourDetailController : ControllerBase
     {
         private readonly IMediator _mediator;
