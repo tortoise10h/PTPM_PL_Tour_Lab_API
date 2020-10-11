@@ -27,6 +27,7 @@ namespace src.MapperProfiles
             CreateMap<CreateTourDetailCommand, TourDetail>();
             CreateMap<CreateGroupCommand, Group>();
             CreateMap<UpdateGroupCommand, Group>();
+            CreateMap<UpdateTourPriceCommand, TourPrice>();
         }
     }
 }
