@@ -36,6 +36,7 @@ namespace src.CQRS.Tour.Queries
             CancellationToken cancellationToken)
         {
             var tour = await _context.Tours
+                .Include(t => t.TourCategory)
                 .Include(t => t.TourDetails)
                     .ThenInclude(td => td.TouristAttraction)
                 .SingleOrDefaultAsync(
