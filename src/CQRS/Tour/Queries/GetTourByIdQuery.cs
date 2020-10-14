@@ -13,11 +13,11 @@ namespace src.CQRS.Tour.Queries
 {
     public class GetTourByIdQuery : IRequest<Result<TourResponse>>
     {
-        public GetTourByIdQuery(Guid id)
+        public GetTourByIdQuery(int id)
         {
             Id = id;
         }
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 
     public class GetTourByIdHandler : IRequestHandler<GetTourByIdQuery, Result<TourResponse>>

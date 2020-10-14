@@ -46,7 +46,7 @@ namespace src.Controllers.V1
 
         [HttpPut(ApiRoutes.TouristAttraction.Update)]
         public async Task<IActionResult> Update(
-            [FromRoute] Guid touristAttractionId,
+            [FromRoute] int touristAttractionId,
             [FromBody] UpdateTouristAttractionCommand command
         )
         {
@@ -64,7 +64,7 @@ namespace src.Controllers.V1
 
         [HttpGet(ApiRoutes.TouristAttraction.GetById)]
         public async Task<IActionResult> GetById(
-            [FromRoute] Guid touristAttractionId
+            [FromRoute] int touristAttractionId
         )
         {
             var getTouristAttractionById = new GetTouristAttractionByIdQuery(touristAttractionId);
@@ -85,7 +85,7 @@ namespace src.Controllers.V1
 
         [HttpDelete(ApiRoutes.TouristAttraction.Delete)]
         public async Task<IActionResult> Delete(
-            [FromRoute] Guid touristAttractionId
+            [FromRoute] int touristAttractionId
         )
         {
             var deleteTouristAttractionCommand = new DeleteTouristAttractionCommand(touristAttractionId);

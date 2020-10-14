@@ -4,9 +4,9 @@ namespace src.Entities
 {
     public class GroupCost : BaseEntity
     {
-        public Guid Id { get; set; }
-        public Guid GroupId { get; set; }
-        public Guid CostTypeId { get; set; }
+        public int Id { get; set; }
+        public int GroupId { get; set; }
+        public int CostTypeId { get; set; }
         public long Price { get; set; }
         public string Note { get; set; }
 

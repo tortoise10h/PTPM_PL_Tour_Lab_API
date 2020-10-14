@@ -13,8 +13,8 @@ namespace src.CQRS.TourCategory.Commands.DeleteTourCategory
 {
     public class DeleteTourCategoryCommand : IRequest<Result<TourCategoryResponse>>
     {
-        public Guid Id { get; set; }
-        public DeleteTourCategoryCommand(Guid tourCategoryId)
+        public int Id { get; set; }
+        public DeleteTourCategoryCommand(int tourCategoryId)
         {
             Id = tourCategoryId;
         }

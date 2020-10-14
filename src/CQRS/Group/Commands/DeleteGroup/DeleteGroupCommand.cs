@@ -13,12 +13,12 @@ namespace src.CQRS.Group.Commands.DeleteGroup
 {
     public class DeleteGroupCommand : IRequest<Result<GroupResponse>>
     {
-        public DeleteGroupCommand(Guid id)
+        public DeleteGroupCommand(int id)
         {
             this.Id = id;
 
         }
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 
     public class DeleteGroupHandler : IRequestHandler<DeleteGroupCommand, Result<GroupResponse>>

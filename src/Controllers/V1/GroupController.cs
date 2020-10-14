@@ -42,7 +42,7 @@ namespace src.Controllers.V1
 
         [HttpPut(ApiRoutes.Group.Update)]
         public async Task<IActionResult> Update(
-            [FromRoute] Guid groupId,
+            [FromRoute] int groupId,
             [FromBody] UpdateGroupCommand command
         )
         {
@@ -60,7 +60,7 @@ namespace src.Controllers.V1
 
         [HttpDelete(ApiRoutes.Group.Delete)]
         public async Task<IActionResult> Delete(
-            [FromRoute] Guid groupId
+            [FromRoute] int groupId
         )
         {
             var deleteGroup = new DeleteGroupCommand(groupId);
@@ -77,7 +77,7 @@ namespace src.Controllers.V1
 
         [HttpGet(ApiRoutes.Group.GetById)]
         public async Task<IActionResult> GetById(
-            [FromRoute] Guid groupId
+            [FromRoute] int groupId
         )
         {
             var getGroupById = new GetGroupByIdQuery(groupId);

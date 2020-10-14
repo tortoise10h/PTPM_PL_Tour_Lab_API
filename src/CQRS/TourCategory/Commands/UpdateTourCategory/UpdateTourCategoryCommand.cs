@@ -13,7 +13,7 @@ namespace src.CQRS.TourCategory.Commands.UpdateTourCategory
 {
     public class UpdateTourCategoryCommand : IRequest<Result<TourCategoryResponse>>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 

@@ -59,7 +59,7 @@ namespace src.Controllers.V1
         }
 
         [HttpGet(ApiRoutes.TourPrice.GetById)]
-        public async Task<IActionResult> GetById([FromRoute] Guid tourPriceId)
+        public async Task<IActionResult> GetById([FromRoute] int tourPriceId)
         {
             var query = new GetTourPriceById(tourPriceId);
             var result = await _mediator.Send(query);
@@ -77,7 +77,7 @@ namespace src.Controllers.V1
 
         [HttpPut(ApiRoutes.TourPrice.Update)]
         public async Task<IActionResult> Update(
-            [FromRoute] Guid tourPriceId,
+            [FromRoute] int tourPriceId,
             [FromBody] UpdateTourPriceCommand command)
         {
             command.Id = tourPriceId;
@@ -94,7 +94,7 @@ namespace src.Controllers.V1
 
         [HttpDelete(ApiRoutes.TourPrice.Delete)]
         public async Task<IActionResult> Delete(
-            [FromRoute] Guid tourPriceId
+            [FromRoute] int tourPriceId
         )
         {
             var deleteTourPriceCommand = new DeleteTourPriceCommand(tourPriceId);

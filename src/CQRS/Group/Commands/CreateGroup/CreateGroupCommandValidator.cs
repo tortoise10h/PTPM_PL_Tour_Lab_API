@@ -13,7 +13,7 @@ namespace src.CQRS.Group.Commands.CreateGroup
 
             RuleFor(x => x.TourId)
                 .NotEmpty()
-                .SetValidator(new GuidValidator());
+                .GreaterThan(0);
 
             RuleFor(x => x.StartDate)
                 .NotNull()

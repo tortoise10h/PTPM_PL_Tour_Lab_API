@@ -14,8 +14,8 @@ namespace src.CQRS.TourPrice.Commands.DeleteTourPrice
 {
     public class DeleteTourPriceCommand : IRequest<Result<TourPriceResponse>>
     {
-        public Guid Id { get; set; }
-        public DeleteTourPriceCommand(Guid tourPriceId)
+        public int Id { get; set; }
+        public DeleteTourPriceCommand(int tourPriceId)
         {
             Id = tourPriceId;
         }

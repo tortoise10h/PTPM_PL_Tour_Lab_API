@@ -16,8 +16,8 @@ namespace src.CQRS.TourDetail.Commands.DeleteTourDetail
 {
     public class DeleteTourDetailCommand : IRequest<Result<List<TourDetailResponse>>>
     {
-        public Guid TourId { get; set; }
-        public List<Guid> TouristAttractionIds { get; set; }
+        public int TourId { get; set; }
+        public List<int> TouristAttractionIds { get; set; }
     }
 
     public class DeleteTourDetailHandler : IRequestHandler<DeleteTourDetailCommand, Result<List<TourDetailResponse>>>

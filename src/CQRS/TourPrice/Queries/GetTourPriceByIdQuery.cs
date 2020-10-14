@@ -14,12 +14,12 @@ namespace src.CQRS.TourPrice.Queries
 {
     public class GetTourPriceById : IRequest<Result<TourPriceResponse>>
     {
-        public GetTourPriceById(Guid id)
+        public GetTourPriceById(int id)
         {
             this.Id = id;
 
         }
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 
     public class GetTourPriceByIdHandler : IRequestHandler<GetTourPriceById, Result<TourPriceResponse>>

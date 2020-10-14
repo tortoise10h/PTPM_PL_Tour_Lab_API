@@ -16,7 +16,7 @@ namespace src.CQRS.TourPrice.Commands.CreateTourPrice
 {
     public class UpdateTourPriceCommand : IRequest<Result<TourPriceResponse>>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public double Price { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

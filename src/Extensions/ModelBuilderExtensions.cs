@@ -181,12 +181,12 @@ namespace src.Extensions
              |       SEED TOUR CATEGORIES        |
              |                                   |
              |-----------------------------------| */
-            Guid tourCategory1Id = Guid.NewGuid();
-            Guid tourCategory2Id = Guid.NewGuid();
-            Guid tourCategory3Id = Guid.NewGuid();
-            Guid tourCategory4Id = Guid.NewGuid();
-            Guid tourCategory5Id = Guid.NewGuid();
-            Guid tourCategory6Id = Guid.NewGuid();
+            int tourCategory1Id = 1;
+            int tourCategory2Id = 2;
+            int tourCategory3Id = 3;
+            int tourCategory4Id = 4;
+            int tourCategory5Id = 5;
+            int tourCategory6Id = 6;
 
             modelBuilder.Entity<TourCategory>()
                 .HasData(
@@ -227,22 +227,22 @@ namespace src.Extensions
              |     SEED TOURIST ATTRACTIONS      |
              |                                   |
              |-----------------------------------| */
-            Guid touristAttractionId1 = Guid.NewGuid();
-            Guid touristAttractionId2 = Guid.NewGuid();
-            Guid touristAttractionId3 = Guid.NewGuid();
-            Guid touristAttractionId4 = Guid.NewGuid();
-            Guid touristAttractionId5 = Guid.NewGuid();
-            Guid touristAttractionId6 = Guid.NewGuid();
-            Guid touristAttractionId7 = Guid.NewGuid();
-            Guid touristAttractionId8 = Guid.NewGuid();
-            Guid touristAttractionId9 = Guid.NewGuid();
-            Guid touristAttractionId10 = Guid.NewGuid();
-            Guid touristAttractionId11 = Guid.NewGuid();
-            Guid touristAttractionId12 = Guid.NewGuid();
-            Guid touristAttractionId13 = Guid.NewGuid();
-            Guid touristAttractionId14 = Guid.NewGuid();
-            Guid touristAttractionId15 = Guid.NewGuid();
-            Guid touristAttractionId16 = Guid.NewGuid();
+            int touristAttractionId1 = 1;
+            int touristAttractionId2 = 2;
+            int touristAttractionId3 = 3;
+            int touristAttractionId4 = 4;
+            int touristAttractionId5 = 5;
+            int touristAttractionId6 = 6;
+            int touristAttractionId7 = 7;
+            int touristAttractionId8 = 8;
+            int touristAttractionId9 = 9;
+            int touristAttractionId10 = 10;
+            int touristAttractionId11 = 11;
+            int touristAttractionId12 = 12;
+            int touristAttractionId13 = 13;
+            int touristAttractionId14 = 14;
+            int touristAttractionId15 = 15;
+            int touristAttractionId16 = 16;
 
 
             modelBuilder.Entity<TouristAttraction>()
@@ -351,26 +351,26 @@ namespace src.Extensions
              |                                   |
              |-----------------------------------| */
 
-            Guid tourId1 = Guid.NewGuid();
-            Guid tourId2 = Guid.NewGuid();
-            Guid tourId3 = Guid.NewGuid();
-            Guid tourId4 = Guid.NewGuid();
-            Guid tourId5 = Guid.NewGuid();
-            Guid tourId6 = Guid.NewGuid();
-            Guid tourId7 = Guid.NewGuid();
-            Guid tourId8 = Guid.NewGuid();
-            Guid tourId9 = Guid.NewGuid();
-            Guid tourId10 = Guid.NewGuid();
-            Guid tourId11 = Guid.NewGuid();
-            Guid tourId12 = Guid.NewGuid();
-            Guid tourId13 = Guid.NewGuid();
-            Guid tourId14 = Guid.NewGuid();
-            Guid tourId15 = Guid.NewGuid();
-            Guid tourId16 = Guid.NewGuid();
-            Guid tourId17 = Guid.NewGuid();
-            Guid tourId18 = Guid.NewGuid();
-            Guid tourId19 = Guid.NewGuid();
-            Guid tourId20 = Guid.NewGuid();
+            int tourId1 = 1;
+            int tourId2 = 2;
+            int tourId3 = 3;
+            int tourId4 = 4;
+            int tourId5 = 5;
+            int tourId6 = 6;
+            int tourId7 = 7;
+            int tourId8 = 8;
+            int tourId9 = 9;
+            int tourId10 = 10;
+            int tourId11 = 11;
+            int tourId12 = 12;
+            int tourId13 = 13;
+            int tourId14 = 14;
+            int tourId15 = 15;
+            int tourId16 = 16;
+            int tourId17 = 17;
+            int tourId18 = 18;
+            int tourId19 = 19;
+            int tourId20 = 20;
 
             modelBuilder.Entity<Tour>()
                 .HasData(
@@ -565,289 +565,289 @@ namespace src.Extensions
                .HasData(
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 1,
                         TourId = tourId1,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 2,
                         TourId = tourId1,
                         TouristAttractionId = touristAttractionId2,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 3,
                         TourId = tourId1,
                         TouristAttractionId = touristAttractionId3,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 4,
                         TourId = tourId1,
                         TouristAttractionId = touristAttractionId4
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 5,
                         TourId = tourId2,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 6,
                         TourId = tourId2,
                         TouristAttractionId = touristAttractionId5,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 7,
                         TourId = tourId2,
                         TouristAttractionId = touristAttractionId6
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 8,
                         TourId = tourId3,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 9,
                         TourId = tourId3,
                         TouristAttractionId = touristAttractionId7
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 10,
                         TourId = tourId4,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 11,
                         TourId = tourId4,
                         TouristAttractionId = touristAttractionId8
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 12,
                         TourId = tourId5,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 13,
                         TourId = tourId5,
                         TouristAttractionId = touristAttractionId6
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 14,
                         TourId = tourId6,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 15,
                         TourId = tourId6,
                         TouristAttractionId = touristAttractionId5
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 16,
                         TourId = tourId7,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 17,
                         TourId = tourId7,
                         TouristAttractionId = touristAttractionId9,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 18,
                         TourId = tourId7,
                         TouristAttractionId = touristAttractionId10
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 19,
                         TourId = tourId8,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 20,
                         TourId = tourId8,
                         TouristAttractionId = touristAttractionId11
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 21,
                         TourId = tourId9,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 22,
                         TourId = tourId9,
                         TouristAttractionId = touristAttractionId2,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 23,
                         TourId = tourId9,
                         TouristAttractionId = touristAttractionId12,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 24,
                         TourId = tourId9,
                         TouristAttractionId = touristAttractionId3
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 25,
                         TourId = tourId10,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 26,
                         TourId = tourId10,
                         TouristAttractionId = touristAttractionId9,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 27,
                         TourId = tourId10,
                         TouristAttractionId = touristAttractionId10,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 28,
                         TourId = tourId11,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 29,
                         TourId = tourId11,
                         TouristAttractionId = touristAttractionId9,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 30,
                         TourId = tourId11,
                         TouristAttractionId = touristAttractionId10
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 31,
                         TourId = tourId12,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 32,
                         TourId = tourId12,
                         TouristAttractionId = touristAttractionId11
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 33,
                         TourId = tourId13,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 34,
                         TourId = tourId13,
                         TouristAttractionId = touristAttractionId13
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 35,
                         TourId = tourId14,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 36,
                         TourId = tourId14,
                         TouristAttractionId = touristAttractionId5
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 37,
                         TourId = tourId15,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 38,
                         TourId = tourId15,
                         TouristAttractionId = touristAttractionId8
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 39,
                         TourId = tourId16,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 40,
                         TourId = tourId16,
                         TouristAttractionId = touristAttractionId14
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 41,
                         TourId = tourId17,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 42,
                         TourId = tourId17,
                         TouristAttractionId = touristAttractionId5
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 43,
                         TourId = tourId18,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 44,
                         TourId = tourId18,
                         TouristAttractionId = touristAttractionId15
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 45,
                         TourId = tourId19,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 46,
                         TourId = tourId19,
                         TouristAttractionId = touristAttractionId16
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 47,
                         TourId = tourId20,
                         TouristAttractionId = touristAttractionId1,
                     },
                     new TourDetail
                     {
-                        Id = Guid.NewGuid(),
+                        Id = 48,
                         TourId = tourId20,
                         TouristAttractionId = touristAttractionId9
                     }

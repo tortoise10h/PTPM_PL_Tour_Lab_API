@@ -13,8 +13,7 @@ namespace src.CQRS.Tour.Commands.CreateTour
 
             RuleFor(x => x.TourCategoryId)
                 .NotEmpty()
-                .NotNull()
-                .SetValidator(new GuidValidator());
+                .GreaterThan(0);
 
             RuleFor(x => x.Price)
                 .NotNull()

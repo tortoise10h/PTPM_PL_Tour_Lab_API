@@ -17,8 +17,8 @@ namespace src.CQRS.TourDetail.Commands.CreateTourDetail
 {
     public class CreateTourDetailCommand : IRequest<Result<List<TourDetailResponse>>>
     {
-        public Guid TourId { get; set; }
-        public List<Guid> TouristAttractionIds { get; set; }
+        public int TourId { get; set; }
+        public List<int> TouristAttractionIds { get; set; }
     }
 
     public class CreateTourDetailHandler : IRequestHandler<CreateTourDetailCommand, Result<List<TourDetailResponse>>>

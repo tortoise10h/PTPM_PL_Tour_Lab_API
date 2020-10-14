@@ -44,7 +44,7 @@ namespace src.Controllers.V1
 
         [HttpPut(ApiRoutes.CostType.Update)]
         public async Task<IActionResult> Update(
-            [FromRoute] Guid costTypeId,
+            [FromRoute] int costTypeId,
             [FromBody] UpdateCostTypeCommand command
         )
         {
@@ -62,7 +62,7 @@ namespace src.Controllers.V1
 
         [HttpGet(ApiRoutes.CostType.GetById)]
         public async Task<IActionResult> GetById(
-            [FromRoute] Guid costTypeId
+            [FromRoute] int costTypeId
         )
         {
             var getCostTypeById = new GetCostTypeByIdQuery(costTypeId);
@@ -95,7 +95,7 @@ namespace src.Controllers.V1
 
         [HttpDelete(ApiRoutes.CostType.Delete)]
         public async Task<IActionResult> Delete(
-            [FromRoute] Guid costTypeId
+            [FromRoute] int costTypeId
         )
         {
             var deleteCostType = new DeleteCostTypeCommand(costTypeId);

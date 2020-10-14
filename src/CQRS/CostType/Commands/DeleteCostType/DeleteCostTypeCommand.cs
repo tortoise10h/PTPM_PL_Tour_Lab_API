@@ -13,9 +13,9 @@ namespace src.CQRS.CostType.Commands.DeleteCostType
 {
     public class DeleteCostTypeCommand : IRequest<Result<CostTypeResponse>>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
-        public DeleteCostTypeCommand(Guid id)
+        public DeleteCostTypeCommand(int id)
         {
             Id = id;
         }

@@ -16,7 +16,7 @@ namespace src.CQRS.Tour.Commands.CreateTour
     {
         public string Name { get; set; }
         public string Specification { get; set; }
-        public string TourCategoryId { get; set; }
+        public int TourCategoryId { get; set; }
         public double Price { get; set; }
     }
 

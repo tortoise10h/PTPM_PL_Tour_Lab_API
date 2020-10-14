@@ -15,7 +15,7 @@ namespace src.CQRS.TourPrice.Commands.CreateTourPrice
 {
     public class CreateTourPriceCommand : IRequest<Result<TourPriceResponse>>
     {
-        public string TourId { get; set; }
+        public int TourId { get; set; }
         public long Price { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -54,7 +54,7 @@ namespace src.CQRS.TourPrice.Commands.CreateTourPrice
             }
 
             /** Do not allow start date and end date conflict */
-            var checkConflictResult = await this._tourPricesService.CheckConflictTimeWhenCreateTourPrice(Guid.Parse(request.TourId), request.StartDate, request.EndDate);
+            var checkConflictResult = await this._tourPricesService.CheckConflictTimeWhenCreateTourPrice(request.TourId, request.StartDate, request.EndDate);
 
             if (!checkConflictResult.Equals(""))
             {

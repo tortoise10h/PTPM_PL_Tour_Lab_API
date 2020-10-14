@@ -14,7 +14,7 @@ namespace src.CQRS.Group.Commands.UpdateGroup
 {
     public class UpdateGroupCommand : IRequest<Result<GroupResponse>>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public long Price { get; set; }
         public DateTime StartDate { get; set; }

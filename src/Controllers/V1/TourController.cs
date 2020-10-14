@@ -56,7 +56,7 @@ namespace src.Controllers.V1
         }
 
         [HttpGet(ApiRoutes.Tour.GetById)]
-        public async Task<IActionResult> GetById([FromRoute] Guid tourId)
+        public async Task<IActionResult> GetById([FromRoute] int tourId)
         {
             var query = new GetTourByIdQuery(tourId);
             var result = await _mediator.Send(query);
@@ -74,7 +74,7 @@ namespace src.Controllers.V1
 
         [HttpPut(ApiRoutes.Tour.Update)]
         public async Task<IActionResult> Update(
-            [FromRoute] Guid tourId,
+            [FromRoute] int tourId,
             [FromBody] UpdateTourCommand command)
         {
             command.Id = tourId;
