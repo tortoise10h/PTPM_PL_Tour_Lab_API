@@ -13,8 +13,8 @@ namespace src.CQRS.Group.Queries
 {
     public class GetGroupByIdQuery : IRequest<Result<GroupResponse>>
     {
-        public Guid Id { get; set; }
-        public GetGroupByIdQuery(Guid id)
+        public int Id { get; set; }
+        public GetGroupByIdQuery(int id)
         {
             this.Id = id;
 

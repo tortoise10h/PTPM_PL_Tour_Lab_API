@@ -15,10 +15,10 @@ namespace src.CQRS.Tour.Commands.UpdateTour
 {
     public class UpdateTourCommand : IRequest<Result<TourResponse>>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Specification { get; set; }
-        public string TourCategoryId { get; set; }
+        public int TourCategoryId { get; set; }
         public double Price { get; set; }
         public TourStatusEnum Status { get; set; }
     }
@@ -49,14 +49,13 @@ namespace src.CQRS.Tour.Commands.UpdateTour
             }
 
 
-            var newTourCategoryId = Guid.Parse(request.TourCategoryId);
             /** tour.TourCategoryId != newTourCategoryId mean 
              * user want to change category of tour => check the exist of new tour category
             */
-            if (tour.TourCategoryId != newTourCategoryId)
+            if (tour.TourCategoryId != request.TourCategoryId)
             {
                 var newTourCategory = await _context.TourCategories.SingleOrDefaultAsync(
-                    tc => tc.Id == newTourCategoryId &&
+                    tc => tc.Id == request.TourCategoryId &&
                     tc.IsDeleted == false
                 );
 

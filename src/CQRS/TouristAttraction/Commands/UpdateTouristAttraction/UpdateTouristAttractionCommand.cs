@@ -14,7 +14,7 @@ namespace src.CQRS.TouristAttraction.Commands.UpdateTouristAttraction
 {
     public class UpdateTouristAttractionCommand : IRequest<Result<TouristAttractionResponse>>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
     }

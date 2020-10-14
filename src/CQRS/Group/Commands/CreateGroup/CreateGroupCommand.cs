@@ -14,7 +14,7 @@ namespace src.CQRS.Group.Commands.CreateGroup
 {
     public class CreateGroupCommand : IRequest<Result<GroupResponse>>
     {
-        public string TourId { get; set; }
+        public int TourId { get; set; }
         public string Name { get; set; }
         public long Price { get; set; }
         public DateTime StartDate { get; set; }

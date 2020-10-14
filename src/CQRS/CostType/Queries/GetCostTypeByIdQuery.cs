@@ -13,9 +13,9 @@ namespace src.CQRS.CostType.Queries
 {
     public class GetCostTypeByIdQuery : IRequest<Result<CostTypeResponse>>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
-        public GetCostTypeByIdQuery(Guid id)
+        public GetCostTypeByIdQuery(int id)
         {
             Id = id;
         }

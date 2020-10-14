@@ -21,9 +21,8 @@ namespace src.Services
 
         public TourCategory CreateTourCategory()
         {
-            return new TourCategory
-            {
-                Id = new Guid(),
+            return new TourCategory {
+                Id = 1,
                 Name = "High quality tour"
             };
         }

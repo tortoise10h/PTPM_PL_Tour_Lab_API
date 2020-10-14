@@ -9,7 +9,7 @@ namespace src.Services
 {
     public interface ITourDetailService
     {
-        Task<bool> ValidateExistTourAttractionIds(List<Guid> Ids);
+        Task<bool> ValidateExistTourAttractionIds(List<int> Ids);
     }
     public class TourDetailService : ITourDetailService
     {
@@ -20,7 +20,7 @@ namespace src.Services
             _context = context;
         }
 
-        public async Task<bool> ValidateExistTourAttractionIds(List<Guid> Ids)
+        public async Task<bool> ValidateExistTourAttractionIds(List<int> Ids)
         {
             var uniqueTouristAttractionIds = Ids
                 .Distinct()

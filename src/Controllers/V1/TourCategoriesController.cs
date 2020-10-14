@@ -46,7 +46,7 @@ namespace src.Controllers.V1
 
         [HttpGet(ApiRoutes.TourCategory.GetById)]
         public async Task<IActionResult> GetById(
-            [FromRoute] Guid tourCategoryId)
+            [FromRoute] int tourCategoryId)
         {
             var getTourCategoryByIdQuery = new GetTourCategoryByIdQuery(tourCategoryId);
             var result = await _mediator.Send(getTourCategoryByIdQuery);
@@ -66,7 +66,7 @@ namespace src.Controllers.V1
 
         [HttpDelete(ApiRoutes.TourCategory.Delete)]
         public async Task<IActionResult> Delete(
-            [FromRoute] Guid tourCategoryId
+            [FromRoute] int tourCategoryId
         )
         {
             var deleteTourCategoryCommand = new DeleteTourCategoryCommand(tourCategoryId);
@@ -84,7 +84,7 @@ namespace src.Controllers.V1
 
         [HttpPut(ApiRoutes.TourCategory.Update)]
         public async Task<IActionResult> Update(
-            [FromRoute] Guid tourCategoryId,
+            [FromRoute] int tourCategoryId,
             [FromBody] UpdateTourCategoryCommand command)
         {
             command.Id = tourCategoryId;

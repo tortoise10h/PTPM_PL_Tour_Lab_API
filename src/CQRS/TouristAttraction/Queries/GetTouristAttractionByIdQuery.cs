@@ -13,12 +13,12 @@ namespace src.CQRS.TouristAttraction.Queries
 {
     public class GetTouristAttractionByIdQuery : IRequest<Result<TouristAttractionResponse>>
     {
-        public GetTouristAttractionByIdQuery(Guid id)
+        public GetTouristAttractionByIdQuery(int id)
         {
             this.Id = id;
 
         }
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 
     public class GetTouristAttractionByIdHandler : IRequestHandler<GetTouristAttractionByIdQuery, Result<TouristAttractionResponse>>

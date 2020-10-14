@@ -1,17 +1,14 @@
-using System;
+﻿using System;
 using FluentValidation;
 using src.Common.CustomValidators;
+using src.CQRS.TourPrice.Commands.CreateTourPrice;
 
-namespace src.CQRS.TourPrice.Commands.CreateTourPrice
+namespace src.CQRS.TourPrice.Commands.UpdateTourPrice
 {
-    public class CreateTourPriceCommandValidator : AbstractValidator<CreateTourPriceCommand>
+    public class UpdateTourPriceCommandValidator : AbstractValidator<UpdateTourPriceCommand>
     {
-        public CreateTourPriceCommandValidator()
+        public UpdateTourPriceCommandValidator()
         {
-            RuleFor(x => x.TourId)
-                .NotEmpty()
-                .GreaterThan(0);
-
             RuleFor(x => x.StartDate)
                 .NotNull()
                 .GreaterThanOrEqualTo(DateTime.Now);

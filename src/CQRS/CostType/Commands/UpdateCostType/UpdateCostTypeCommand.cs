@@ -14,7 +14,7 @@ namespace src.CQRS.CostType.Commands.UpdateCostType
 {
     public class UpdateCostTypeCommand : IRequest<Result<CostTypeResponse>>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public String Name { get; set; }
     }
 

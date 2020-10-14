@@ -6,10 +6,10 @@ namespace src.Entities
 {
     public class Tour : BaseEntity
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Specification { get; set; }
-        public Guid TourCategoryId { get; set; }
+        public int TourCategoryId { get; set; }
         public double Price { get; set; }
         public TourStatusEnum Status { get; set; }
 

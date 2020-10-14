@@ -10,8 +10,8 @@ namespace src.Services
 {
     public interface ITourPricesService
     {
-        Task<string> IsTourPriceDateConflict(Guid tourId, Guid tourPriceId, DateTime startDate, DateTime endDate);
-        Task<string> CheckConflictTimeWhenCreateTourPrice(Guid tourId, DateTime startDate, DateTime endDate);
+        Task<string> IsTourPriceDateConflict(int tourId, int tourPriceId, DateTime startDate, DateTime endDate);
+        Task<string> CheckConflictTimeWhenCreateTourPrice(int tourId, DateTime startDate, DateTime endDate);
      }
 
     public class TourPricesService: ITourPricesService
@@ -23,7 +23,7 @@ namespace src.Services
             _context = context;
         }
 
-        public async Task<string> IsTourPriceDateConflict(Guid tourId, Guid tourPriceId, DateTime startDate, DateTime endDate)
+        public async Task<string> IsTourPriceDateConflict(int tourId, int tourPriceId, DateTime startDate, DateTime endDate)
         {
             string errorResponse = "";
 
@@ -59,7 +59,7 @@ namespace src.Services
 
             return errorResponse;
         }
-        public async Task<string> CheckConflictTimeWhenCreateTourPrice(Guid tourId, DateTime startDate, DateTime endDate)
+        public async Task<string> CheckConflictTimeWhenCreateTourPrice(int tourId, DateTime startDate, DateTime endDate)
         {
             string errorResponse = "";
 

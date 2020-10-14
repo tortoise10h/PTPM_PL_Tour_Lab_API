@@ -13,12 +13,12 @@ namespace src.CQRS.TouristAttraction.Commands.DeleteTouristAttraction
 {
     public class DeleteTouristAttractionCommand : IRequest<Result<TouristAttractionResponse>>
     {
-        public DeleteTouristAttractionCommand(Guid id)
+        public DeleteTouristAttractionCommand(int id)
         {
             this.Id = id;
 
         }
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 
     public class DeleteTouristAttractionHandler : IRequestHandler<DeleteTouristAttractionCommand, Result<TouristAttractionResponse>>
