@@ -31,10 +31,10 @@ namespace src.Services
                 .SingleOrDefaultAsync(tp =>
                     tp.TourId == tourId &&
                     tp.Id != tourPriceId &&
-                    tp.IsDeleted == false &&
+                    tp.IsDeleted == false && (
                     tp.StartDate <= startDate && tp.EndDate >= startDate ||
-                    tp.StartDate <= endDate && tp.EndDate >= endDate || 
-                    tp.StartDate >= startDate && tp.EndDate <= endDate);
+                    tp.StartDate <= endDate && tp.EndDate >= endDate ||
+                    tp.StartDate >= startDate && tp.EndDate <= endDate));
 
             if (conflictDateTourPrice != null)
             {
