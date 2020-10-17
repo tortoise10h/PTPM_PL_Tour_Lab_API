@@ -37,9 +37,11 @@ namespace src.CQRS.Tour.Queries
             var queryable = _context.Tours.AsQueryable();
 
             /** Custom get all tour business before pass to paginate method */
-            queryable = queryable.Where(
-                tc => tc.IsDeleted == false
-            );
+            queryable = queryable
+                .Where(
+                    t => t.IsDeleted == false
+                )
+                .Include(t => t.TourCategory);
 
             var result = await _paginationHelper.Paginate<E.Tour, TourResponse>(
                 queryable, query);
