@@ -91,7 +91,7 @@ namespace src.Controllers.V1
             );
         }
 
-        [HttpPut(ApiRoutes.Tour.GetTourPricesOfTour)]
+        [HttpGet(ApiRoutes.Tour.GetTourPricesOfTour)]
         public async Task<IActionResult> GetTourPricesOfTour([FromRoute] int tourId, [FromQuery] GetTourPricesOfTourQuery query)
         {
             query.TourId = tourId;
