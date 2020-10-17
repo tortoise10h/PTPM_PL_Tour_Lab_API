@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using src.Contracts.V1;
 using src.Contracts.V1.ResponseModels;
 using src.Contracts.V1.ResponseModels.Tour;
+using src.Contracts.V1.ResponseModels.TourPrice;
 using src.CQRS.Tour.Commands.CreateTour;
 using src.CQRS.Tour.Commands.UpdateTour;
 using src.CQRS.Tour.Queries;
@@ -82,6 +84,23 @@ namespace src.Controllers.V1
 
             return result.Match<IActionResult>(
                 tourResponse => NoContent(),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
+
+        [HttpPut(ApiRoutes.Tour.GetTourPricesOfTour)]
+        public async Task<IActionResult> GetTourPricesOfTour([FromRoute] int tourId, [FromQuery] GetTourPricesOfTourQuery query)
+        {
+            query.TourId = tourId;
+            var result = await _mediator.Send(query);
+
+            return result.Match<IActionResult>(
+                data => Ok(new Response<PagedResponse<TourPriceResponse>>(
+                    data
+                )),
                 exp =>
                 {
                     throw exp;
