@@ -22,6 +22,9 @@ namespace src.CQRS.Group.Commands.UpdateGroup
             RuleFor(x => x.Price)
                 .NotNull()
                 .GreaterThan(0);
+
+            RuleFor(x => x.Status)
+                .IsInEnum();
         }
     }
 }

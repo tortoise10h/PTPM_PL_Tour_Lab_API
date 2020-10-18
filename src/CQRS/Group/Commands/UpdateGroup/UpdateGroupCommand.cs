@@ -5,6 +5,7 @@ using AutoMapper;
 using LanguageExt.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using src.Common.Enums;
 using src.Contracts.V1.Exceptions;
 using src.Contracts.V1.ResponseModels.Group;
 using src.Helpers;
@@ -17,6 +18,7 @@ namespace src.CQRS.Group.Commands.UpdateGroup
         public int Id { get; set; }
         public string Name { get; set; }
         public long Price { get; set; }
+        public GroupStatusEnum Status { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
     }
@@ -35,13 +37,21 @@ namespace src.CQRS.Group.Commands.UpdateGroup
         public async Task<Result<GroupResponse>> Handle(UpdateGroupCommand request, CancellationToken cancellationToken)
         {
             var group = await _context.Group.SingleOrDefaultAsync(
-                g => g.Id == request.Id &&
-                g.IsDeleted == false
+                g => g.Id == request.Id
+                && g.IsDeleted == false
             );
+
             if (group == null)
             {
                 return new Result<GroupResponse>(
                     new NotFoundException()
+                );
+            }
+
+            if (group.Status == GroupStatusEnum.Done || group.Status == GroupStatusEnum.Canceled)
+            {
+                return new Result<GroupResponse>(
+                    new BadRequestException(new ApiError("This group has been done or canceled"))
                 );
             }
 

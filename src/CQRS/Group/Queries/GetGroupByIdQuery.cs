@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -8,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using src.Contracts.V1.Exceptions;
 using src.Contracts.V1.ResponseModels.Group;
 using src.Helpers;
+using E = src.Entities;
 
 namespace src.CQRS.Group.Queries
 {
@@ -34,9 +36,12 @@ namespace src.CQRS.Group.Queries
 
         public async Task<Result<GroupResponse>> Handle(GetGroupByIdQuery request, CancellationToken cancellationToken)
         {
-            var group = await _context.Group.SingleOrDefaultAsync(
-                g => g.Id == request.Id &&
-                g.IsDeleted == false
+            var group = await _context.Group
+                .Include(g => g.GroupDetails)
+                .ThenInclude(gd => gd.ApplicationUser)
+                .SingleOrDefaultAsync(
+                    g => g.Id == request.Id &&
+                    g.IsDeleted == false
             );
 
             if (group == null)

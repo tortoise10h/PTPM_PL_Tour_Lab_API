@@ -20,6 +20,7 @@ namespace src.Helpers
         public DbSet<CostType> CostType { get; set; }
         public DbSet<TourDetail> TourDetail { get; set; }
         public DbSet<Group> Group { get; set; }
+        public DbSet<GroupDetail> GroupDetail { get; set; }
 
         protected readonly IConfiguration Configuration;
         private readonly IHttpContextAccessor _httpContextAccessor;

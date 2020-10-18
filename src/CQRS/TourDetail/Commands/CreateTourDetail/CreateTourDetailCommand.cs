@@ -24,13 +24,13 @@ namespace src.CQRS.TourDetail.Commands.CreateTourDetail
     public class CreateTourDetailHandler : IRequestHandler<CreateTourDetailCommand, Result<List<TourDetailResponse>>>
     {
         private readonly DataContext _context;
-        private readonly IMapper _mappper;
+        private readonly IMapper _mapper;
         private readonly ITourDetailService _tourDetailService;
 
-        public CreateTourDetailHandler(DataContext context, IMapper mappper, ITourDetailService tourDetailService)
+        public CreateTourDetailHandler(DataContext context, IMapper mapper, ITourDetailService tourDetailService)
         {
             _context = context;
-            _mappper = mappper;
+            _mapper = mapper;
             _tourDetailService = tourDetailService;
         }
 
@@ -83,7 +83,7 @@ namespace src.CQRS.TourDetail.Commands.CreateTourDetail
             if (created > 0)
             {
                 return new Result<List<TourDetailResponse>>(
-                    _mappper.Map<List<TourDetailResponse>>(tourDetails)
+                    _mapper.Map<List<TourDetailResponse>>(tourDetails)
                 );
             }
 
