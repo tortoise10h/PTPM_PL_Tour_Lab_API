@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using src.Common.Enums;
 
 namespace src.Entities
 {
@@ -11,6 +12,7 @@ namespace src.Entities
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public int TourId { get; set; }
+        public GroupStatusEnum Status { get; set; }
 
         public Tour Tour { get; set; }
         public ICollection<GroupDetail> GroupDetails { get; set; }
