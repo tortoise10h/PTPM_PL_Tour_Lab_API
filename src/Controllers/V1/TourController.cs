@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using src.Contracts.V1;
 using src.Contracts.V1.ResponseModels;
+using src.Contracts.V1.ResponseModels.Group;
 using src.Contracts.V1.ResponseModels.Tour;
 using src.Contracts.V1.ResponseModels.TourPrice;
 using src.CQRS.Tour.Commands.CreateTour;
@@ -108,5 +109,21 @@ namespace src.Controllers.V1
             );
         }
 
+        [HttpGet(ApiRoutes.Tour.GetGroupsOfTour)]
+        public async Task<IActionResult> GetTourPricesOfTour([FromRoute] int tourId, [FromQuery] GetGroupsOfTourQuery query)
+        {
+            query.TourId = tourId;
+            var result = await _mediator.Send(query);
+
+            return result.Match<IActionResult>(
+                data => Ok(new Response<PagedResponse<GroupResponse>>(
+                    data
+                )),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
     }
 }

@@ -33,6 +33,7 @@ namespace src.Contracts.V1
             public const string GetById = Base + "/tours/{tourId}";
             public const string Delete = Base + "/tours/{tourId}";
             public const string GetTourPricesOfTour = Base + "/tours/{tourId}/tourPrices";
+            public const string GetGroupsOfTour = Base + "/tours/{tourId}/groups";
         }
 
         public static class TourDetail
