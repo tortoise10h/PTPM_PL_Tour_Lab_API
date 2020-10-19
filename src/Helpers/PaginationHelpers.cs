@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -9,6 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using src.Common.Enums;
 using src.Contracts.V1.RequestModels;
 using src.Contracts.V1.ResponseModels;
+using System.Linq;
+using System.Linq.Dynamic.Core;
+using System.Text.RegularExpressions;
+using src.Contracts.V1.Exceptions;
 
 namespace src.Helpers
 {
@@ -51,11 +54,14 @@ namespace src.Helpers
             int skip = (query.Page - 1) * query.Limit;
 
             queryable = CustomSortQuery<TEntity>(queryable, query.SortName, query.IsAscending);
+            queryable = CustomFilterQuery<TEntity>(queryable, query.Filters, query.FilterConditions);
+
             var entities = await queryable
                 .Skip(skip)
                 .Take(query.Limit)
                 .ToListAsync();
             var totalEntities = await queryable.CountAsync();
+
             return CreatePaginatedResponse<TEntity, TResponse>(
                 query, entities, totalEntities);
         }
@@ -90,6 +96,107 @@ namespace src.Helpers
             );
 
             return queryable.Provider.CreateQuery<TEntity>(resultExp);
+        }
+        public IQueryable<TEntity> CustomFilterQuery<TEntity>(
+            IQueryable<TEntity> queryable,
+            Dictionary<string, string> filters,
+            Dictionary<string, string> filterConditions
+        )
+        {
+            if (filters != null && filters.Count > 0)
+            {
+                foreach (KeyValuePair<string, string> entry in filters)
+                {
+                    string filterOperator = "";
+                    if (filterConditions != null && filterConditions.Count > 0)
+                    {
+                        filterConditions.TryGetValue(entry.Key, out filterOperator);
+                    }
+
+                    switch (filterOperator)
+                    {
+                        case "not":
+                            {
+                                queryable = queryable
+                                    .Where($"{entry.Key} != {entry.Value}");
+                                break;
+                            }
+                        case "like":
+                            {
+                                queryable = queryable
+                                    .Where($"{entry.Key}.Contains({entry.Value})");
+                                break;
+                            }
+                        case "=":
+                            {
+                                queryable = queryable
+                                    .Where($"{entry.Key} = {entry.Value}");
+                                break;
+                            }
+                        case ">":
+                            {
+                                queryable = queryable
+                                    .Where($"{entry.Key} > {entry.Value}");
+                                break;
+                            }
+                        case "<":
+                            {
+                                queryable = queryable
+                                    .Where($"{entry.Key} < {entry.Value}");
+                                break;
+                            }
+                        case ">=":
+                            {
+                                queryable = queryable
+                                    .Where($"{entry.Key} >= {entry.Value}");
+                                break;
+                            }
+                        case "<=":
+                            {
+                                queryable = queryable
+                                    .Where($"{entry.Key} <= {entry.Value}");
+                                break;
+                            }
+                        // NOT SUPPORT YET
+                        //case "in":
+                        //    {
+                        //        string inRegex = @"^[^\,]+(\,[^\,]+)*$";
+                        //        var match = Regex.Match(entry.Value, inRegex, RegexOptions.IgnoreCase);
+                        //        if (!match.Success)
+                        //        {
+                        //            throw new BadRequestException(new ApiError("The correct value when using in dynamic filter is 'value,value,value,value'"));
+                        //        }
+
+                        //        var values = entry.Value.ToString().Split(",");
+                        //        queryable = queryable
+                        //            .Where($"{values}.Contains({entry.Key})");
+                        //        break;
+                        //    }
+                        case "between":
+                            {
+                                string betweenRegex = @"^(\b[^\,]+\,[^\,]+\b)$";
+                                var match = Regex.Match(entry.Value, betweenRegex, RegexOptions.IgnoreCase);
+                                if (!match.Success)
+                                {
+                                    throw new BadRequestException(new ApiError("The correct value when using between dynamic filter is 'value,value'"));
+                                }
+
+                                var values = entry.Value.ToString().Split(",");
+                                queryable = queryable
+                                    .Where($"{entry.Key} >= {values[0]} && {entry.Key} <= {values[1]}");
+                                break;
+                            }
+                        default:
+                            {
+                                queryable = queryable
+                                    .Where($"{entry.Key} = {entry.Value}");
+                                break;
+                            }
+                    }
+                }
+            }
+
+            return queryable;
         }
     }
 }
