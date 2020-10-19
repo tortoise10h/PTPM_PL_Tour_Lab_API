@@ -1,4 +1,5 @@
 using src.Common.Enums;
+using System.Collections.Generic;
 
 namespace src.Contracts.V1.RequestModels
 {
@@ -8,5 +9,7 @@ namespace src.Contracts.V1.RequestModels
         public int Limit { get; set; } = PaginationDefault.Limit;
         public string SortName { get; set; } = PaginationDefault.SortName;
         public bool IsAscending { get; set; } = PaginationDefault.IsAscending;
+        public Dictionary<string, string> Filters { get; set; }
+        public Dictionary<string, string> FilterConditions { get; set; }
     }
 }
