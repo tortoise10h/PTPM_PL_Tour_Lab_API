@@ -1,17 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc.Formatters.Xml;
 using Microsoft.EntityFrameworkCore;
+using src.Common.Enums;
+using src.Entities;
 using src.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace src.Services
 {
     public interface ITourPricesService
     {
-        Task<string> IsTourPriceDateConflict(int tourId, int tourPriceId, DateTime startDate, DateTime endDate);
-        Task<string> CheckConflictTimeWhenCreateTourPrice(int tourId, DateTime startDate, DateTime endDate);
+        Task<string> CheckConflictDateWhenUpdate(int tourId, int tourPriceId, DateTime startDate, DateTime endDate);
+        Task<string> CheckConflictDateWhenCreate(int tourId, DateTime startDate, DateTime endDate);
+        Task<List<Group>> ListGroupAreChangedWhenUpdateTourPrice(DateTime oldStartDate, DateTime oldEndDae, DateTime newStartDate, DateTime newEndDate, long defaultTourPrice, int tourId);
      }
 
     public class TourPricesService: ITourPricesService
@@ -23,7 +27,7 @@ namespace src.Services
             _context = context;
         }
 
-        public async Task<string> IsTourPriceDateConflict(int tourId, int tourPriceId, DateTime startDate, DateTime endDate)
+        public async Task<string> CheckConflictDateWhenUpdate(int tourId, int tourPriceId, DateTime startDate, DateTime endDate)
         {
             string errorResponse = "";
 
@@ -59,7 +63,7 @@ namespace src.Services
 
             return errorResponse;
         }
-        public async Task<string> CheckConflictTimeWhenCreateTourPrice(int tourId, DateTime startDate, DateTime endDate)
+        public async Task<string> CheckConflictDateWhenCreate(int tourId, DateTime startDate, DateTime endDate)
         {
             string errorResponse = "";
 
@@ -93,6 +97,28 @@ namespace src.Services
             }
 
             return errorResponse;
+        }
+
+        public async Task<List<Group>> ListGroupAreChangedWhenUpdateTourPrice(DateTime oldStartDate, DateTime oldEndDae, DateTime newStartDate, DateTime newEndDate, long defaultTourPrice, int tourId)
+        {
+            var effectedGroups = await _context.Group
+                .Where(g => g.IsDeleted == false &&
+                    g.TourId == tourId &&
+                    g.StartDate >= oldStartDate &&
+                    g.StartDate <= oldEndDae &&
+                    g.Status == GroupStatusEnum.New)
+                .ToListAsync();
+
+            foreach(var group in effectedGroups)
+            {
+                if (!(group.StartDate >= newStartDate &&
+                    group.StartDate <= newEndDate))
+                {
+                    group.Price = defaultTourPrice;
+                }
+            }
+
+            return effectedGroups;
         }
     }
 }

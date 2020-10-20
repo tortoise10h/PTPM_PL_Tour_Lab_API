@@ -71,6 +71,7 @@ namespace src.CQRS.Group.Commands.CreateGroup
                     request.StartDate <= tp.EndDate &&
                     tp.IsDeleted == false)
                 .FirstOrDefaultAsync();
+
             newGroup.Price = tourPrice != null ? tourPrice.Price : tour.Price;
 
             await _context.Group.AddAsync(newGroup);

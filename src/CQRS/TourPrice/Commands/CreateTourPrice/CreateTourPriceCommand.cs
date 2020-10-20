@@ -54,7 +54,7 @@ namespace src.CQRS.TourPrice.Commands.CreateTourPrice
             }
 
             /** Do not allow start date and end date conflict */
-            var checkConflictResult = await this._tourPricesService.CheckConflictTimeWhenCreateTourPrice(request.TourId, request.StartDate, request.EndDate);
+            var checkConflictResult = await this._tourPricesService.CheckConflictDateWhenCreate(request.TourId, request.StartDate, request.EndDate);
 
             if (!checkConflictResult.Equals(""))
             {
