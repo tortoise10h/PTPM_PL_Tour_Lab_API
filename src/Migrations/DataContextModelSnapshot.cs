@@ -48,22 +48,22 @@ namespace src.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a80f1527-b44c-4778-882b-25930022f689",
-                            ConcurrencyStamp = "d158ad72-92be-4181-9e9a-a307f99301e0",
+                            Id = "07bdc189-5436-4e2d-bf2b-93dc12b574b8",
+                            ConcurrencyStamp = "d4172c62-41b1-4ec4-956c-a91fe8a5b704",
                             Name = "Admin",
                             NormalizedName = "admin"
                         },
                         new
                         {
-                            Id = "5994a25a-6200-42d2-854b-f976ac97d4f3",
-                            ConcurrencyStamp = "174b003f-8e9d-4f23-b2b1-99de125d5ef9",
+                            Id = "f4f586db-115b-410d-bb62-91911882d01c",
+                            ConcurrencyStamp = "71a2cc4b-6c45-4fa1-86df-e2bb9e35097c",
                             Name = "SuperAdmin",
                             NormalizedName = "superadmin"
                         },
                         new
                         {
-                            Id = "c655e426-9602-44b5-8ee0-b6850c5c1092",
-                            ConcurrencyStamp = "839193ba-f4de-4b04-84e7-58f84bc81ca6",
+                            Id = "69dc0c54-0495-4716-b5e7-8483636ab76f",
+                            ConcurrencyStamp = "3c9ad2bd-8694-432d-b64a-a66f121c2f00",
                             Name = "Customer",
                             NormalizedName = "customer"
                         });
@@ -156,88 +156,88 @@ namespace src.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "19a74a34-48a2-4b09-aeef-7a1cf39efdaf",
-                            RoleId = "a80f1527-b44c-4778-882b-25930022f689"
+                            UserId = "29754f5d-4739-47be-a686-e1452807b3a1",
+                            RoleId = "07bdc189-5436-4e2d-bf2b-93dc12b574b8"
                         },
                         new
                         {
-                            UserId = "68486725-5157-40a5-bd04-4f44542266a7",
-                            RoleId = "5994a25a-6200-42d2-854b-f976ac97d4f3"
+                            UserId = "7911d80e-3906-48c0-98a6-8689812fd917",
+                            RoleId = "f4f586db-115b-410d-bb62-91911882d01c"
                         },
                         new
                         {
-                            UserId = "5370a1ff-b473-494f-bfe3-d627e3b15438",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "018d2e36-e99d-4c54-9f64-b389378b857b",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "7bf3cb2f-36d2-4c85-9047-4aeb6771d454",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "7c98afbc-08fb-49f5-860f-ab8c5460ce6f",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "6a6b6d35-a43b-43c6-8732-c083448feb7e",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "c983eca4-bb5b-474e-8215-bba4976014f2",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "bd38abe0-b2e2-4ec2-a622-b65ba592f611",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "80684771-c685-471f-a6f9-c43ed16ddd52",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "08388af1-6d56-433d-8e5b-dc0f7fb6ba63",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "383180f4-9ad2-41e1-9237-f1df5a2f63de",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "a3b0bb77-033a-4485-a5b6-8ef3089a3b4b",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "eaf0294e-7940-43ae-9868-b4c020af70e8",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "faf7c2ca-ec10-4dfd-89e0-04d1d9de8513",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "40ec0e6a-e81d-4a89-ac58-19491efe39a5",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "d58a231f-95da-41b6-9088-258dc4234a39",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "d5e882e7-ab4e-4489-a5ac-937c8507f831",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "d82eb626-d9c7-4611-8964-b7797ac8dbfa",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "602415e6-5846-4a60-a048-9b8692003936",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "8551ca5c-da02-4c67-8286-1b30e8a261cb",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "88282915-a492-4c29-a8ba-2d8b6fddf022",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "78964b24-d075-4c4d-b2f1-9d9ab7dc2912",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "2fbf8524-33fa-4403-834f-443b4f00a4be",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "81f0b640-b683-49ba-a5f2-b7fa19b50630",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "6a73fb23-9285-4e68-acee-17d189d75906",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "bc20f244-c073-4ae0-8ff1-762d227191c4",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "c3cbf61e-0e73-4ead-b60f-d5a57560394a",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "a94c038b-d692-4ee5-b9d7-e7fd5fdc4bf2",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "927896de-bd2c-4ec2-97ae-58c1e71a351f",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         },
                         new
                         {
-                            UserId = "49922f24-34ab-4b08-bd52-5077ae48591d",
-                            RoleId = "c655e426-9602-44b5-8ee0-b6850c5c1092"
+                            UserId = "50a1e147-59a5-4565-83c6-a7b152dd4b12",
+                            RoleId = "69dc0c54-0495-4716-b5e7-8483636ab76f"
                         });
                 });
 
@@ -333,9 +333,9 @@ namespace src.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "68486725-5157-40a5-bd04-4f44542266a7",
+                            Id = "7911d80e-3906-48c0-98a6-8689812fd917",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c25d2b3b-ec68-4f1d-a124-30b891d53f24",
+                            ConcurrencyStamp = "e73b9c43-2784-4c72-9107-fdb13d5558bc",
                             Email = "lilsuperadmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Super Admin",
@@ -343,7 +343,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "LILSUPERADMIN@GMAIL.COM",
                             NormalizedUserName = "LILSUPERADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEC0+6g+dzXa1YAdhxNjcRdBSyo5q2PQKJJNp4BurcWH7XysSQJ4cCXjzCS4UCD3n6Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEPT9CqutpHVLCCNrIfnIaGHmAlOyeftsAsrDP3WYX27QCcNiBCST968EUUvBVXpUA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -351,9 +351,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "19a74a34-48a2-4b09-aeef-7a1cf39efdaf",
+                            Id = "29754f5d-4739-47be-a686-e1452807b3a1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d31ac76a-1fe2-4c92-8131-d458c82083ec",
+                            ConcurrencyStamp = "f0916e14-72b3-4f57-920f-ecded7565866",
                             Email = "yungadmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -361,7 +361,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "YUNGADMIN@GMAIL.COM",
                             NormalizedUserName = "YUNGADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPpB3TcpQ2pw5CSA25ufd28KgF834iQacfjY9gJaiCL0Tna2Yf64ZV3EZTZrfThC3g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA5EYwArDumxrUixF5usq0uJN1XfteIk4DbN8VeEMGWXw913d0fDrNxpXyXRGJgIKg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -369,9 +369,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "5370a1ff-b473-494f-bfe3-d627e3b15438",
+                            Id = "018d2e36-e99d-4c54-9f64-b389378b857b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "232ea0ca-04ad-4560-8441-340cec5c877a",
+                            ConcurrencyStamp = "710bb320-3a09-4780-a0cf-a61f6d5ddce0",
                             Email = "trankieuloan@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Loan",
@@ -379,7 +379,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TRANKIEULOAN@GMAIL.COM",
                             NormalizedUserName = "TRANKIEULOAN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDOMxZFG3c3UHRi9SVM/f5k37V/BXX5TiYfpE522jV80H9SyED65wSkA3X/fh8rZdg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJE5YHZdAlZHGQmCSlTqGV+ay8Bp5HvKbXiEPja6YNkPRcF4yi3PQPiQL/YWMFjQdA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -387,9 +387,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "7bf3cb2f-36d2-4c85-9047-4aeb6771d454",
+                            Id = "7c98afbc-08fb-49f5-860f-ab8c5460ce6f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6f051e9a-8f6e-457e-9cb1-716c6d69c608",
+                            ConcurrencyStamp = "c592f519-0d0b-4a34-895d-eb6a6f4dbd9c",
                             Email = "phamvinhson@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Sơn",
@@ -397,7 +397,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PHAMVINHSON@GMAIL.COM",
                             NormalizedUserName = "PHAMVINHSON@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPCXdeTTlQ3gtPCGcThIy8C2ZMUSbKcJCYVSmla439XPFpVp9BvUy9g3FaaPsuttNg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDjG5stoq2BeETFzeFP2KR6ELeA5DTrWGs4F4tkU55J4lv35EbJqsXeKGYzrPnKguQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -405,9 +405,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "6a6b6d35-a43b-43c6-8732-c083448feb7e",
+                            Id = "c983eca4-bb5b-474e-8215-bba4976014f2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "374fbf6e-2046-4dc8-9e52-c1fbf2a21a4c",
+                            ConcurrencyStamp = "df0a5ab1-65fc-4e12-be9a-ea3987c645f7",
                             Email = "nguyentrunghieu@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Hiếu",
@@ -415,7 +415,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "NGUYENTRUNGHIEU@GMAIL.COM",
                             NormalizedUserName = "NGUYENTRUNGHIEU@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECiR4HeDX3VNaRtDgqw6ryRkCcwB1K85OTdP8p8yfm0QO6y29DAUN09XvzpJcJzqyg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELVjVmXwmAOUUaexHbC1xfXKRrYMWJvNcYvvLjj2Aj3QE8isk3SCb1f7EsJQMu1A6w==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -423,9 +423,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "bd38abe0-b2e2-4ec2-a622-b65ba592f611",
+                            Id = "80684771-c685-471f-a6f9-c43ed16ddd52",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5e78d7a1-4060-4ec7-900c-ddb9b3e933a0",
+                            ConcurrencyStamp = "bb1b9f99-cc64-4efe-9804-340f21eb2db7",
                             Email = "nguyennhuloc@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Lộc",
@@ -433,7 +433,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "NGUYENNHULOC@GMAIL.COM",
                             NormalizedUserName = "NGUYENNHULOC@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFObAQ3iGpA1h6iqKnwhUeIUeyQuFOv2GhGY/2/S9sPArenXAbBo59xqhT73nYxbBw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO0FHZyvPUn65ONlIXckzhLgdiE9KvmArDXHdhSEawT3frVWiT6aBbja7E2XQB4/Ew==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -441,9 +441,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "08388af1-6d56-433d-8e5b-dc0f7fb6ba63",
+                            Id = "383180f4-9ad2-41e1-9237-f1df5a2f63de",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b1b465a8-63ed-47e2-a198-d32d218e422e",
+                            ConcurrencyStamp = "03f70451-f1fc-4d73-af51-3a97f849a5b0",
                             Email = "caothivananh@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Anh",
@@ -451,7 +451,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CAOTHIVANANH@GMAIL.COM",
                             NormalizedUserName = "CAOTHIVANANH@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEk6hFkFOLOANbfwPaSLfdwYoto8FJx/WPwAIsyzceobXAxBlLEq8ndD9dHswvlr4A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDV2XPYN5yLBN/0Y0gOhdDL9AgEC4sWpshHMg204z0c4K4A4nmOtoZKwB+drym5CmQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -459,9 +459,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "a3b0bb77-033a-4485-a5b6-8ef3089a3b4b",
+                            Id = "eaf0294e-7940-43ae-9868-b4c020af70e8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c52c1f1e-0d1b-41d3-8cd4-336af00535b4",
+                            ConcurrencyStamp = "d48b2fdf-7fa9-407f-97bc-335b16841329",
                             Email = "tranthaonguyen@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Nguyên",
@@ -469,7 +469,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TRANTHAONGUYEN@GMAIL.COM",
                             NormalizedUserName = "TRANTHAONGUYEN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMYH830k2ds4Fe8dWcMKJUvNFEKFddX3afc9mDeiUS7rOuA1u79JYVYD9MdAq0AXnA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPggIF00FEfEu9jCFVi3D5lvPMLZhhoVcDT4cOyq7WGSVJhZAtXtHx9LMqr8+W+yQA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -477,9 +477,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "faf7c2ca-ec10-4dfd-89e0-04d1d9de8513",
+                            Id = "40ec0e6a-e81d-4a89-ac58-19491efe39a5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "73beb342-b5eb-4d51-b567-9e0320618603",
+                            ConcurrencyStamp = "e32f9226-135e-4467-bf0d-7420bf05d25c",
                             Email = "truongthitramanh@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Anh",
@@ -487,7 +487,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TRUONGTHITRAMANH@GMAIL.COM",
                             NormalizedUserName = "TRUONGTHITRAMANH@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENjvCJ7G2bGrtsMwzszLhVYEtpky1Lu/nKIHRNgG1ZgCFJYsfGeVUf5YBVLMLD9f1A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO0OWkFWxK0hzGaIMGLdy75ESr4DXDMxPonmgdAIhNCLkrhF4SB6f7NMYDr7AtRlVw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -495,9 +495,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "d58a231f-95da-41b6-9088-258dc4234a39",
+                            Id = "d5e882e7-ab4e-4489-a5ac-937c8507f831",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f55a57f0-ec8c-4ab6-8d58-5b3a26c19e1c",
+                            ConcurrencyStamp = "6a23ba32-6eaa-4102-b21b-fc2d792fd6de",
                             Email = "caobaquat@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Quát",
@@ -505,7 +505,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CAOBAQUAT@GMAIL.COM",
                             NormalizedUserName = "CAOBAQUAT@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEil6trPQoVZq2ow3eF/UCNpIZl6WKqXGqV/tIQ/TtjsvNhV0fzHDOtTIRc6O6tdOQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEE2R/Amt2MQ9rhWZqEUW/QRhNNK+2GQw8X54Y8a0QPDkz9HZApphbVeaRGy2r/D8bQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -513,9 +513,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "d82eb626-d9c7-4611-8964-b7797ac8dbfa",
+                            Id = "602415e6-5846-4a60-a048-9b8692003936",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "54ec00d9-b500-45a3-86ea-876ff842fd65",
+                            ConcurrencyStamp = "20806228-0e24-49bd-8520-1f576ee43446",
                             Email = "huynhtranthanh@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Thành",
@@ -523,7 +523,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "HUYNHTRANTHANH@GMAIL.COM",
                             NormalizedUserName = "HUYNHTRANTHANH@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEK3RtXcOQif8FQDomoclEMKyP0A0x8HTzD7pNcNHIFMwjQIydzVxHK+2cV6YPJv8EQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGgsqq2WI8wMBqxzfePCElnVPMdGpDWzAIK8o1dTBz6N+pRwHwv2IYW7K3BHBU/yBQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -531,9 +531,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "8551ca5c-da02-4c67-8286-1b30e8a261cb",
+                            Id = "88282915-a492-4c29-a8ba-2d8b6fddf022",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "adc294fc-6dad-42f3-8dd1-f73b1a10256e",
+                            ConcurrencyStamp = "1f0d3107-e090-4058-89df-12c97101ad6a",
                             Email = "nguyenthanhlong@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Long",
@@ -541,7 +541,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "NGUYENTHANHLONG@GMAIL.COM",
                             NormalizedUserName = "NGUYENTHANHLONG@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMnztnzZeDbuPE9LQ5kNFbUGHYVgoBG3Dvt435yiLwab6OcKphLqCL4ZphBmGLSRIw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEnDh+riZnJk0PuEtJe3f1OMDXqUvDXygt1Y/v9nD6WMpvCu6HI0P/JgIp54Z0PAbQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -549,9 +549,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "78964b24-d075-4c4d-b2f1-9d9ab7dc2912",
+                            Id = "2fbf8524-33fa-4403-834f-443b4f00a4be",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "86f6dba4-ba8a-4880-887c-41b36e79cd4a",
+                            ConcurrencyStamp = "fdbaf613-3c02-48e2-b07f-f0b4241e7ca4",
                             Email = "hoxuanhuong@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Hương",
@@ -559,7 +559,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "HOXUANHUONG@GMAIL.COM",
                             NormalizedUserName = "HOXUANHUONG@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOrvoCFAoP+a6UcAfsQm9IrM2zP20hAZsdILh+E373LBrfEkCF2Ow+IwsP6E/1j6ng==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELLjh9oJNwhKhy8Oy5k5hzpg7xoXpmduXw1ZB2kUbwQW/23M2HcgP/YXO+peiuAXsQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -567,9 +567,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "81f0b640-b683-49ba-a5f2-b7fa19b50630",
+                            Id = "6a73fb23-9285-4e68-acee-17d189d75906",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ac423f99-0eec-4185-92dc-0a91d7f40061",
+                            ConcurrencyStamp = "ed1ad0c5-8000-4c4c-8788-927a38941015",
                             Email = "nguyenhue@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Huệ",
@@ -577,7 +577,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "NGUYENHUE@GMAIL.COM",
                             NormalizedUserName = "NGUYENHUE@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMf1CLfPgs5fhMDCuLrghUc4K5O/ooqkcYqXbPjDSqiJ/UA9BKrvrJYZVUiFsjotAw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECTyartDWNYv7AQgEbXKlmfpyaoAVfg4agKPeIhVkTC9+vkuCpLuTUfGJzwCISFS4Q==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -585,9 +585,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "bc20f244-c073-4ae0-8ff1-762d227191c4",
+                            Id = "c3cbf61e-0e73-4ead-b60f-d5a57560394a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cd45aa22-a017-4b3f-a8b6-bf1a3f6e9c60",
+                            ConcurrencyStamp = "feabdfb8-e152-42d7-adfa-b45e0feb0c92",
                             Email = "phungthanhdo@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Độ",
@@ -595,7 +595,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PHUNGTHANHDO@GMAIL.COM",
                             NormalizedUserName = "PHUNGTHANHDO@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKK3F6pn/anMOhlPZ0nL2IKGTU+l8OmwSrNpBs40fRmBmLBa1QCo9gGu3P6soXFVZA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFXLJjj6aiMzewmvNniXYtjri8Nv+qgI9ty5iTdZBc4ltkgI6NShDewvAEnEZtRUUQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -603,9 +603,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "a94c038b-d692-4ee5-b9d7-e7fd5fdc4bf2",
+                            Id = "927896de-bd2c-4ec2-97ae-58c1e71a351f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2694f97f-3a01-41bf-a92f-6b81e475b04a",
+                            ConcurrencyStamp = "cbeeb3d6-a27a-41df-846c-0e026188911b",
                             Email = "phantantrung@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Trung",
@@ -613,7 +613,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "PHANTANTRUNG@GMAIL.COM",
                             NormalizedUserName = "PHANTANTRUNG@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEC3N2nUtydl7b5Wbypi6PaybKWFjvKr2i9Z0A96XFw63RE+760carYK3VQqpSRBjkg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO5WsTYSmMpVpm9X9sn1dPhDSd0A9F2P7vUpcKpdCpALsIsg8P7XfhSKwlIKL8yjZw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -621,9 +621,9 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "49922f24-34ab-4b08-bd52-5077ae48591d",
+                            Id = "50a1e147-59a5-4565-83c6-a7b152dd4b12",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9433ea55-35e4-4fa9-9a17-99ac31b6c5ca",
+                            ConcurrencyStamp = "49a36a5c-8a35-4d6f-a22d-91e4d7f7fc3d",
                             Email = "truongtuantu@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Tú",
@@ -631,7 +631,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TRUONGTUANTU@GMAIL.COM",
                             NormalizedUserName = "TRUONGTUANTU@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPLZbknelDVG0MTwBvIL9cGDjDxkS8uOmnh2J4gUj9Fme0zB5sB7KUQv0eiDjxgBAg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMBcqCPrjJR3eLX5mHO6AKrfgSGXXhSu3fR5IUz/rEdgE2D5ufmEv4Ke8tgHXJNdSg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -898,8 +898,8 @@ namespace src.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<long>("Price")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Specification")
                         .HasColumnType("nvarchar(max)");
@@ -926,7 +926,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Hải Phòng - Hạ Long - Ninh Bình - Hà Nội - Lào Cai - Sapa - Đền Hùng",
-                            Price = 8029000.0,
+                            Price = 8029000L,
                             Specification = "Thời gian: 6 ngày 5 đêm Phương tiện: Hàng không Vietnam Airlines Thăm quần thể di tích Bạch Đằng Giang với đền thờ các vị anh...A",
                             Status = 1,
                             TourCategoryId = 1
@@ -938,7 +938,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Nha Trang - Đà Lạt",
-                            Price = 4279000.0,
+                            Price = 4279000L,
                             Specification = "Thời gian: 5 ngày 4 đêm Phương tiện: Đi về bằng xeVân hay còn gọi là Chùa Ốc, ngôi chùa làm...",
                             Status = 1,
                             TourCategoryId = 1
@@ -950,7 +950,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Buôn Ma Thuột - Buôn Đôn - Pleiku - Komtum",
-                            Price = 4879000.0,
+                            Price = 4879000L,
                             Specification = @"Thời gian: 5 ngày 4 đêm Phương tiện: Đi về bằng xeay Nur hùng vĩ.
  Tham quan cầu treo và ngắm...",
                             Status = 1,
@@ -963,7 +963,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch [Mùa Hoa Tam Giác Mạch] Hà Giang - Đồng Văn - Cao Bằng - Thác Bản Giốc- Lạng Sơn",
-                            Price = 7529000.0,
+                            Price = 7529000L,
                             Specification = "Thời gian: 5 ngày 4 đêm Phương tiện: Hàng không Vietnam Airlines Thanh  ngắm núi Tô Thị Vượt đèo Mã...",
                             Status = 1,
                             TourCategoryId = 1
@@ -975,7 +975,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Nha Trang - Hòn Lao - Dốc Lết - I Resort - Làng Yến Mai Sinh",
-                            Price = 2979000.0,
+                            Price = 2979000L,
                             Specification = "Thời gian: 4 ngày 3 đêm Phương tiện: Đi về bằng xeịch Hòn Lao  đảo Khỉ, khu du lịch sinh...",
                             Status = 1,
                             TourCategoryId = 1
@@ -987,7 +987,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Đà Lạt - Dambri - Đường Hầm Điêu Khắc - Langbiang",
-                            Price = 3079000.0,
+                            Price = 3079000L,
                             Specification = "Thời gian: 4 ngày 3 đêm Phương tiện: Đi về bằng xeường Lâm Viên với không gian rộng lớn, thoáng mát hướng...",
                             Status = 1,
                             TourCategoryId = 2
@@ -999,7 +999,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch khám phá Cái Bè - Cần Thơ - Châu Đốc - Hà Tiên",
-                            Price = 3679000.0,
+                            Price = 3679000L,
                             Specification = "Thời gian: 4 ngày 3 đêm Phương tiện: Đi về bằng xeNam bộ hơn trăm năm tuổi, theo lối kiến trúc...",
                             Status = 1,
                             TourCategoryId = 2
@@ -1011,7 +1011,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Phan Thiết - Mũi Né - Lâu Đài Rượu Vang",
-                            Price = 2739000.0,
+                            Price = 2739000L,
                             Specification = @"Thời gian: 3 ngày 2 đêm Phương tiện: Đi về bằng xean trưng bày nghệ thuật “Làng chài xưa”
  Chụp hình...",
                             Status = 1,
@@ -1024,7 +1024,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Hà Nội - Lào Cai - Sapa - Hạ Long",
-                            Price = 7129000.0,
+                            Price = 7129000L,
                             Specification = @"Thời gian: 5 ngày 4 đêm Phương tiện: Hàng không Vietnam Airlinesn Cát Cát, ngắm toàn bộ cảnh Sapa từ Sân Mây
 ...",
                             Status = 1,
@@ -1037,7 +1037,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Mỹ Tho - Cần Thơ - Cà Mau - Bạc Liêu - Sóc Trăng",
-                            Price = 3879000.0,
+                            Price = 3879000L,
                             Specification = "Thời gian: 4 ngày 3 đêm Phương tiện: Đi về bằng xethức trái cây theo mùa, nghe nhạc tài tử Nam...",
                             Status = 1,
                             TourCategoryId = 2
@@ -1049,7 +1049,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch [mùa nước nổi] Cầu Cao Lãnh - Châu Đốc - Làng Cá Bè  - Rừng Tràm Trà Sư",
-                            Price = 1979000.0,
+                            Price = 1979000L,
                             Specification = @"Thời gian: 2 ngày 1 đêm Phương tiện: Đi về bằng xe Xứ nổi tiếng hiển linh.
  Tham quan Rừng Tràm...",
                             Status = 1,
@@ -1062,7 +1062,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Phan Thiết - Mũi Né - Làng Chài Xưa",
-                            Price = 2379000.0,
+                            Price = 2379000L,
                             Specification = "Thời gian: 3 ngày 2 đêm Phương tiện: Đi về bằng xevàng dưới tác động của gió biển đã tạo nên...",
                             Status = 1,
                             TourCategoryId = 3
@@ -1074,7 +1074,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Hồ Tràm - Trải nghiệm đẳng cấp 5 sao The Grand Ho Tram Strip",
-                            Price = 2379000.0,
+                            Price = 2379000L,
                             Specification = "Thời gian: 2 ngày 1 đêm Phương tiện: Đi về bằng xeụ 5 sao cao cấp tại The Grand Ho Tram Strip...",
                             Status = 1,
                             TourCategoryId = 3
@@ -1086,7 +1086,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Đà Lạt - Thác Datanla - Đồi Chè Cầu Đất -Trang Trại Rau & Hoa - Thác Dambri",
-                            Price = 3079000.0,
+                            Price = 3079000L,
                             Specification = "Thời gian: 4 ngày 3 đêm Phương tiện: Đi về bằng xebri  ngọn thác hùng vĩ tại cao nguyên Bảo Lộc...",
                             Status = 1,
                             TourCategoryId = 3
@@ -1098,7 +1098,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch [Mùa Hoa Tam Giác Mạch] tại Hà Giang - Đồng Văn - Cao Bằng - Thác Bản Giốc - Pác Pó - Ba Bể",
-                            Price = 9079000.0,
+                            Price = 9079000L,
                             Specification = "Thời gian: 6 ngày 5 đêm Phương tiện: Hàng không Vietnam Airlines Đồng Văn  Công viên địa chất toàn cầu....",
                             Status = 1,
                             TourCategoryId = 3
@@ -1110,7 +1110,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Phú Quốc [Suối Tranh - Tặng Vé Cáp Treo Vượt Biển & Công Viên Nước  Hòn Thơm]",
-                            Price = 3879000.0,
+                            Price = 3879000L,
                             Specification = "Thời gian: 3 ngày 2 đêm Phương tiện: Hàng không Vietnam Airlinesnh  quý khách có thể đi dạo trong rừng, thư...",
                             Status = 1,
                             TourCategoryId = 4
@@ -1122,7 +1122,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Đà Lạt - Hồ Tuyền Lâm - Đường Hầm Điêu Khắc",
-                            Price = 2379000.0,
+                            Price = 2379000L,
                             Specification = "Thời gian: 3 ngày 2 đêm Phương tiện: Đi về bằng xem điêu khắc đất đỏ (Đà Lạt Star)  tái hiện...",
                             Status = 1,
                             TourCategoryId = 4
@@ -1134,7 +1134,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Bảo Lộc - Hồ Tà Đùng - Đắk Nông - Khu Bảo Tồn Thiên Nhiên Nậm Nung",
-                            Price = 2679000.0,
+                            Price = 2679000L,
                             Specification = @"Thời gian: 3 ngày 2 đêm Phương tiện: Đi về bằng xesản xuất trà và đồi chè Tâm Châu.
  Dừng...",
                             Status = 1,
@@ -1147,7 +1147,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Tây Ninh - Tòa Thánh Tây Ninh - Núi Bà Đen - Hồ Dầu Tiếng",
-                            Price = 1879000.0,
+                            Price = 1879000L,
                             Specification = "Thời gian: 2 ngày 1 đêm Phương tiện: Đi về bằng xeĐen ngon núi cao nhất Đông Nam Bộ&nbsp; chỉ mất...",
                             Status = 1,
                             TourCategoryId = 4
@@ -1159,7 +1159,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch [Mùa nước nổi] Cao Lãnh - Tràm Chim Tam Nông - Khu Du Lịch Đồng Sen",
-                            Price = 1779000.0,
+                            Price = 1779000L,
                             Specification = "Thời gian: 2 ngày 1 đêm Viếng Khu Di tích Cụ Nguyễn Sinh Sắc (nhà sàn Bác Hồ, khu Lăng...",
                             Status = 1,
                             TourCategoryId = 4

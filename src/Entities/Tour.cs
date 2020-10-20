@@ -10,7 +10,7 @@ namespace src.Entities
         public string Name { get; set; }
         public string Specification { get; set; }
         public int TourCategoryId { get; set; }
-        public double Price { get; set; }
+        public long Price { get; set; }
         public TourStatusEnum Status { get; set; }
 
         public TourCategory TourCategory { get; set; }
