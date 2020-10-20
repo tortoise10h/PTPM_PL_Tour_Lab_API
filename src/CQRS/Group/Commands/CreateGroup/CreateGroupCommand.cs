@@ -1,7 +1,10 @@
 using System;
+using System.Linq;
+using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using LanguageExt;
 using LanguageExt.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -16,7 +19,6 @@ namespace src.CQRS.Group.Commands.CreateGroup
     {
         public int TourId { get; set; }
         public string Name { get; set; }
-        public long Price { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
     }
@@ -62,6 +64,14 @@ namespace src.CQRS.Group.Commands.CreateGroup
                         new ApiError("This name already exists, please try another name"))
                 );
             }
+
+            /** Get price from tour to group */
+            var tourPrice = await _context.TourPrice
+                .Where(tp => request.StartDate >= tp.StartDate &&
+                    request.StartDate <= tp.EndDate &&
+                    tp.IsDeleted == false)
+                .FirstOrDefaultAsync();
+            newGroup.Price = tourPrice != null ? tourPrice.Price : tour.Price;
 
             await _context.Group.AddAsync(newGroup);
             var created = await _context.SaveChangesAsync();

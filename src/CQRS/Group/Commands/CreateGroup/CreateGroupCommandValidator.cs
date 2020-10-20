@@ -22,10 +22,6 @@ namespace src.CQRS.Group.Commands.CreateGroup
             RuleFor(x => x.EndDate)
                 .NotNull()
                 .GreaterThan(x => x.StartDate);
-
-            RuleFor(x => x.Price)
-                .NotNull()
-                .GreaterThan(0);
         }
     }
 }
