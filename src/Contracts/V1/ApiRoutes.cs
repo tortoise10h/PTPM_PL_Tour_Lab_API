@@ -40,7 +40,7 @@ namespace src.Contracts.V1
         {
             public const string Create = Base + "/tourDetail";
             public const string GetAll = Base + "/tourDetail";
-            public const string Update = Base + "/tourDetail/{tourDetailId}";
+            public const string Update = Base + "/tourDetail";
             public const string GetById = Base + "/tourDetail/{tourDetailId}";
             public const string Delete = Base + "/tourDetail";
         }
