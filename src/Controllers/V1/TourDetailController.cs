@@ -11,6 +11,7 @@ using src.Contracts.V1.ResponseModels;
 using src.Contracts.V1.ResponseModels.TourDetail;
 using src.CQRS.TourDetail.Commands.CreateTourDetail;
 using src.CQRS.TourDetail.Commands.DeleteTourDetail;
+using src.CQRS.TourDetail.Commands.UpdateTourDetail;
 
 namespace src.Controllers.V1
 {
@@ -38,6 +39,22 @@ namespace src.Controllers.V1
                     new Response<List<TourDetailResponse>>(
                         tourDetailResponse
                     )),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
+
+        [HttpPut(ApiRoutes.TourDetail.Update)]
+        public async Task<IActionResult> Update(
+            [FromBody] UpdateTourDetailCommand command
+        )
+        {
+            var result = await _mediator.Send(command);
+
+            return result.Match<IActionResult>(
+                tourDetailResponse => NoContent(),
                 exp =>
                 {
                     throw exp;
