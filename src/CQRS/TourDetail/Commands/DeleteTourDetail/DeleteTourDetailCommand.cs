@@ -74,7 +74,9 @@ namespace src.CQRS.TourDetail.Commands.DeleteTourDetail
                 .ToListAsync();
 
             //** Query all tour details after deleted to sort **/
-            var filteredTourDetails = allTourDetails.Except(rejectTourDetails);
+            var filteredTourDetails = allTourDetails
+                .Except(rejectTourDetails)
+                .OrderBy(td => td.Index);
 
             int index = 1;
             foreach (var tourDetail in filteredTourDetails)
