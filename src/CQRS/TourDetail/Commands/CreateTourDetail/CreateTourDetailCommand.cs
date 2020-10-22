@@ -73,7 +73,7 @@ namespace src.CQRS.TourDetail.Commands.CreateTourDetail
                 )
                 .FirstOrDefaultAsync();
 
-            index = lastRecord.Index == 0 ? 1 : lastRecord.Index + 1;
+            index = (lastRecord == null) ? 1 : lastRecord.Index + 1;
 
             foreach (var touristAttractionId in request.TouristAttractionIds)
             {
