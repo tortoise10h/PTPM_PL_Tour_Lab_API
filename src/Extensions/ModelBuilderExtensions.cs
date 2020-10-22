@@ -866,288 +866,336 @@ namespace src.Extensions
                         Id = 1,
                         TourId = tourId1,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 2,
                         TourId = tourId1,
                         TouristAttractionId = touristAttractionId2,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 3,
                         TourId = tourId1,
                         TouristAttractionId = touristAttractionId3,
+                        Index = 3
                     },
                     new TourDetail
                     {
                         Id = 4,
                         TourId = tourId1,
-                        TouristAttractionId = touristAttractionId4
+                        TouristAttractionId = touristAttractionId4,
+                        Index = 4
                     },
                     new TourDetail
                     {
                         Id = 5,
                         TourId = tourId2,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 6,
                         TourId = tourId2,
                         TouristAttractionId = touristAttractionId5,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 7,
                         TourId = tourId2,
-                        TouristAttractionId = touristAttractionId6
+                        TouristAttractionId = touristAttractionId6,
+                        Index = 3
                     },
                     new TourDetail
                     {
                         Id = 8,
                         TourId = tourId3,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 9,
                         TourId = tourId3,
-                        TouristAttractionId = touristAttractionId7
+                        TouristAttractionId = touristAttractionId7,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 10,
                         TourId = tourId4,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 11,
                         TourId = tourId4,
-                        TouristAttractionId = touristAttractionId8
+                        TouristAttractionId = touristAttractionId8,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 12,
                         TourId = tourId5,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 13,
                         TourId = tourId5,
-                        TouristAttractionId = touristAttractionId6
+                        TouristAttractionId = touristAttractionId6,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 14,
                         TourId = tourId6,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 15,
                         TourId = tourId6,
-                        TouristAttractionId = touristAttractionId5
+                        TouristAttractionId = touristAttractionId5,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 16,
                         TourId = tourId7,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 17,
                         TourId = tourId7,
                         TouristAttractionId = touristAttractionId9,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 18,
                         TourId = tourId7,
-                        TouristAttractionId = touristAttractionId10
+                        TouristAttractionId = touristAttractionId10,
+                        Index = 3
                     },
                     new TourDetail
                     {
                         Id = 19,
                         TourId = tourId8,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 20,
                         TourId = tourId8,
-                        TouristAttractionId = touristAttractionId11
+                        TouristAttractionId = touristAttractionId11,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 21,
                         TourId = tourId9,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 22,
                         TourId = tourId9,
                         TouristAttractionId = touristAttractionId2,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 23,
                         TourId = tourId9,
                         TouristAttractionId = touristAttractionId12,
+                        Index = 3
                     },
                     new TourDetail
                     {
                         Id = 24,
                         TourId = tourId9,
-                        TouristAttractionId = touristAttractionId3
+                        TouristAttractionId = touristAttractionId3,
+                        Index = 4
                     },
                     new TourDetail
                     {
                         Id = 25,
                         TourId = tourId10,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 26,
                         TourId = tourId10,
                         TouristAttractionId = touristAttractionId9,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 27,
                         TourId = tourId10,
                         TouristAttractionId = touristAttractionId10,
+                        Index = 3
                     },
                     new TourDetail
                     {
                         Id = 28,
                         TourId = tourId11,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 29,
                         TourId = tourId11,
                         TouristAttractionId = touristAttractionId9,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 30,
                         TourId = tourId11,
-                        TouristAttractionId = touristAttractionId10
+                        TouristAttractionId = touristAttractionId10,
+                        Index = 3
                     },
                     new TourDetail
                     {
                         Id = 31,
                         TourId = tourId12,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 32,
                         TourId = tourId12,
-                        TouristAttractionId = touristAttractionId11
+                        TouristAttractionId = touristAttractionId11,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 33,
                         TourId = tourId13,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 34,
                         TourId = tourId13,
-                        TouristAttractionId = touristAttractionId13
+                        TouristAttractionId = touristAttractionId13,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 35,
                         TourId = tourId14,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 36,
                         TourId = tourId14,
-                        TouristAttractionId = touristAttractionId5
+                        TouristAttractionId = touristAttractionId5,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 37,
                         TourId = tourId15,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 38,
                         TourId = tourId15,
-                        TouristAttractionId = touristAttractionId8
+                        TouristAttractionId = touristAttractionId8,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 39,
                         TourId = tourId16,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 40,
                         TourId = tourId16,
-                        TouristAttractionId = touristAttractionId14
+                        TouristAttractionId = touristAttractionId14,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 41,
                         TourId = tourId17,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 42,
                         TourId = tourId17,
-                        TouristAttractionId = touristAttractionId5
+                        TouristAttractionId = touristAttractionId5,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 43,
                         TourId = tourId18,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 44,
                         TourId = tourId18,
-                        TouristAttractionId = touristAttractionId15
+                        TouristAttractionId = touristAttractionId15,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 45,
                         TourId = tourId19,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 46,
                         TourId = tourId19,
-                        TouristAttractionId = touristAttractionId16
+                        TouristAttractionId = touristAttractionId16,
+                        Index = 2
                     },
                     new TourDetail
                     {
                         Id = 47,
                         TourId = tourId20,
                         TouristAttractionId = touristAttractionId1,
+                        Index = 1
                     },
                     new TourDetail
                     {
                         Id = 48,
                         TourId = tourId20,
-                        TouristAttractionId = touristAttractionId9
+                        TouristAttractionId = touristAttractionId9,
+                        Index = 2
                     }
                 );
         }
