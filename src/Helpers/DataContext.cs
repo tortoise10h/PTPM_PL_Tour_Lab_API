@@ -21,6 +21,10 @@ namespace src.Helpers
         public DbSet<TourDetail> TourDetail { get; set; }
         public DbSet<Group> Group { get; set; }
         public DbSet<GroupDetail> GroupDetail { get; set; }
+        public DbSet<GroupRole> GroupRole { get; set; }
+        public DbSet<GroupCost> GroupCost { get; set; }
+        public DbSet<StaffGroupRole> StaffGroupRole { get; set; }
+
 
         protected readonly IConfiguration Configuration;
         private readonly IHttpContextAccessor _httpContextAccessor;

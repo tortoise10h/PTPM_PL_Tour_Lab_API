@@ -2,6 +2,7 @@ using AutoMapper;
 using src.Contracts.V1.ResponseModels.CostType;
 using src.Contracts.V1.ResponseModels.Group;
 using src.Contracts.V1.ResponseModels.GroupDetail;
+using src.Contracts.V1.ResponseModels.GroupRole;
 using src.Contracts.V1.ResponseModels.Tour;
 using src.Contracts.V1.ResponseModels.TourCategory;
 using src.Contracts.V1.ResponseModels.TourDetail;
@@ -25,6 +26,7 @@ namespace src.MapperProfiles
             CreateMap<TourPrice, TourPriceResponse>();
             CreateMap<Group, GroupResponse>();
             CreateMap<GroupDetail, GroupDetailResponse>();
+            CreateMap<GroupRole, GroupRoleResponse>();
         }
     }
 }

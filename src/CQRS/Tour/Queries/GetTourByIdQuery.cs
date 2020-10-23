@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -42,6 +43,8 @@ namespace src.CQRS.Tour.Queries
                 .SingleOrDefaultAsync(
                     t => t.Id == request.Id &&
                     t.IsDeleted != true);
+
+            tour.TourDetails = tour.TourDetails.OrderBy(td => td.Index).ToList();
 
             if (tour == null)
             {

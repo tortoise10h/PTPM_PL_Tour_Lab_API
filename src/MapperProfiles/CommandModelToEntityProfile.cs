@@ -12,6 +12,8 @@ using src.CQRS.Group.Commands.CreateGroup;
 using src.CQRS.Group.Commands.UpdateGroup;
 using src.CQRS.GroupDetail.Commands.CreateGroupDetail;
 using src.CQRS.GroupDetail.Commands.UpdateGroupDetail;
+using src.CQRS.GroupRole.Commands.UpdateGroupRole;
+using src.CQRS.GroupRole.Commands.CreateGroupRole;
 
 namespace src.MapperProfiles
 {
@@ -39,6 +41,9 @@ namespace src.MapperProfiles
 
             CreateMap<CreateGroupDetailCommand, GroupDetail>();
             CreateMap<UpdateGroupDetailCommand, GroupDetail>();
+
+            CreateMap<CreateGroupRoleCommand, GroupRole>();
+            CreateMap<UpdateGroupRoleCommand, GroupRole>();
         }
     }
 }

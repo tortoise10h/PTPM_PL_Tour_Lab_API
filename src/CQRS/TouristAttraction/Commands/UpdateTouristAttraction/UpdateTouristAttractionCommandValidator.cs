@@ -8,6 +8,7 @@ namespace src.CQRS.TouristAttraction.Commands.UpdateTouristAttraction
         {
             RuleFor(x => x.Name)
                 .NotEmpty();
+
             RuleFor(x => x.Description)
                 .NotEmpty();
         }

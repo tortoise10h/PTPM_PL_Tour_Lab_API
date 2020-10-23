@@ -43,6 +43,18 @@ namespace src.CQRS.TourCategory.Commands.DeleteTourCategory
                 );
             }
 
+            var tourCategoryInTour = await _context.Tours.FirstOrDefaultAsync(
+                t => t.TourCategoryId == request.Id &&
+                t.IsDeleted == false
+            );
+
+            if (tourCategoryInTour != null)
+            {
+                return new Result<TourCategoryResponse>(
+                    new BadRequestException(new ApiError("Can not delete TourCategory because some exist in Tour"))
+                );
+            }
+
             tourCategory.IsDeleted = true;
             _context.TourCategories.Update(tourCategory);
 
@@ -54,8 +66,9 @@ namespace src.CQRS.TourCategory.Commands.DeleteTourCategory
                     _mapper.Map<TourCategoryResponse>(tourCategory)
                 );
             }
+
             return new Result<TourCategoryResponse>(
-                new BadRequestException(new ApiError("Delete failed, please try again"))
+                new BadRequestException(new ApiError("Delete TourCategory failed, please try again"))
             );
         }
     }
