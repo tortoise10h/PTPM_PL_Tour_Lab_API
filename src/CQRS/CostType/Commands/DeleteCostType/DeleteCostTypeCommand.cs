@@ -46,6 +46,17 @@ namespace src.CQRS.CostType.Commands.DeleteCostType
                 );
             }
 
+            var costTypeInGroupCost = await _context.GroupCost.FirstOrDefaultAsync(
+                gc => gc.CostTypeId == request.Id
+            );
+
+            if (costTypeInGroupCost != null)
+            {
+                return new Result<CostTypeResponse>(
+                    new BadRequestException(new ApiError("Can not delete CostType because some exist in GroupCost"))
+                );
+            }
+
             costType.IsDeleted = true;
             _context.CostType.Update(costType);
             var deleted = await _context.SaveChangesAsync();

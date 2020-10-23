@@ -46,6 +46,28 @@ namespace src.CQRS.Group.Commands.DeleteGroup
                 );
             }
 
+            var groupInGroupDetail = await _context.GroupDetail.FirstOrDefaultAsync(
+                gd => gd.GroupId == request.Id
+            );
+
+            var groupInGroupCost = await _context.GroupCost.FirstOrDefaultAsync(
+                gc => gc.GroupId == request.Id
+            );
+
+            if (groupInGroupDetail != null)
+            {
+                return new Result<GroupResponse>(
+                    new BadRequestException(new ApiError("Can not delete Group because some exist in GroupDetail"))
+                );
+            }
+
+            if (groupInGroupCost != null)
+            {
+                return new Result<GroupResponse>(
+                    new BadRequestException(new ApiError("Can not delete Group because some exist in GroupCost"))
+                );
+            }
+
             group.IsDeleted = true;
             _context.Group.Update(group);
             var deleted = await _context.SaveChangesAsync();
@@ -58,7 +80,7 @@ namespace src.CQRS.Group.Commands.DeleteGroup
             }
 
             return new Result<GroupResponse>(
-                new BadRequestException(new ApiError("Delete group failed, please try again"))
+                new BadRequestException(new ApiError("Delete Group failed, please try again"))
             );
         }
     }

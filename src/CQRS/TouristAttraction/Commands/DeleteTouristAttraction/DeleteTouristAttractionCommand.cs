@@ -44,6 +44,17 @@ namespace src.CQRS.TouristAttraction.Commands.DeleteTouristAttraction
                 );
             }
 
+            var touristAttractionInTourDetail = await _context.TourDetail.FirstOrDefaultAsync(
+                td => td.TouristAttractionId == request.Id
+            );
+
+            if (touristAttractionInTourDetail != null)
+            {
+                return new Result<TouristAttractionResponse>(
+                    new BadRequestException(new ApiError("Can not delete TouristAttraction because some exist in TourDetail"))
+                );
+            }
+
             touristAttraction.IsDeleted = true;
             _context.TouristAttraction.Update(touristAttraction);
 
@@ -57,7 +68,7 @@ namespace src.CQRS.TouristAttraction.Commands.DeleteTouristAttraction
             }
 
             return new Result<TouristAttractionResponse>(
-                new BadRequestException(new ApiError("Delete tourist attraction failed, pleas try again"))
+                new BadRequestException(new ApiError("Delete TouristAttraction failed, please try again"))
             );
         }
     }
