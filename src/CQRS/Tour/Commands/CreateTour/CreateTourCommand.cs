@@ -46,7 +46,7 @@ namespace src.CQRS.Tour.Commands.CreateTour
             {
                 return new Result<TourResponse>(
                     new BadRequestException(
-                        new ApiError("tour category is not existed (tourCategoryId)"))
+                        new ApiError("Tour Category does not exist"))
                 );
             }
 
@@ -60,7 +60,7 @@ namespace src.CQRS.Tour.Commands.CreateTour
             }
 
             return new Result<TourResponse>(
-                new BadRequestException(new ApiError("Create tour failed, please try again"))
+                new BadRequestException(new ApiError("Create Tour failed, please try again"))
             );
         }
     }

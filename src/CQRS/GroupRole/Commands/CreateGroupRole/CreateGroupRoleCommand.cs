@@ -41,7 +41,7 @@ namespace src.CQRS.GroupRole.Commands.CreateGroupRole
             }
 
             return new Result<GroupRoleResponse>(
-                new BadRequestException(new ApiError("Create group role failed, please try again"))
+                new BadRequestException(new ApiError("Create Group Role failed, please try again"))
             );
         }
     }

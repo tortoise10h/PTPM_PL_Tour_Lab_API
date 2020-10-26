@@ -51,7 +51,7 @@ namespace src.CQRS.Group.Commands.UpdateGroup
             if (group.Status == GroupStatusEnum.Done || group.Status == GroupStatusEnum.Canceled)
             {
                 return new Result<GroupResponse>(
-                    new BadRequestException(new ApiError("This group has been done or canceled"))
+                    new BadRequestException(new ApiError("This Group has been done or canceled"))
                 );
             }
 
@@ -67,7 +67,7 @@ namespace src.CQRS.Group.Commands.UpdateGroup
             }
 
             return new Result<GroupResponse>(
-                new BadRequestException(new ApiError("Update group failed, please try again"))
+                new BadRequestException(new ApiError("Update Group failed, please try again"))
             );
         }
     }

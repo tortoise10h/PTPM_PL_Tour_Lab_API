@@ -54,17 +54,28 @@ namespace src.CQRS.Group.Commands.DeleteGroup
                 gc => gc.GroupId == request.Id
             );
 
+            var groupInStaffGroupRole = await _context.StaffGroupRole.FirstOrDefaultAsync(
+                sgr => sgr.GroupId == request.Id
+            );
+
             if (groupInGroupDetail != null)
             {
                 return new Result<GroupResponse>(
-                    new BadRequestException(new ApiError("Can not delete Group because some exist in GroupDetail"))
+                    new BadRequestException(new ApiError("Can't delete this Group because it is already in use in Group Detail"))
                 );
             }
 
             if (groupInGroupCost != null)
             {
                 return new Result<GroupResponse>(
-                    new BadRequestException(new ApiError("Can not delete Group because some exist in GroupCost"))
+                    new BadRequestException(new ApiError("Can't delete this Group because it is already in use in Group Cost"))
+                );
+            }
+
+            if (groupInStaffGroupRole != null)
+            {
+                return new Result<GroupResponse>(
+                    new BadRequestException(new ApiError("Can't delete this Group because it is already in use in Staff Group Role"))
                 );
             }
 

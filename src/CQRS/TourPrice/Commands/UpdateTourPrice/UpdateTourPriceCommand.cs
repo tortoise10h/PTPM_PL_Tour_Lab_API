@@ -92,7 +92,7 @@ namespace src.CQRS.TourPrice.Commands.CreateTourPrice
             }
 
             return new Result<TourPriceResponse>(
-                new BadRequestException(new ApiError("Update tourist attraction failed, please try again"))
+                new BadRequestException(new ApiError("Update Tour Price failed, please try again"))
             );
         }
     }

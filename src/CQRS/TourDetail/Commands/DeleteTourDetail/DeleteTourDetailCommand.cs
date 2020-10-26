@@ -54,7 +54,7 @@ namespace src.CQRS.TourDetail.Commands.DeleteTourDetail
             {
                 return new Result<List<TourDetailResponse>>(
                     new BadRequestException(
-                        new ApiError("Some TouristAttraction does not exist, please try again")
+                        new ApiError("Some Tourist Attraction does not exist, please try again")
                     )
                 );
             }
@@ -98,7 +98,7 @@ namespace src.CQRS.TourDetail.Commands.DeleteTourDetail
             }
 
             return new Result<List<TourDetailResponse>>(
-                new BadRequestException(new ApiError("Delete TouristAttraction in TourDetail failed, pleas try again"))
+                new BadRequestException(new ApiError("Delete Tourist Attraction failed, pleas try again"))
             );
         }
     }

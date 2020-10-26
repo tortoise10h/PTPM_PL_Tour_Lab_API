@@ -49,7 +49,7 @@ namespace src.CQRS.TourPrice.Commands.CreateTourPrice
             {
                 return new Result<TourPriceResponse>(
                     new BadRequestException(
-                        new ApiError("tour is not existed (tourId)"))
+                        new ApiError("Tour does not exist"))
                 );
             }
 
@@ -75,7 +75,7 @@ namespace src.CQRS.TourPrice.Commands.CreateTourPrice
 
             return new Result<TourPriceResponse>(
                 new BadRequestException(
-                    new ApiError("Create tour price failed, please try again"))
+                    new ApiError("Create Tour Price failed, please try again"))
             );
         }
     }
