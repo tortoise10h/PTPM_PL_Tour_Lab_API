@@ -69,6 +69,7 @@ namespace src.CQRS.Group.Commands.CreateGroup
             var tourPrice = await _context.TourPrice
                 .Where(tp => request.StartDate >= tp.StartDate &&
                     request.StartDate <= tp.EndDate &&
+                    tp.TourId == newGroup.TourId &&
                     tp.IsDeleted == false)
                 .FirstOrDefaultAsync();
 
