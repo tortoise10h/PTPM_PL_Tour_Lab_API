@@ -68,7 +68,7 @@ namespace src.Controllers.V1
         [HttpDelete(ApiRoutes.GroupDetail.Delete)]
         public async Task<IActionResult> Delete(
            [FromRoute] int groupDetailId
-       )
+        )
         {
             var deleteGroupDetail = new DeleteGroupDetailCommand(groupDetailId);
             var result = await _mediator.Send(deleteGroupDetail);

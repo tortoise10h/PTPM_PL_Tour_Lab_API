@@ -47,12 +47,12 @@ namespace src.CQRS.TourDetail.Commands.UpdateTourDetail
                 );
             }
 
-            //** Query all tour details **/
-            var allTourDetails = await _context.TourDetail
+            //** Query all tourist attractions by tour id **/
+            var allTouristAttractionsByTourId = await _context.TourDetail
                 .Where(td => td.TourId == request.TourId)
                 .ToListAsync();
 
-            if (allTourDetails.Count() != request.TourDetails.Count())
+            if (allTouristAttractionsByTourId.Count() != request.TourDetails.Count())
             {
                 return new Result<List<TourDetailResponse>>(
                     new BadRequestException(
@@ -62,32 +62,14 @@ namespace src.CQRS.TourDetail.Commands.UpdateTourDetail
             }
 
             var touristAttractionIds = request.TourDetails
-                .Select(td => td.TouristAttractionId)
-                .ToList();
-
-            /** Make sure all tourist attractions are existed **/
-            var isTouristAttractionIdsExist = await _tourDetailService
-                .ValidateExistTourAttractionIds(touristAttractionIds);
-
-            if (!isTouristAttractionIdsExist)
-            {
-                return new Result<List<TourDetailResponse>>(
-                    new BadRequestException(
-                        new ApiError("Some Tourist Attraction does not exist, please try again")
-                    )
-                );
-            }
-
-            //** Check index **/
-            var indexs = request.TourDetails
-                .Select(td => td.Index)
+                .Select(td => td.Id)
                 .ToList();
 
             var updateTourDetails = await _context.TourDetail
-               .Where(
+                .Where(
                    td => td.TourId == request.TourId &&
-                   touristAttractionIds.Contains(td.TouristAttractionId))
-               .ToListAsync();
+                   touristAttractionIds.Contains(td.Id))
+                .ToListAsync();
 
             if (updateTourDetails.Count() != touristAttractionIds.Count())
             {
@@ -98,11 +80,31 @@ namespace src.CQRS.TourDetail.Commands.UpdateTourDetail
                 );
             }
 
-            int x = 0;
+            //** Check index is begin at 1 and asscending **//
+            var indexs = request.TourDetails
+                .OrderBy(td => td.Index)
+                .Select(td => td.Index)
+                .ToList();
+
+            int x = 1;
+            foreach (var index in indexs)
+            {
+                if (index != x)
+                {
+                    return new Result<List<TourDetailResponse>>(
+                        new BadRequestException(new ApiError("An Index must begin at 1 and is ascending"))
+                    );
+                }
+                x++;
+            }
+
             foreach (var tourDetail in updateTourDetails)
             {
-                tourDetail.Index = indexs[x];
-                x++;
+                var update = request.TourDetails
+                    .Where(x => x.Id == tourDetail.Id)
+                    .FirstOrDefault();
+
+                tourDetail.Index = update.Index;
             }
 
             _context.UpdateRange(updateTourDetails);

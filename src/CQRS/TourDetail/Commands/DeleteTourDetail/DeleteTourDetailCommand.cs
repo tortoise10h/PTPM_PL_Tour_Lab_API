@@ -17,7 +17,7 @@ namespace src.CQRS.TourDetail.Commands.DeleteTourDetail
     public class DeleteTourDetailCommand : IRequest<Result<List<TourDetailResponse>>>
     {
         public int TourId { get; set; }
-        public List<int> TouristAttractionIds { get; set; }
+        public List<int> Ids { get; set; }
     }
 
     public class DeleteTourDetailHandler : IRequestHandler<DeleteTourDetailCommand, Result<List<TourDetailResponse>>>
@@ -46,34 +46,30 @@ namespace src.CQRS.TourDetail.Commands.DeleteTourDetail
                 );
             }
 
-            /** Make sure all tourist attractions are existed */
-            var isTouristAttractionIdsExist = await _tourDetailService
-                .ValidateExistTourAttractionIds(request.TouristAttractionIds);
+            var touristAttractionIds = request.Ids.ToList();
 
-            if (!isTouristAttractionIdsExist)
+            //** Query tourist attractions by tour id to delete **/
+            var rejectTourDetails = await _context.TourDetail
+                .Where(
+                    td => td.TourId == request.TourId &&
+                    touristAttractionIds.Contains(td.Id))
+                .ToListAsync();
+
+            if (rejectTourDetails.Count() != touristAttractionIds.Count())
             {
                 return new Result<List<TourDetailResponse>>(
                     new BadRequestException(
-                        new ApiError("Some Tourist Attraction does not exist, please try again")
+                        new ApiError("Some Tourist Attraction does not exist in Tour, please try again")
                     )
                 );
             }
 
-            var touristAttractionIds = request.TouristAttractionIds.ToList();
-
-            //** Query tour details to delete **/
-            var rejectTourDetails = await _context.TourDetail
-                .Where(
-                    td => td.TourId == request.TourId &&
-                    touristAttractionIds.Contains(td.TouristAttractionId))
-                .ToListAsync();
-
-            //** Query all tour details **/
+            //** Query all tourist attractions by tour id **/
             var allTourDetails = await _context.TourDetail
                 .Where(td => td.TourId == request.TourId)
                 .ToListAsync();
 
-            //** Query all tour details after deleted to sort **/
+            //** Query all tourist attractions after deleted to sort **/
             var filteredTourDetails = allTourDetails
                 .Except(rejectTourDetails)
                 .OrderBy(td => td.Index);
@@ -98,7 +94,7 @@ namespace src.CQRS.TourDetail.Commands.DeleteTourDetail
             }
 
             return new Result<List<TourDetailResponse>>(
-                new BadRequestException(new ApiError("Delete Tourist Attraction failed, pleas try again"))
+                new BadRequestException(new ApiError("Delete Tourist Attraction failed, please try again"))
             );
         }
     }
