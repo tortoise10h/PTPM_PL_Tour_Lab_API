@@ -5,6 +5,7 @@ namespace src.Contracts.V1.ResponseModels.TourDetail
 {
     public class TourDetailResponse
     {
+        public int Id { get; set; }
         public int TourId { get; set; }
         public TouristAttractionResponse TouristAttraction { get; set; }
         public int Index { get; set; }

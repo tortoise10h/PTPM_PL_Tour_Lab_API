@@ -98,5 +98,19 @@ namespace src.Contracts.V1
             public const string GetById = Base + "/groupRoles/{groupRoleId}";
             public const string Delete = Base + "/groupRoles/{groupRoleId}";
         }
+
+        public static class User
+        {
+            public const string GetAll = Base + "/users/customers";
+        }
+
+        public static class GroupCost
+        {
+            public const string Create = Base + "/groupCosts";
+            public const string GetAll = Base + "/groupCosts";
+            public const string Update = Base + "/groupCosts/{groupCostId}";
+            public const string GetById = Base + "/groupCosts/{groupCostId}";
+            public const string Delete = Base + "/groupCosts/{groupCostId}";
+        }
     }
 }

@@ -118,6 +118,7 @@ namespace src.Extensions
             string adminRoleId = Guid.NewGuid().ToString();
             string superAdminRoleId = Guid.NewGuid().ToString();
             string customerRoleId = Guid.NewGuid().ToString();
+            string staffRoleId = Guid.NewGuid().ToString();
 
             string adminId = Guid.NewGuid().ToString();
             string superAdminId = Guid.NewGuid().ToString();
@@ -156,6 +157,12 @@ namespace src.Extensions
                         Id = customerRoleId,
                         Name = "Customer",
                         NormalizedName = "customer"
+                    },
+                    new IdentityRole
+                    {
+                        Id = staffRoleId,
+                        Name = "Staff",
+                        NormalizedName = "staff"
                     }
                 );
 

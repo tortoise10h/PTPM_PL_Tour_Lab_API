@@ -55,7 +55,7 @@ namespace src.CQRS.GroupDetail.Commands.DeleteGroupDetail
             {
                 return new Result<GroupDetailResponse>(
                     new BadRequestException(
-                        new ApiError("Can't add or remove Customer when Group Status is not New")
+                        new ApiError("Can't delete Customer when Group Status is not New")
                     )
                 );
             }

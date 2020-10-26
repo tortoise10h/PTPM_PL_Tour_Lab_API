@@ -6,7 +6,7 @@ namespace src.CQRS.TourDetail.Commands.DeleteTourDetail
     {
         public DeleteTourDetailCommandValidator()
         {
-            RuleForEach(x => x.TouristAttractionIds)
+            RuleForEach(x => x.Ids)
                .NotEmpty();
 
             RuleFor(x => x.TourId)

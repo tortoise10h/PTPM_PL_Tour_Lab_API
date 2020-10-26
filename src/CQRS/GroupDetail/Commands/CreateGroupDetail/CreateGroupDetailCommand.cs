@@ -53,7 +53,7 @@ namespace src.CQRS.GroupDetail.Commands.CreateGroupDetail
             {
                 return new Result<List<GroupDetailResponse>>(
                     new BadRequestException(
-                        new ApiError("Can't add or remove customer when group status is not New")
+                        new ApiError("Can't add Customer when group status is not New")
                     )
                 );
             }
