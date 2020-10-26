@@ -72,30 +72,17 @@ namespace src.Helpers
             bool isAscending
         )
         {
-            var type = typeof(TEntity);
-            var field = type.GetField(sortName);
-            var parameter = Expression.Parameter(type, "p");
-            PropertyInfo property = typeof(TEntity).GetProperty(sortName);
-            if (property == null)
+            if (isAscending)
             {
-                /** If field name is provided by client is not exist 
-                 * then take the default field
-                 */
-                property = typeof(TEntity).GetProperty(PaginationDefault.SortName);
+                queryable = queryable
+                    .OrderBy($"{sortName}");
+            } else
+            {
+                queryable = queryable
+                    .OrderBy($"{sortName} desc");
             }
 
-            Expression propertyAccess = Expression.MakeMemberAccess(parameter, property);
-
-            var orderByExp = Expression.Lambda(propertyAccess, parameter);
-            MethodCallExpression resultExp = Expression.Call(
-                typeof(Queryable),
-                isAscending ? "OrderBy" : "OrderByDescending",
-                new[] { type, property.PropertyType },
-                queryable.Expression,
-                Expression.Quote(orderByExp)
-            );
-
-            return queryable.Provider.CreateQuery<TEntity>(resultExp);
+            return queryable;
         }
         public IQueryable<TEntity> CustomFilterQuery<TEntity>(
             IQueryable<TEntity> queryable,
