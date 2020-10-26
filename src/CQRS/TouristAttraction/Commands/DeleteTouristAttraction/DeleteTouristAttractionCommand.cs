@@ -51,7 +51,7 @@ namespace src.CQRS.TouristAttraction.Commands.DeleteTouristAttraction
             if (touristAttractionInTourDetail != null)
             {
                 return new Result<TouristAttractionResponse>(
-                    new BadRequestException(new ApiError("Can not delete TouristAttraction because some exist in TourDetail"))
+                    new BadRequestException(new ApiError("Can't delete Tourist Attraction because it is already in use in Tour Detail"))
                 );
             }
 
@@ -68,7 +68,7 @@ namespace src.CQRS.TouristAttraction.Commands.DeleteTouristAttraction
             }
 
             return new Result<TouristAttractionResponse>(
-                new BadRequestException(new ApiError("Delete TouristAttraction failed, please try again"))
+                new BadRequestException(new ApiError("Delete Tourist Attraction failed, please try again"))
             );
         }
     }

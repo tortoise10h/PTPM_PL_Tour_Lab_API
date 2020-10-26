@@ -56,7 +56,7 @@ namespace src.CQRS.TourDetail.Commands.UpdateTourDetail
             {
                 return new Result<List<TourDetailResponse>>(
                     new BadRequestException(
-                        new ApiError("You must include all TouristAttraction to update Index")
+                        new ApiError("You must include all Tourist Attraction to update Index")
                     )
                 );
             }
@@ -73,7 +73,7 @@ namespace src.CQRS.TourDetail.Commands.UpdateTourDetail
             {
                 return new Result<List<TourDetailResponse>>(
                     new BadRequestException(
-                        new ApiError("Some TouristAttraction does not exist, please try again")
+                        new ApiError("Some Tourist Attraction does not exist, please try again")
                     )
                 );
             }
@@ -93,7 +93,7 @@ namespace src.CQRS.TourDetail.Commands.UpdateTourDetail
             {
                 return new Result<List<TourDetailResponse>>(
                     new BadRequestException(
-                        new ApiError("Some TouristAttraction does not exist in Tour, please try again")
+                        new ApiError("Some Tourist Attraction does not exist in Tour, please try again")
                     )
                 );
             }
@@ -116,7 +116,7 @@ namespace src.CQRS.TourDetail.Commands.UpdateTourDetail
             }
 
             return new Result<List<TourDetailResponse>>(
-                new BadRequestException(new ApiError("Update tour detail failed, please try again"))
+                new BadRequestException(new ApiError("Update Tour Detail failed, please try again"))
             );
         }
     }

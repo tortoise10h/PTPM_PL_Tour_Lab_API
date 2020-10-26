@@ -55,7 +55,7 @@ namespace src.CQRS.TouristAttraction.Commands.UpdateTouristAttraction
             }
 
             return new Result<TouristAttractionResponse>(
-                new BadRequestException(new ApiError("Update tourist attraction failed, please try again"))
+                new BadRequestException(new ApiError("Update Tourist Attraction failed, please try again"))
             );
         }
     }

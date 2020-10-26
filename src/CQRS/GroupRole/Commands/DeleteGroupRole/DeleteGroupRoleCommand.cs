@@ -53,7 +53,7 @@ namespace src.CQRS.GroupRole.Commands.DeleteGroupRole
             if (groupRoleInStaffGroupRole != null)
             {
                 return new Result<GroupRoleResponse>(
-                    new BadRequestException(new ApiError("Can not delete GroupRole because some exist in StaffGroupRole"))
+                    new BadRequestException(new ApiError("Can not delete this role because it is already in use in Staff Group Role"))
                 );
             }
 
@@ -69,7 +69,7 @@ namespace src.CQRS.GroupRole.Commands.DeleteGroupRole
             }
 
             return new Result<GroupRoleResponse>(
-                new BadRequestException(new ApiError("Delete group role failed, please try again"))
+                new BadRequestException(new ApiError("Delete Group Role failed, please try again"))
             );
         }
     }

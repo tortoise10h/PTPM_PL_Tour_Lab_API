@@ -63,7 +63,7 @@ namespace src.CQRS.Tour.Commands.UpdateTour
                 {
                     return new Result<TourResponse>(
                         new BadRequestException(
-                            new ApiError("New tour category is not existed"))
+                            new ApiError("Tour Category does not exist"))
                     );
                 }
             }
@@ -81,7 +81,7 @@ namespace src.CQRS.Tour.Commands.UpdateTour
 
             return new Result<TourResponse>(
                 new BadRequestException(
-                    new ApiError("Update tour failed, please try again"))
+                    new ApiError("Update Tour failed, please try again"))
             );
         }
     }

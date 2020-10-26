@@ -41,7 +41,7 @@ namespace src.CQRS.CostType.Commands.CreateCostType
             }
 
             return new Result<CostTypeResponse>(
-                new BadRequestException(new ApiError("Create cost type failed, please try again"))
+                new BadRequestException(new ApiError("Create Cost Type failed, please try again"))
             );
         }
     }

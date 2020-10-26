@@ -54,7 +54,7 @@ namespace src.CQRS.GroupRole.Commands.UpdateGroupRole
             }
 
             return new Result<GroupRoleResponse>(
-                new BadRequestException(new ApiError("Update group role failed, please try again"))
+                new BadRequestException(new ApiError("Update Group Role failed, please try again"))
             );
         }
     }

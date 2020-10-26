@@ -47,7 +47,7 @@ namespace src.CQRS.Group.Commands.CreateGroup
             {
                 return new Result<GroupResponse>(
                     new BadRequestException(
-                        new ApiError("Tour is not existed (tourId)"))
+                        new ApiError("Tour does not exist"))
                 );
             }
 
@@ -85,7 +85,7 @@ namespace src.CQRS.Group.Commands.CreateGroup
 
             return new Result<GroupResponse>(
                 new BadRequestException(
-                    new ApiError("Create group failed, please try again"))
+                    new ApiError("Create Group failed, please try again"))
             );
         }
     }

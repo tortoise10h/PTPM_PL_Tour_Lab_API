@@ -68,7 +68,7 @@ namespace src.CQRS.GroupDetail.Commands.CreateGroupDetail
             {
                 return new Result<List<GroupDetailResponse>>(
                     new BadRequestException(
-                        new ApiError("UserId must be unique")
+                        new ApiError("User Id must be unique")
                     )
                 );
             }
@@ -77,7 +77,7 @@ namespace src.CQRS.GroupDetail.Commands.CreateGroupDetail
             {
                 return new Result<List<GroupDetailResponse>>(
                     new BadRequestException(
-                        new ApiError("Some UserId does not exist")
+                        new ApiError("Some User Id does not exist")
                     )
                 );
             }
@@ -105,7 +105,7 @@ namespace src.CQRS.GroupDetail.Commands.CreateGroupDetail
                     {
                         return new Result<List<GroupDetailResponse>>(
                             new BadRequestException(
-                                new ApiError("UserRole must be Customer")
+                                new ApiError("User Role must be Customer")
                             )
                         );
                     }
@@ -136,7 +136,7 @@ namespace src.CQRS.GroupDetail.Commands.CreateGroupDetail
             }
 
             return new Result<List<GroupDetailResponse>>(
-                new BadRequestException(new ApiError("Create GroupDetail failed, please try again"))
+                new BadRequestException(new ApiError("Create Group Detail failed, please try again"))
             );
         }
     }
