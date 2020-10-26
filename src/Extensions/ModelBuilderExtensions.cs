@@ -106,6 +106,10 @@ namespace src.Extensions
             modelBuilder.Entity<Group>()
                 .Property(t => t.Status)
                 .HasDefaultValue(GroupStatusEnum.New);
+
+            /** ApplicationUser */
+            modelBuilder.Entity<ApplicationUser>()
+                .HasKey(au => au.Id);
         }
 
         public static void Seed(this ModelBuilder modelBuilder)
