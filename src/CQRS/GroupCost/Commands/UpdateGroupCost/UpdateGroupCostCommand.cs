@@ -48,7 +48,7 @@ namespace src.CQRS.GroupCost.Commands.UpdateGroupCost
                 g => g.Id == groupCost.GroupId
             );
 
-            if (group.Status != GroupStatusEnum.New || group.Status != GroupStatusEnum.Processing)
+            if (group.Status != GroupStatusEnum.New && group.Status != GroupStatusEnum.Processing)
             {
                 return new Result<GroupCostResponse>(
                     new BadRequestException(

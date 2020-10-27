@@ -137,6 +137,17 @@ namespace src.Extensions
             string customer13Id = Guid.NewGuid().ToString();
             string customer14Id = Guid.NewGuid().ToString();
             string customer15Id = Guid.NewGuid().ToString();
+            string staff1Id = Guid.NewGuid().ToString();
+            string staff2Id = Guid.NewGuid().ToString();
+            string staff3Id = Guid.NewGuid().ToString();
+            string staff4Id = Guid.NewGuid().ToString();
+            string staff5Id = Guid.NewGuid().ToString();
+            string staff6Id = Guid.NewGuid().ToString();
+            string staff7Id = Guid.NewGuid().ToString();
+            string staff8Id = Guid.NewGuid().ToString();
+            string staff9Id = Guid.NewGuid().ToString();
+            string staff10Id = Guid.NewGuid().ToString();
+
 
             modelBuilder.Entity<IdentityRole>()
                 .HasData(
@@ -389,6 +400,136 @@ namespace src.Extensions
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
                         SecurityStamp = string.Empty
+                    },
+                    new ApplicationUser
+                    {
+                        Id = staff1Id,
+                        FirstName = "Trâm",
+                        LastName = "Trương Thị Mai",
+                        UserName = "truongthimaitram@gmail.com",
+                        NormalizedUserName = "truongthimaitram@gmail.com".ToUpper(),
+                        Email = "truongthimaitram@gmail.com",
+                        NormalizedEmail = "truongthimaitram@gmail.com".ToUpper(),
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "12345678"),
+                        SecurityStamp = string.Empty
+                    },
+                    new ApplicationUser
+                    {
+                        Id = staff2Id,
+                        FirstName = "Vinh",
+                        LastName = "Nguyễn Bửu",
+                        UserName = "nguyenbuuvinh@gmail.com",
+                        NormalizedUserName = "nguyenbuuvinh@gmail.com".ToUpper(),
+                        Email = "nguyenbuuvinh@gmail.com",
+                        NormalizedEmail = "nguyenbuuvinh@gmail.com".ToUpper(),
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "12345678"),
+                        SecurityStamp = string.Empty
+                    },
+                    new ApplicationUser
+                    {
+                        Id = staff3Id,
+                        FirstName = "Duy",
+                        LastName = "Lê Quang",
+                        UserName = "lequangduy@gmail.com",
+                        NormalizedUserName = "lequangduy@gmail.com".ToUpper(),
+                        Email = "lequangduy@gmail.com",
+                        NormalizedEmail = "lequangduy@gmail.com".ToUpper(),
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "12345678"),
+                        SecurityStamp = string.Empty
+                    },
+                    new ApplicationUser
+                    {
+                        Id = staff4Id,
+                        FirstName = "Minh",
+                        LastName = "Lưu Bảo",
+                        UserName = "luubaominh@gmail.com",
+                        NormalizedUserName = "luubaominh@gmail.com".ToUpper(),
+                        Email = "luubaominh@gmail.com",
+                        NormalizedEmail = "luubaominh@gmail.com".ToUpper(),
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "12345678"),
+                        SecurityStamp = string.Empty
+                    },
+                    new ApplicationUser
+                    {
+                        Id = staff5Id,
+                        FirstName = "Phong",
+                        LastName = "Đường Hoán",
+                        UserName = "duonghoanphong@gmail.com",
+                        NormalizedUserName = "duonghoanphong@gmail.com".ToUpper(),
+                        Email = "duonghoanphong@gmail.com",
+                        NormalizedEmail = "duonghoanphong@gmail.com".ToUpper(),
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "12345678"),
+                        SecurityStamp = string.Empty
+                    },
+                    new ApplicationUser
+                    {
+                        Id = staff6Id,
+                        FirstName = "Dũng",
+                        LastName = "Chu Việt",
+                        UserName = "chuvietdung@gmail.com",
+                        NormalizedUserName = "chuvietdung@gmail.com".ToUpper(),
+                        Email = "chuvietdung@gmail.com",
+                        NormalizedEmail = "chuvietdung@gmail.com".ToUpper(),
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "12345678"),
+                        SecurityStamp = string.Empty
+                    },
+                    new ApplicationUser
+                    {
+                        Id = staff7Id,
+                        FirstName = "Phương",
+                        LastName = "Bùi Bích",
+                        UserName = "buibichphuong@gmail.com",
+                        NormalizedUserName = "buibichphuong@gmail.com".ToUpper(),
+                        Email = "buibichphuong@gmail.com",
+                        NormalizedEmail = "buibichphuong@gmail.com".ToUpper(),
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "12345678"),
+                        SecurityStamp = string.Empty
+                    },
+                    new ApplicationUser
+                    {
+                        Id = staff8Id,
+                        FirstName = "Ly",
+                        LastName = "Trần Phương",
+                        UserName = "tranphuongly@gmail.com",
+                        NormalizedUserName = "tranphuongly@gmail.com".ToUpper(),
+                        Email = "tranphuongly@gmail.com",
+                        NormalizedEmail = "tranphuongly@gmail.com".ToUpper(),
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "12345678"),
+                        SecurityStamp = string.Empty
+                    },
+                    new ApplicationUser
+                    {
+                        Id = staff9Id,
+                        FirstName = "Linh",
+                        LastName = "Lường Tú",
+                        UserName = "luongtulinh@gmail.com",
+                        NormalizedUserName = "luongtulinh@gmail.com".ToUpper(),
+                        Email = "luongtulinh@gmail.com",
+                        NormalizedEmail = "luongtulinh@gmail.com".ToUpper(),
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "12345678"),
+                        SecurityStamp = string.Empty
+                    },
+                    new ApplicationUser
+                    {
+                        Id = staff10Id,
+                        FirstName = "Xuân",
+                        LastName = "Mã Lệ Phi",
+                        UserName = "malephixuan@gmail.com",
+                        NormalizedUserName = "malephixuan@gmail.com".ToUpper(),
+                        Email = "malephixuan@gmail.com",
+                        NormalizedEmail = "malephixuan@gmail.com".ToUpper(),
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "12345678"),
+                        SecurityStamp = string.Empty
                     }
                 );
 
@@ -478,6 +619,56 @@ namespace src.Extensions
                     {
                         RoleId = customerRoleId,
                         UserId = customer15Id
+                    },
+                    new IdentityUserRole<string>
+                    {
+                        RoleId = staffRoleId,
+                        UserId = staff1Id
+                    },
+                    new IdentityUserRole<string>
+                    {
+                        RoleId = staffRoleId,
+                        UserId = staff2Id
+                    },
+                    new IdentityUserRole<string>
+                    {
+                        RoleId = staffRoleId,
+                        UserId = staff3Id
+                    },
+                    new IdentityUserRole<string>
+                    {
+                        RoleId = staffRoleId,
+                        UserId = staff4Id
+                    },
+                    new IdentityUserRole<string>
+                    {
+                        RoleId = staffRoleId,
+                        UserId = staff5Id
+                    },
+                    new IdentityUserRole<string>
+                    {
+                        RoleId = staffRoleId,
+                        UserId = staff6Id
+                    },
+                    new IdentityUserRole<string>
+                    {
+                        RoleId = staffRoleId,
+                        UserId = staff7Id
+                    },
+                    new IdentityUserRole<string>
+                    {
+                        RoleId = staffRoleId,
+                        UserId = staff8Id
+                    },
+                    new IdentityUserRole<string>
+                    {
+                        RoleId = staffRoleId,
+                        UserId = staff9Id
+                    },
+                    new IdentityUserRole<string>
+                    {
+                        RoleId = staffRoleId,
+                        UserId = staff10Id
                     }
                 );
 

@@ -47,7 +47,7 @@ namespace src.CQRS.GroupCost.Commands.CreateGroupCost
                     )
                 );
             }
-            if (group.Status != GroupStatusEnum.New || group.Status != GroupStatusEnum.Processing)
+            if (group.Status != GroupStatusEnum.New && group.Status != GroupStatusEnum.Processing)
             {
                 return new Result<GroupCostResponse>(
                     new BadRequestException(
