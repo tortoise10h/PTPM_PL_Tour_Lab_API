@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using src.Common.Enums;
+using src.Contracts.V1.ResponseModels.GroupCost;
 using src.Contracts.V1.ResponseModels.GroupDetail;
 using src.Contracts.V1.ResponseModels.Tour;
 
@@ -17,6 +18,7 @@ namespace src.Contracts.V1.ResponseModels.Group
         public GroupStatusEnum Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime LastModifiedAt { get; set; }
+        public ICollection<GroupCostResponse> GroupCosts { get; set; }
         public ICollection<GroupDetailResponse> GroupDetails { get; set; }
     }
 }

@@ -34,6 +34,10 @@ namespace src.CQRS.GroupCost.Queries
         {
             var queryable = _context.GroupCost.AsQueryable();
 
+            queryable = queryable.Include(
+                gc => gc.CostType
+            );
+
             var result = await _paginationHelper.Paginate<E.GroupCost, GroupCostResponse>(
                 queryable, query
             );

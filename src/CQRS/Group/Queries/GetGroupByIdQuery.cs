@@ -37,8 +37,10 @@ namespace src.CQRS.Group.Queries
         public async Task<Result<GroupResponse>> Handle(GetGroupByIdQuery request, CancellationToken cancellationToken)
         {
             var group = await _context.Group
+                .Include(g => g.GroupCosts)
+                    .ThenInclude(gc => gc.CostType)
                 .Include(g => g.GroupDetails)
-                .ThenInclude(gd => gd.ApplicationUser)
+                    .ThenInclude(gd => gd.ApplicationUser)
                 .SingleOrDefaultAsync(
                     g => g.Id == request.Id &&
                     g.IsDeleted == false

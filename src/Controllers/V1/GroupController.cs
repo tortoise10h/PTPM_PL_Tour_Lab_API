@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using src.Contracts.V1;
 using src.Contracts.V1.ResponseModels;
 using src.Contracts.V1.ResponseModels.Group;
+using src.Contracts.V1.ResponseModels.GroupCost;
 using src.CQRS.Group.Commands.CreateGroup;
 using src.CQRS.Group.Commands.DeleteGroup;
 using src.CQRS.Group.Commands.UpdateGroup;
@@ -105,6 +106,27 @@ namespace src.Controllers.V1
                         data
                     )
                 ),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
+
+        [HttpGet(ApiRoutes.Group.GetGroupCostsOfGroup)]
+        public async Task<IActionResult> GetGroupCostsOfGroup
+        (
+            [FromRoute] int groupId,
+            [FromQuery] GetGroupCostsOfGroup query
+        )
+        {
+            query.GroupId = groupId;
+            var result = await _mediator.Send(query);
+
+            return result.Match<IActionResult>(
+                data => Ok(new Response<PagedResponse<GroupCostResponse>>(
+                    data
+                )),
                 exp =>
                 {
                     throw exp;
