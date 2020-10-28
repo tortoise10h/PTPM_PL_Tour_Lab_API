@@ -10,7 +10,7 @@ using src.Helpers;
 namespace src.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201014071216_FirstMigration")]
+    [Migration("20201027163907_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,17 +50,31 @@ namespace src.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "be50c86b-5bfe-409b-84e4-d4667813bbc1",
-                            ConcurrencyStamp = "3026e349-85c6-4f9b-ac45-7c625bf959e8",
+                            Id = "ace12b17-c89a-490d-9f6e-653e37c2b9c6",
+                            ConcurrencyStamp = "dfe78684-9945-4f2e-830d-c5477c785607",
                             Name = "Admin",
                             NormalizedName = "admin"
                         },
                         new
                         {
-                            Id = "13512338-bf10-4c70-9c15-baeaea46c977",
-                            ConcurrencyStamp = "ece4a625-3406-48d4-90d9-470f89c14c78",
+                            Id = "b5772a60-1833-43f8-805d-af8a8e4db572",
+                            ConcurrencyStamp = "d7e1a783-b2d2-410e-8797-ec82e70c4f27",
                             Name = "SuperAdmin",
                             NormalizedName = "superadmin"
+                        },
+                        new
+                        {
+                            Id = "1c01b40f-9d33-458f-af62-6df4403aebc0",
+                            ConcurrencyStamp = "dc4d6e8c-7a7c-4a91-a664-03259bdd7260",
+                            Name = "Customer",
+                            NormalizedName = "customer"
+                        },
+                        new
+                        {
+                            Id = "2942b32d-17a2-45aa-ba81-c67537ddbc63",
+                            ConcurrencyStamp = "d4c44a99-2eb5-465f-948f-9d791ff0526e",
+                            Name = "Staff",
+                            NormalizedName = "staff"
                         });
                 });
 
@@ -142,7 +156,12 @@ namespace src.Migrations
                     b.Property<string>("RoleId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("RoleId");
 
@@ -151,13 +170,138 @@ namespace src.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "8ffc1f45-6309-4977-bb75-06cf3f354a92",
-                            RoleId = "be50c86b-5bfe-409b-84e4-d4667813bbc1"
+                            UserId = "52e868d7-2bd2-4ee9-8217-84fc16a2a7e2",
+                            RoleId = "ace12b17-c89a-490d-9f6e-653e37c2b9c6"
                         },
                         new
                         {
-                            UserId = "56a66fb7-a205-4889-941d-717122af9120",
-                            RoleId = "13512338-bf10-4c70-9c15-baeaea46c977"
+                            UserId = "a8b37916-2263-4877-8eb6-c31a1f175de7",
+                            RoleId = "b5772a60-1833-43f8-805d-af8a8e4db572"
+                        },
+                        new
+                        {
+                            UserId = "8597edeb-caa5-49ff-88ab-de2b5a54c656",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "e2718569-01a6-41fc-ad97-c3103de8034d",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "5259a667-fc82-480d-8f4a-7fbb0fb37580",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "5a02dfdd-3493-4278-b9f0-8e4083bdaa88",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "d53c63e3-f060-4559-aada-ab94d9c11ad8",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "b1983ed1-48f5-4d06-91a9-2451daa4d454",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "98243625-ccef-4384-a6c7-630220c6f23e",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "3574ab93-3c65-4600-944b-26dfbfff4c38",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "1efae0cb-898c-4550-b3ae-af178f2716bb",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "6dd937d8-526a-4608-8721-f1f952bb0e15",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "39587b99-dbd2-49da-884a-cd7047e02c9b",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "2cdd39df-5acd-4071-ac15-b349dfc3bde3",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "6167f48d-4b49-47d3-a820-00326998e584",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "db41ae4f-ed07-456d-b7c9-1e36ebcbc0f9",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "a28b269e-aa4e-41bf-9a25-06b24f351aa8",
+                            RoleId = "1c01b40f-9d33-458f-af62-6df4403aebc0"
+                        },
+                        new
+                        {
+                            UserId = "e6639c6e-f09c-4365-a2af-a916035951fb",
+                            RoleId = "2942b32d-17a2-45aa-ba81-c67537ddbc63"
+                        },
+                        new
+                        {
+                            UserId = "87566005-33f6-4f8a-8eee-a1d8ee352c5d",
+                            RoleId = "2942b32d-17a2-45aa-ba81-c67537ddbc63"
+                        },
+                        new
+                        {
+                            UserId = "db6439e5-9220-4e8b-a86e-05cefb15c16d",
+                            RoleId = "2942b32d-17a2-45aa-ba81-c67537ddbc63"
+                        },
+                        new
+                        {
+                            UserId = "fbd7814f-0a2a-46c1-9cb9-f0d144a10591",
+                            RoleId = "2942b32d-17a2-45aa-ba81-c67537ddbc63"
+                        },
+                        new
+                        {
+                            UserId = "51b709d2-772e-4b78-b890-49b470d4041f",
+                            RoleId = "2942b32d-17a2-45aa-ba81-c67537ddbc63"
+                        },
+                        new
+                        {
+                            UserId = "4670a25d-a2e0-40f6-95be-d2f6db396a24",
+                            RoleId = "2942b32d-17a2-45aa-ba81-c67537ddbc63"
+                        },
+                        new
+                        {
+                            UserId = "3ec366d7-e4f9-4fab-b0e2-6837dbba3883",
+                            RoleId = "2942b32d-17a2-45aa-ba81-c67537ddbc63"
+                        },
+                        new
+                        {
+                            UserId = "6b3f1d35-84a9-47db-aa75-c77f2c047eff",
+                            RoleId = "2942b32d-17a2-45aa-ba81-c67537ddbc63"
+                        },
+                        new
+                        {
+                            UserId = "7bcae672-19f2-43b1-bc40-7f4b727e0329",
+                            RoleId = "2942b32d-17a2-45aa-ba81-c67537ddbc63"
+                        },
+                        new
+                        {
+                            UserId = "873a7bea-8be8-4282-8d92-ee73cd74d3d5",
+                            RoleId = "2942b32d-17a2-45aa-ba81-c67537ddbc63"
                         });
                 });
 
@@ -191,6 +335,9 @@ namespace src.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
@@ -253,9 +400,10 @@ namespace src.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "56a66fb7-a205-4889-941d-717122af9120",
+                            Id = "a8b37916-2263-4877-8eb6-c31a1f175de7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fce35df6-5b66-4647-b142-79fe004512ef",
+                            ConcurrencyStamp = "26d99895-af54-4caf-9358-01e82b219a29",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "lilsuperadmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Super Admin",
@@ -263,7 +411,7 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "LILSUPERADMIN@GMAIL.COM",
                             NormalizedUserName = "LILSUPERADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDzld0fCv0cX0l2+9AiHYo6nOIXiTeRDgAq6ryx7BiQj9/P+fQZlx0UP4EUHlNghSQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMVG95gXiJuXJto2uYowQeMIKSDZS3TSsH5TrZShcr8kAer61dpqx2Y1QWR1wWnfXg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -271,9 +419,10 @@ namespace src.Migrations
                         },
                         new
                         {
-                            Id = "8ffc1f45-6309-4977-bb75-06cf3f354a92",
+                            Id = "52e868d7-2bd2-4ee9-8217-84fc16a2a7e2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4846cae3-b43e-44c3-810b-49eaff55377e",
+                            ConcurrencyStamp = "625a6ddc-13e3-49af-8f74-d890b05c046d",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "yungadmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -281,11 +430,486 @@ namespace src.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "YUNGADMIN@GMAIL.COM",
                             NormalizedUserName = "YUNGADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEC7732+4m2uJ8rsoV2JRWMwhmyMa/k8d4BSLZ7ynKeSH+/YpAjyx3ri3szs89jDD+w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIPmNHXMMFOP5KjUGGtdDVtaOfWQgXKwk/k8Qm43sUQYh+g9WMTw0o946/x8dqgGgw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
                             UserName = "yungadmin@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "8597edeb-caa5-49ff-88ab-de2b5a54c656",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "90bd8b98-67c0-43be-af62-6f142b924304",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "trankieuloan@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Loan",
+                            LastName = "Trần Kiều",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TRANKIEULOAN@GMAIL.COM",
+                            NormalizedUserName = "TRANKIEULOAN@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB86sLbF67m/T3tErJwNnJFDx8CuTwAQP+O/9WRJ+9FDSO2WzHOwFIxliS7WA1X58g==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "trankieuloan@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "e2718569-01a6-41fc-ad97-c3103de8034d",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7c7fda1c-323a-4e8b-97b1-e99258565aad",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "phamvinhson@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Sơn",
+                            LastName = "Phạm Vĩnh",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "PHAMVINHSON@GMAIL.COM",
+                            NormalizedUserName = "PHAMVINHSON@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIGhHvwj25/Nz/VfgkRjcFgbid2wSy1MwNUkN7979rCiv4uvC2HSfsuBV0gqneaKfQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "phamvinhson@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "5259a667-fc82-480d-8f4a-7fbb0fb37580",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "053a0cd3-c864-4fc7-88e8-1fa348a88764",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "nguyentrunghieu@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Hiếu",
+                            LastName = "Nguyễn Trung",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "NGUYENTRUNGHIEU@GMAIL.COM",
+                            NormalizedUserName = "NGUYENTRUNGHIEU@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBwR2FFK++iQ0cUZz+5+SF5Gc8HQgwkqwcB7iRlz88Z3uP0rZPzBFXyjfi27Qviqhg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "nguyentrunghieu@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "5a02dfdd-3493-4278-b9f0-8e4083bdaa88",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7e62df6c-c528-47ba-8c77-21b520b79d73",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "nguyennhuloc@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Lộc",
+                            LastName = "Nguyễn Như",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "NGUYENNHULOC@GMAIL.COM",
+                            NormalizedUserName = "NGUYENNHULOC@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEY/w33k/aW7B0iaH8/hygXaI5ANaXssd0b3FHDzcpXoMG/jeW/TpXNS1hKom2/pfQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "nguyennhuloc@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "d53c63e3-f060-4559-aada-ab94d9c11ad8",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "8e2d3645-83fc-48cc-98d8-bd11163df1f5",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "caothivananh@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Anh",
+                            LastName = "Cao Thị Vân",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "CAOTHIVANANH@GMAIL.COM",
+                            NormalizedUserName = "CAOTHIVANANH@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJGS6r1DxfS3y4mHHVZAOycsv2tC4RRihv6cZS1+pak32n+eStdl2Hy8wWrZ71yZig==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "caothivananh@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "b1983ed1-48f5-4d06-91a9-2451daa4d454",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c62bd532-33bd-4594-82f3-22e8dcf292b1",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "tranthaonguyen@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Nguyên",
+                            LastName = "Trần Thảo",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TRANTHAONGUYEN@GMAIL.COM",
+                            NormalizedUserName = "TRANTHAONGUYEN@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEPdJ1fP6G7hdzte2+jZ61Z8HBp2Kqpq83avFHoDSwIS6wN5FA3yIVmOwlOWc5auxQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "tranthaonguyen@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "98243625-ccef-4384-a6c7-630220c6f23e",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "44a45575-be21-4201-a5ae-3bb96f499c39",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "truongthitramanh@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Anh",
+                            LastName = "Trương Thị Trâm",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TRUONGTHITRAMANH@GMAIL.COM",
+                            NormalizedUserName = "TRUONGTHITRAMANH@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEL5qLf0R151nSqLh5UhHEjaJ5rm1k6Wf/BVHyGXMH56irhzh8FZb23tr3J4o1DjjCA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "truongthitramanh@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "3574ab93-3c65-4600-944b-26dfbfff4c38",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "666fa101-d7a5-4af5-a219-c10195eeeedc",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "caobaquat@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Quát",
+                            LastName = "Cao Bá",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "CAOBAQUAT@GMAIL.COM",
+                            NormalizedUserName = "CAOBAQUAT@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAECezZcbu9ZlD7Rc/If6qZjZWLl3CqfSyCey9diWBCh75P4LdeZ27cwzTToCfgled/g==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "caobaquat@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "1efae0cb-898c-4550-b3ae-af178f2716bb",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "b1ff201c-32c8-4133-9707-e1fbc5839d15",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "huynhtranthanh@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Thành",
+                            LastName = "Huỳnh Trấn",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "HUYNHTRANTHANH@GMAIL.COM",
+                            NormalizedUserName = "HUYNHTRANTHANH@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAENZFVtrXt8URkIsymzHAZwVSxpIgssdHr1eGc6N6OGRT9S3V1qHyZr7PLfcv7CUMYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "huynhtranthanh@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "6dd937d8-526a-4608-8721-f1f952bb0e15",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7fbc4cda-25ae-42ce-af04-c55ef6224dac",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "nguyenthanhlong@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Long",
+                            LastName = "Nguyễn Thành",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "NGUYENTHANHLONG@GMAIL.COM",
+                            NormalizedUserName = "NGUYENTHANHLONG@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA7hG9bnq2uHY/qRLqG/Bzx/UiyWKbrg+INVmMD42QBf41C3G2gI+ZjmmzsJewohnw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "nguyenthanhlong@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "39587b99-dbd2-49da-884a-cd7047e02c9b",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "51c86661-7b60-48b6-975b-da66fd3eb03d",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "hoxuanhuong@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Hương",
+                            LastName = "Hồ Xuân",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "HOXUANHUONG@GMAIL.COM",
+                            NormalizedUserName = "HOXUANHUONG@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKDu5zAbBQ9Cvz7WWvdkO5lXKLAXPRJpDBhMcPefu4oz2egDFr3Iwq4Yai8C7iAN0w==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "hoxuanhuong@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "2cdd39df-5acd-4071-ac15-b349dfc3bde3",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "84b64071-54a0-4dd5-919f-df50119dba60",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "nguyenhue@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Huệ",
+                            LastName = "Nguyễn",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "NGUYENHUE@GMAIL.COM",
+                            NormalizedUserName = "NGUYENHUE@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHyJDlJ0gO9KYA7Oi+ENCy7pnm3I/cMgG3nIWmeJH7Z1+mMvxDRvhR1ywFGWA44Msw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "nguyenhue@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "6167f48d-4b49-47d3-a820-00326998e584",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "73462543-9f76-4f17-9753-49beff35bd4a",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "phungthanhdo@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Độ",
+                            LastName = "Phùng Thanh",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "PHUNGTHANHDO@GMAIL.COM",
+                            NormalizedUserName = "PHUNGTHANHDO@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKvx5wH5GQFXoWI2Z553W8fCxgqrkDCJIKQy0w0mRYXoPyWDQjbcI7BimtkndIHUsg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "phungthanhdo@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "db41ae4f-ed07-456d-b7c9-1e36ebcbc0f9",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "79a8ca75-e33f-477f-80b6-a5176fc6f8ff",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "phantantrung@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Trung",
+                            LastName = "Phan Tấn",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "PHANTANTRUNG@GMAIL.COM",
+                            NormalizedUserName = "PHANTANTRUNG@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB4wXNKO5hFDDzXvGrRq5KXTLXG0OrMuqQz3MMn/N4a12tcrMZZ+bPoQ1B1sniY0gQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "phantantrung@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "a28b269e-aa4e-41bf-9a25-06b24f351aa8",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "098cffe0-e2f4-482f-8c2a-75940fd602bf",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "truongtuantu@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Tú",
+                            LastName = "Trương Tuấn",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TRUONGTUANTU@GMAIL.COM",
+                            NormalizedUserName = "TRUONGTUANTU@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAECm7ZlayvA3I5neFk4L7KWVfKhNayEFOFkIV9fQDiK/vGe2SRLwziV1fl0cAm9IV5g==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "truongtuantu@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "e6639c6e-f09c-4365-a2af-a916035951fb",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "b4c243b3-1245-48b8-a63a-b8386fce05fb",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "truongthimaitram@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Trâm",
+                            LastName = "Trương Thị Mai",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TRUONGTHIMAITRAM@GMAIL.COM",
+                            NormalizedUserName = "TRUONGTHIMAITRAM@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDZNrjzwlL0npZPnKouW8/0IK0WxEeTQZpeS6agjYxW1GsjDqsXHOVJb5z3Kn5Wo8A==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "truongthimaitram@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "87566005-33f6-4f8a-8eee-a1d8ee352c5d",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "3ca6d1bb-74e7-4cdf-bf8e-b7f32660b5bc",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "nguyenbuuvinh@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Vinh",
+                            LastName = "Nguyễn Bửu",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "NGUYENBUUVINH@GMAIL.COM",
+                            NormalizedUserName = "NGUYENBUUVINH@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDWatg6e4f4tHwt/owtf54yNvhM1/te0JYQQj2izhilgnuhwzf8Uqa1oikGEqt1SGA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "nguyenbuuvinh@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "db6439e5-9220-4e8b-a86e-05cefb15c16d",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "0c0f1fd2-7cf3-42ca-afd5-6cd90a3dc26b",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "lequangduy@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Duy",
+                            LastName = "Lê Quang",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "LEQUANGDUY@GMAIL.COM",
+                            NormalizedUserName = "LEQUANGDUY@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFG3zt8OcwGWp8kRtCQA+9J0yV/w6xdlwfaWMz6juF/w9sx4fNXi60b287WJHeuO2A==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "lequangduy@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "fbd7814f-0a2a-46c1-9cb9-f0d144a10591",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "272577ec-abb1-4005-8dd7-0b313921fb8b",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "luubaominh@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Minh",
+                            LastName = "Lưu Bảo",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "LUUBAOMINH@GMAIL.COM",
+                            NormalizedUserName = "LUUBAOMINH@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBcDdUCa4LXXNlqivPUzXf1Jgmmcw11z73OGglP041w3ZADq7A2XfgtCmiZBO8jU5A==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "luubaominh@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "51b709d2-772e-4b78-b890-49b470d4041f",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "650c5e1a-496f-4ad1-840a-807a3d95fab2",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "duonghoanphong@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Phong",
+                            LastName = "Đường Hoán",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "DUONGHOANPHONG@GMAIL.COM",
+                            NormalizedUserName = "DUONGHOANPHONG@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEK08hJm5ueiTCy+tXferM3zahne52May0xrxromk2Yy/bnJjxt3qpRJzOmblfUMujw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "duonghoanphong@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "4670a25d-a2e0-40f6-95be-d2f6db396a24",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "745f494e-b102-48f8-b2f5-d2906889e880",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "chuvietdung@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Dũng",
+                            LastName = "Chu Việt",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "CHUVIETDUNG@GMAIL.COM",
+                            NormalizedUserName = "CHUVIETDUNG@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAECuPOxCN2oG/qeY6Hmw0nbqjktk1WwhHFUmUyDonZogqwrcCDDH2p5gzGUMxnPU9Vw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "chuvietdung@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "3ec366d7-e4f9-4fab-b0e2-6837dbba3883",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "a8093518-0171-4a8b-b3e7-2a5b225ed743",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "buibichphuong@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Phương",
+                            LastName = "Bùi Bích",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "BUIBICHPHUONG@GMAIL.COM",
+                            NormalizedUserName = "BUIBICHPHUONG@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBsJjjhq8VKv9nhm3VP7SBxteEVrhLjqeR/r5FEO8g4u3E1N2PMH26Fyl7x1IqeN8w==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "buibichphuong@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "6b3f1d35-84a9-47db-aa75-c77f2c047eff",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "958eabe5-4261-4bf9-9015-833e8530822d",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "tranphuongly@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Ly",
+                            LastName = "Trần Phương",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TRANPHUONGLY@GMAIL.COM",
+                            NormalizedUserName = "TRANPHUONGLY@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGgKSroUzE5CNpUh5g1DjLjy1htHfRYcB1oS4shnnyUFV40b1MSoMAChf5QR7nffeQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "tranphuongly@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "7bcae672-19f2-43b1-bc40-7f4b727e0329",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "41df37c7-57b6-4867-873e-fff11d6f1371",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "luongtulinh@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Linh",
+                            LastName = "Lường Tú",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "LUONGTULINH@GMAIL.COM",
+                            NormalizedUserName = "LUONGTULINH@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMN9EBo09c+9E0X7Cl6XJuyTGrkq7n4pA8sq7SCjqeSOlJOBQmxUt+kTWWnx5R8mUA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "luongtulinh@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "873a7bea-8be8-4282-8d92-ee73cd74d3d5",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c62eb2d6-00ec-4916-94ec-7801577fe63b",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "malephixuan@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Xuân",
+                            LastName = "Mã Lệ Phi",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "MALEPHIXUAN@GMAIL.COM",
+                            NormalizedUserName = "MALEPHIXUAN@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOxTL3N8zzwe9Qfr88bpKiZsWQPGDrSsSmVBTlh06ynuN/KhBW/4xjgSwyS3D0Yghw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "malephixuan@gmail.com"
                         });
                 });
 
@@ -352,6 +976,11 @@ namespace src.Migrations
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
 
                     b.Property<int>("TourId")
                         .HasColumnType("int");
@@ -543,8 +1172,8 @@ namespace src.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<long>("Price")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Specification")
                         .HasColumnType("nvarchar(max)");
@@ -571,7 +1200,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Hải Phòng - Hạ Long - Ninh Bình - Hà Nội - Lào Cai - Sapa - Đền Hùng",
-                            Price = 8029000.0,
+                            Price = 8029000L,
                             Specification = "Thời gian: 6 ngày 5 đêm Phương tiện: Hàng không Vietnam Airlines Thăm quần thể di tích Bạch Đằng Giang với đền thờ các vị anh...A",
                             Status = 1,
                             TourCategoryId = 1
@@ -583,7 +1212,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Nha Trang - Đà Lạt",
-                            Price = 4279000.0,
+                            Price = 4279000L,
                             Specification = "Thời gian: 5 ngày 4 đêm Phương tiện: Đi về bằng xeVân hay còn gọi là Chùa Ốc, ngôi chùa làm...",
                             Status = 1,
                             TourCategoryId = 1
@@ -595,7 +1224,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Buôn Ma Thuột - Buôn Đôn - Pleiku - Komtum",
-                            Price = 4879000.0,
+                            Price = 4879000L,
                             Specification = @"Thời gian: 5 ngày 4 đêm Phương tiện: Đi về bằng xeay Nur hùng vĩ.
  Tham quan cầu treo và ngắm...",
                             Status = 1,
@@ -608,7 +1237,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch [Mùa Hoa Tam Giác Mạch] Hà Giang - Đồng Văn - Cao Bằng - Thác Bản Giốc- Lạng Sơn",
-                            Price = 7529000.0,
+                            Price = 7529000L,
                             Specification = "Thời gian: 5 ngày 4 đêm Phương tiện: Hàng không Vietnam Airlines Thanh  ngắm núi Tô Thị Vượt đèo Mã...",
                             Status = 1,
                             TourCategoryId = 1
@@ -620,7 +1249,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Nha Trang - Hòn Lao - Dốc Lết - I Resort - Làng Yến Mai Sinh",
-                            Price = 2979000.0,
+                            Price = 2979000L,
                             Specification = "Thời gian: 4 ngày 3 đêm Phương tiện: Đi về bằng xeịch Hòn Lao  đảo Khỉ, khu du lịch sinh...",
                             Status = 1,
                             TourCategoryId = 1
@@ -632,7 +1261,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Đà Lạt - Dambri - Đường Hầm Điêu Khắc - Langbiang",
-                            Price = 3079000.0,
+                            Price = 3079000L,
                             Specification = "Thời gian: 4 ngày 3 đêm Phương tiện: Đi về bằng xeường Lâm Viên với không gian rộng lớn, thoáng mát hướng...",
                             Status = 1,
                             TourCategoryId = 2
@@ -644,7 +1273,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch khám phá Cái Bè - Cần Thơ - Châu Đốc - Hà Tiên",
-                            Price = 3679000.0,
+                            Price = 3679000L,
                             Specification = "Thời gian: 4 ngày 3 đêm Phương tiện: Đi về bằng xeNam bộ hơn trăm năm tuổi, theo lối kiến trúc...",
                             Status = 1,
                             TourCategoryId = 2
@@ -656,7 +1285,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Phan Thiết - Mũi Né - Lâu Đài Rượu Vang",
-                            Price = 2739000.0,
+                            Price = 2739000L,
                             Specification = @"Thời gian: 3 ngày 2 đêm Phương tiện: Đi về bằng xean trưng bày nghệ thuật “Làng chài xưa”
  Chụp hình...",
                             Status = 1,
@@ -669,7 +1298,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Hà Nội - Lào Cai - Sapa - Hạ Long",
-                            Price = 7129000.0,
+                            Price = 7129000L,
                             Specification = @"Thời gian: 5 ngày 4 đêm Phương tiện: Hàng không Vietnam Airlinesn Cát Cát, ngắm toàn bộ cảnh Sapa từ Sân Mây
 ...",
                             Status = 1,
@@ -682,7 +1311,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Mỹ Tho - Cần Thơ - Cà Mau - Bạc Liêu - Sóc Trăng",
-                            Price = 3879000.0,
+                            Price = 3879000L,
                             Specification = "Thời gian: 4 ngày 3 đêm Phương tiện: Đi về bằng xethức trái cây theo mùa, nghe nhạc tài tử Nam...",
                             Status = 1,
                             TourCategoryId = 2
@@ -694,7 +1323,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch [mùa nước nổi] Cầu Cao Lãnh - Châu Đốc - Làng Cá Bè  - Rừng Tràm Trà Sư",
-                            Price = 1979000.0,
+                            Price = 1979000L,
                             Specification = @"Thời gian: 2 ngày 1 đêm Phương tiện: Đi về bằng xe Xứ nổi tiếng hiển linh.
  Tham quan Rừng Tràm...",
                             Status = 1,
@@ -707,7 +1336,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Phan Thiết - Mũi Né - Làng Chài Xưa",
-                            Price = 2379000.0,
+                            Price = 2379000L,
                             Specification = "Thời gian: 3 ngày 2 đêm Phương tiện: Đi về bằng xevàng dưới tác động của gió biển đã tạo nên...",
                             Status = 1,
                             TourCategoryId = 3
@@ -719,7 +1348,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Hồ Tràm - Trải nghiệm đẳng cấp 5 sao The Grand Ho Tram Strip",
-                            Price = 2379000.0,
+                            Price = 2379000L,
                             Specification = "Thời gian: 2 ngày 1 đêm Phương tiện: Đi về bằng xeụ 5 sao cao cấp tại The Grand Ho Tram Strip...",
                             Status = 1,
                             TourCategoryId = 3
@@ -731,7 +1360,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Đà Lạt - Thác Datanla - Đồi Chè Cầu Đất -Trang Trại Rau & Hoa - Thác Dambri",
-                            Price = 3079000.0,
+                            Price = 3079000L,
                             Specification = "Thời gian: 4 ngày 3 đêm Phương tiện: Đi về bằng xebri  ngọn thác hùng vĩ tại cao nguyên Bảo Lộc...",
                             Status = 1,
                             TourCategoryId = 3
@@ -743,7 +1372,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch [Mùa Hoa Tam Giác Mạch] tại Hà Giang - Đồng Văn - Cao Bằng - Thác Bản Giốc - Pác Pó - Ba Bể",
-                            Price = 9079000.0,
+                            Price = 9079000L,
                             Specification = "Thời gian: 6 ngày 5 đêm Phương tiện: Hàng không Vietnam Airlines Đồng Văn  Công viên địa chất toàn cầu....",
                             Status = 1,
                             TourCategoryId = 3
@@ -755,7 +1384,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Phú Quốc [Suối Tranh - Tặng Vé Cáp Treo Vượt Biển & Công Viên Nước  Hòn Thơm]",
-                            Price = 3879000.0,
+                            Price = 3879000L,
                             Specification = "Thời gian: 3 ngày 2 đêm Phương tiện: Hàng không Vietnam Airlinesnh  quý khách có thể đi dạo trong rừng, thư...",
                             Status = 1,
                             TourCategoryId = 4
@@ -767,7 +1396,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Đà Lạt - Hồ Tuyền Lâm - Đường Hầm Điêu Khắc",
-                            Price = 2379000.0,
+                            Price = 2379000L,
                             Specification = "Thời gian: 3 ngày 2 đêm Phương tiện: Đi về bằng xem điêu khắc đất đỏ (Đà Lạt Star)  tái hiện...",
                             Status = 1,
                             TourCategoryId = 4
@@ -779,7 +1408,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Bảo Lộc - Hồ Tà Đùng - Đắk Nông - Khu Bảo Tồn Thiên Nhiên Nậm Nung",
-                            Price = 2679000.0,
+                            Price = 2679000L,
                             Specification = @"Thời gian: 3 ngày 2 đêm Phương tiện: Đi về bằng xesản xuất trà và đồi chè Tâm Châu.
  Dừng...",
                             Status = 1,
@@ -792,7 +1421,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch Tây Ninh - Tòa Thánh Tây Ninh - Núi Bà Đen - Hồ Dầu Tiếng",
-                            Price = 1879000.0,
+                            Price = 1879000L,
                             Specification = "Thời gian: 2 ngày 1 đêm Phương tiện: Đi về bằng xeĐen ngon núi cao nhất Đông Nam Bộ&nbsp; chỉ mất...",
                             Status = 1,
                             TourCategoryId = 4
@@ -804,7 +1433,7 @@ namespace src.Migrations
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Du lịch [Mùa nước nổi] Cao Lãnh - Tràm Chim Tam Nông - Khu Du Lịch Đồng Sen",
-                            Price = 1779000.0,
+                            Price = 1779000L,
                             Specification = "Thời gian: 2 ngày 1 đêm Viếng Khu Di tích Cụ Nguyễn Sinh Sắc (nhà sàn Bác Hồ, khu Lăng...",
                             Status = 1,
                             TourCategoryId = 4
@@ -904,6 +1533,9 @@ namespace src.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Index")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -932,6 +1564,7 @@ namespace src.Migrations
                         {
                             Id = 1,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 1,
@@ -941,6 +1574,7 @@ namespace src.Migrations
                         {
                             Id = 2,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 1,
@@ -950,6 +1584,7 @@ namespace src.Migrations
                         {
                             Id = 3,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 3,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 1,
@@ -959,6 +1594,7 @@ namespace src.Migrations
                         {
                             Id = 4,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 4,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 1,
@@ -968,6 +1604,7 @@ namespace src.Migrations
                         {
                             Id = 5,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 2,
@@ -977,6 +1614,7 @@ namespace src.Migrations
                         {
                             Id = 6,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 2,
@@ -986,6 +1624,7 @@ namespace src.Migrations
                         {
                             Id = 7,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 3,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 2,
@@ -995,6 +1634,7 @@ namespace src.Migrations
                         {
                             Id = 8,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 3,
@@ -1004,6 +1644,7 @@ namespace src.Migrations
                         {
                             Id = 9,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 3,
@@ -1013,6 +1654,7 @@ namespace src.Migrations
                         {
                             Id = 10,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 4,
@@ -1022,6 +1664,7 @@ namespace src.Migrations
                         {
                             Id = 11,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 4,
@@ -1031,6 +1674,7 @@ namespace src.Migrations
                         {
                             Id = 12,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 5,
@@ -1040,6 +1684,7 @@ namespace src.Migrations
                         {
                             Id = 13,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 5,
@@ -1049,6 +1694,7 @@ namespace src.Migrations
                         {
                             Id = 14,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 6,
@@ -1058,6 +1704,7 @@ namespace src.Migrations
                         {
                             Id = 15,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 6,
@@ -1067,6 +1714,7 @@ namespace src.Migrations
                         {
                             Id = 16,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 7,
@@ -1076,6 +1724,7 @@ namespace src.Migrations
                         {
                             Id = 17,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 7,
@@ -1085,6 +1734,7 @@ namespace src.Migrations
                         {
                             Id = 18,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 3,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 7,
@@ -1094,6 +1744,7 @@ namespace src.Migrations
                         {
                             Id = 19,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 8,
@@ -1103,6 +1754,7 @@ namespace src.Migrations
                         {
                             Id = 20,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 8,
@@ -1112,6 +1764,7 @@ namespace src.Migrations
                         {
                             Id = 21,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 9,
@@ -1121,6 +1774,7 @@ namespace src.Migrations
                         {
                             Id = 22,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 9,
@@ -1130,6 +1784,7 @@ namespace src.Migrations
                         {
                             Id = 23,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 3,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 9,
@@ -1139,6 +1794,7 @@ namespace src.Migrations
                         {
                             Id = 24,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 4,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 9,
@@ -1148,6 +1804,7 @@ namespace src.Migrations
                         {
                             Id = 25,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 10,
@@ -1157,6 +1814,7 @@ namespace src.Migrations
                         {
                             Id = 26,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 10,
@@ -1166,6 +1824,7 @@ namespace src.Migrations
                         {
                             Id = 27,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 3,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 10,
@@ -1175,6 +1834,7 @@ namespace src.Migrations
                         {
                             Id = 28,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 11,
@@ -1184,6 +1844,7 @@ namespace src.Migrations
                         {
                             Id = 29,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 11,
@@ -1193,6 +1854,7 @@ namespace src.Migrations
                         {
                             Id = 30,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 3,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 11,
@@ -1202,6 +1864,7 @@ namespace src.Migrations
                         {
                             Id = 31,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 12,
@@ -1211,6 +1874,7 @@ namespace src.Migrations
                         {
                             Id = 32,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 12,
@@ -1220,6 +1884,7 @@ namespace src.Migrations
                         {
                             Id = 33,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 13,
@@ -1229,6 +1894,7 @@ namespace src.Migrations
                         {
                             Id = 34,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 13,
@@ -1238,6 +1904,7 @@ namespace src.Migrations
                         {
                             Id = 35,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 14,
@@ -1247,6 +1914,7 @@ namespace src.Migrations
                         {
                             Id = 36,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 14,
@@ -1256,6 +1924,7 @@ namespace src.Migrations
                         {
                             Id = 37,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 15,
@@ -1265,6 +1934,7 @@ namespace src.Migrations
                         {
                             Id = 38,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 15,
@@ -1274,6 +1944,7 @@ namespace src.Migrations
                         {
                             Id = 39,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 16,
@@ -1283,6 +1954,7 @@ namespace src.Migrations
                         {
                             Id = 40,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 16,
@@ -1292,6 +1964,7 @@ namespace src.Migrations
                         {
                             Id = 41,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 17,
@@ -1301,6 +1974,7 @@ namespace src.Migrations
                         {
                             Id = 42,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 17,
@@ -1310,6 +1984,7 @@ namespace src.Migrations
                         {
                             Id = 43,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 18,
@@ -1319,6 +1994,7 @@ namespace src.Migrations
                         {
                             Id = 44,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 18,
@@ -1328,6 +2004,7 @@ namespace src.Migrations
                         {
                             Id = 45,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 19,
@@ -1337,6 +2014,7 @@ namespace src.Migrations
                         {
                             Id = 46,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 19,
@@ -1346,6 +2024,7 @@ namespace src.Migrations
                         {
                             Id = 47,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 1,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 20,
@@ -1355,6 +2034,7 @@ namespace src.Migrations
                         {
                             Id = 48,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Index = 2,
                             IsDeleted = false,
                             LastModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 20,
@@ -1611,6 +2291,10 @@ namespace src.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
+                    b.HasOne("src.Entities.ApplicationUser", null)
+                        .WithMany("IdentityUserRoles")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
