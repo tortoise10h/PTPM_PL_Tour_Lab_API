@@ -16,6 +16,7 @@ using src.CQRS.GroupRole.Commands.UpdateGroupRole;
 using src.CQRS.GroupRole.Commands.CreateGroupRole;
 using src.CQRS.GroupCost.Commands.CreateGroupCost;
 using src.CQRS.GroupCost.Commands.UpdateGroupCost;
+using src.CQRS.StaffGroupRole.Commands.CreateStaffGroupRole;
 
 namespace src.MapperProfiles
 {
@@ -49,6 +50,8 @@ namespace src.MapperProfiles
 
             CreateMap<CreateGroupCostCommand, GroupCost>();
             CreateMap<UpdateGroupCostCommand, GroupCost>();
+
+            CreateMap<CreateStaffGroupRoleCommand, StaffGroupRole>();
         }
     }
 }

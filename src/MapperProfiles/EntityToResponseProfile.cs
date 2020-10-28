@@ -4,6 +4,7 @@ using src.Contracts.V1.ResponseModels.Group;
 using src.Contracts.V1.ResponseModels.GroupCost;
 using src.Contracts.V1.ResponseModels.GroupDetail;
 using src.Contracts.V1.ResponseModels.GroupRole;
+using src.Contracts.V1.ResponseModels.StaffGroupRole;
 using src.Contracts.V1.ResponseModels.Tour;
 using src.Contracts.V1.ResponseModels.TourCategory;
 using src.Contracts.V1.ResponseModels.TourDetail;
@@ -29,6 +30,7 @@ namespace src.MapperProfiles
             CreateMap<GroupDetail, GroupDetailResponse>();
             CreateMap<GroupRole, GroupRoleResponse>();
             CreateMap<GroupCost, GroupCostResponse>();
+            CreateMap<StaffGroupRole, StaffGroupRoleResponse>();
         }
     }
 }

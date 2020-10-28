@@ -1,6 +1,9 @@
+using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using src.Contracts.V1;
 using src.Contracts.V1.ResponseModels;
@@ -11,6 +14,7 @@ using src.CQRS.GroupRole.Commands.UpdateGroupRole;
 
 namespace src.Controllers.V1
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class GroupRoleController : ControllerBase
     {
         private readonly IMediator _mediator;
