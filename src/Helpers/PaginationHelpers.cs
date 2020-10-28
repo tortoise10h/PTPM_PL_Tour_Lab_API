@@ -12,6 +12,7 @@ using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Text.RegularExpressions;
 using src.Contracts.V1.Exceptions;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace src.Helpers
 {
@@ -153,8 +154,25 @@ namespace src.Helpers
                                     throw new BadRequestException(new ApiError("The correct value when using in dynamic filter is 'value,value,value,value'"));
                                 }
 
+                                string[] valArr = entry.Value.Split(",");
+                                string values = "";
+                                int c;
+                                bool isInt = Int32.TryParse(valArr[0], out c);
+
+                                if (!isInt)
+                                {
+                                    foreach(var str in valArr)
+                                    {
+                                        values += $"\"{str}\",";
+                                    }
+                                    values = values.Remove(values.Length - 1);
+                                } else
+                                {
+                                    values = entry.Value;
+                                }
+
                                 queryable = queryable
-                                    .Where($"{entry.Key} IN ({entry.Value})");
+                                    .Where($"{entry.Key} IN ({values})");
                                 break;
                             }
                         case "notin":
@@ -166,8 +184,25 @@ namespace src.Helpers
                                     throw new BadRequestException(new ApiError("The correct value when using not in dynamic filter is 'value,value,value,value'"));
                                 }
 
+                                string[] valArr = entry.Value.Split(",");
+                                string values = "";
+                                int c;
+                                bool isInt = Int32.TryParse(valArr[0], out c);
+
+                                if (!isInt)
+                                {
+                                    foreach(var str in valArr)
+                                    {
+                                        values += $"\"{str}\",";
+                                    }
+                                    values = values.Remove(values.Length - 1);
+                                } else
+                                {
+                                    values = entry.Value;
+                                }
+
                                 queryable = queryable
-                                    .Where($"!({entry.Key} IN ({entry.Value}))");
+                                    .Where($"!({entry.Key} IN ({values}))");
                                 break;
                             }
                         case "between":
