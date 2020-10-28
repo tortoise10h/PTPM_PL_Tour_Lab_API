@@ -80,6 +80,7 @@ namespace src.Contracts.V1
             public const string GetById = Base + "/groups/{groupId}";
             public const string Delete = Base + "/groups/{groupId}";
             public const string GetGroupCostsOfGroup = Base + "/groups/{groupId}/groupCosts";
+            public const string GetStaffsOfGroup = Base + "/groups/{groupId}/staffs";
         }
 
         public static class GroupDetail
@@ -112,6 +113,15 @@ namespace src.Contracts.V1
             public const string Update = Base + "/groupCosts/{groupCostId}";
             public const string GetById = Base + "/groupCosts/{groupCostId}";
             public const string Delete = Base + "/groupCosts/{groupCostId}";
+        }
+
+        public static class StaffGroupRole
+        {
+            public const string Create = Base + "/staffGroupRoles";
+            public const string GetAll = Base + "/staffGroupRoles";
+            public const string Update = Base + "/staffGroupRoles/{staffGroupRoleId}";
+            public const string GetById = Base + "/staffGroupRoles/{staffGroupRoleId}";
+            public const string Delete = Base + "/staffGroupRoles/{staffGroupRoleId}";
         }
     }
 }

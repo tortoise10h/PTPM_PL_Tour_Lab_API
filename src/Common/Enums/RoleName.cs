@@ -5,5 +5,6 @@ namespace src.Common.Enums
         public static string Admin { get; } = "Admin";
         public static string SuperAdmin { get; } = "SuperAdmin";
         public static string Customer { get; } = "Customer";
+        public static string Staff { get; } = "Staff";
     }
 }
