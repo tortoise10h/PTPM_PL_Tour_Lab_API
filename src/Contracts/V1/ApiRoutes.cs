@@ -104,6 +104,8 @@ namespace src.Contracts.V1
         public static class User
         {
             public const string GetAllCustomers = Base + "/users/customers";
+            public const string GetAllStaffs = Base + "/users/staffs";
+
         }
 
         public static class GroupCost
