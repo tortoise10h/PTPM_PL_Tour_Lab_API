@@ -43,7 +43,24 @@ namespace src.Controllers.V1
                     throw exp;
                 }
             );
+        }
 
+        [HttpGet(ApiRoutes.User.GetAllStaffs)]
+        public async Task<IActionResult> GetAllStaffs([FromQuery] GetAllStaffsQuery query)
+        {
+            var result = await _mediator.Send(query);
+
+            return result.Match<IActionResult>(
+                data => Ok(
+                    new Response<PagedResponse<UserResponse>>(
+                        data
+                    )
+                ),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
         }
     }
 }
