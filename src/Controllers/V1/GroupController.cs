@@ -9,6 +9,7 @@ using src.Contracts.V1.ResponseModels;
 using src.Contracts.V1.ResponseModels.Group;
 using src.Contracts.V1.ResponseModels.GroupCost;
 using src.Contracts.V1.ResponseModels.StaffGroupRole;
+using src.Contracts.V1.ResponseModels.User;
 using src.CQRS.Group.Commands.CreateGroup;
 using src.CQRS.Group.Commands.DeleteGroup;
 using src.CQRS.Group.Commands.UpdateGroup;
@@ -147,6 +148,27 @@ namespace src.Controllers.V1
 
             return result.Match<IActionResult>(
                 data => Ok(new Response<PagedResponse<StaffGroupRoleResponse>>(
+                    data
+                )),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
+
+        [HttpGet(ApiRoutes.Group.GetStaffsWithoutRoleOfGroup)]
+        public async Task<IActionResult> GetStaffsWithoutRoleOfGroup
+        (
+            [FromRoute] int groupId,
+            [FromQuery] GetStaffsWithoutRoleOfGroup query
+        )
+        {
+            query.GroupId = groupId;
+            var result = await _mediator.Send(query);
+
+            return result.Match<IActionResult>(
+                data => Ok(new Response<PagedResponse<UserResponse>>(
                     data
                 )),
                 exp =>

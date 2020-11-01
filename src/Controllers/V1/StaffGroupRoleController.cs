@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
@@ -33,7 +34,7 @@ namespace src.Controllers.V1
             return result.Match<IActionResult>(
                 staffgroupRoleResponse => Created(
                     "",
-                    new Response<StaffGroupRoleResponse>(
+                    new Response<List<StaffGroupRoleResponse>>(
                         staffgroupRoleResponse
                     )),
                 exp =>
