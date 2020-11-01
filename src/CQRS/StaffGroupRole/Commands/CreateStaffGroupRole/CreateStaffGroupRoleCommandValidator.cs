@@ -9,7 +9,7 @@ namespace src.CQRS.StaffGroupRole.Commands.CreateStaffGroupRole
             RuleFor(x => x.GroupId)
                 .NotEmpty();
 
-            RuleFor(x => x.GroupRoleId)
+            RuleForEach(x => x.GroupRoles)
                 .NotEmpty();
 
             RuleFor(x => x.StaffId)
