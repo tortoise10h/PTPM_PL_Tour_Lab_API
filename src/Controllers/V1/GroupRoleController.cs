@@ -11,6 +11,7 @@ using src.Contracts.V1.ResponseModels.GroupRole;
 using src.CQRS.GroupRole.Commands.CreateGroupRole;
 using src.CQRS.GroupRole.Commands.DeleteGroupRole;
 using src.CQRS.GroupRole.Commands.UpdateGroupRole;
+using src.CQRS.GroupRole.Queries;
 
 namespace src.Controllers.V1
 {
@@ -69,6 +70,26 @@ namespace src.Controllers.V1
 
             return result.Match<IActionResult>(
                 groupRoleResponse => NoContent(),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
+
+        [HttpGet(ApiRoutes.GroupRole.GetAll)]
+        public async Task<IActionResult> GetAll(
+            [FromQuery] GetAllGroupRoleQuery query
+        )
+        {
+            var result = await _mediator.Send(query);
+
+            return result.Match<IActionResult>(
+                data => Ok(
+                    new Response<PagedResponse<GroupRoleResponse>>(
+                        data
+                    )
+                ),
                 exp =>
                 {
                     throw exp;
