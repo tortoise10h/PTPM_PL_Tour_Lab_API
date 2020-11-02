@@ -195,7 +195,8 @@ namespace src.Extensions
                         NormalizedEmail = "lilsuperadmin@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234561"
                     },
                     new ApplicationUser
                     {
@@ -208,7 +209,8 @@ namespace src.Extensions
                         NormalizedEmail = "yungadmin@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234562"
                     },
                     new ApplicationUser
                     {
@@ -221,7 +223,8 @@ namespace src.Extensions
                         NormalizedEmail = "trankieuloan@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234563"
                     },
                     new ApplicationUser
                     {
@@ -234,7 +237,8 @@ namespace src.Extensions
                         NormalizedEmail = "phamvinhson@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234564"
                     },
                     new ApplicationUser
                     {
@@ -247,7 +251,8 @@ namespace src.Extensions
                         NormalizedEmail = "nguyentrunghieu@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234565"
                     },
                     new ApplicationUser
                     {
@@ -260,7 +265,8 @@ namespace src.Extensions
                         NormalizedEmail = "nguyennhuloc@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234566"
                     },
                     new ApplicationUser
                     {
@@ -273,7 +279,8 @@ namespace src.Extensions
                         NormalizedEmail = "caothivananh@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234567"
                     },
                     new ApplicationUser
                     {
@@ -286,7 +293,8 @@ namespace src.Extensions
                         NormalizedEmail = "tranthaonguyen@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234568"
                     },
                     new ApplicationUser
                     {
@@ -299,7 +307,8 @@ namespace src.Extensions
                         NormalizedEmail = "truongthitramanh@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234569"
                     },
                     new ApplicationUser
                     {
@@ -312,7 +321,8 @@ namespace src.Extensions
                         NormalizedEmail = "caobaquat@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234570"
                     },
                     new ApplicationUser
                     {
@@ -325,7 +335,8 @@ namespace src.Extensions
                         NormalizedEmail = "huynhtranthanh@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234571"
                     },
                     new ApplicationUser
                     {
@@ -338,7 +349,8 @@ namespace src.Extensions
                         NormalizedEmail = "nguyenthanhlong@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234572"
                     },
                     new ApplicationUser
                     {
@@ -351,7 +363,8 @@ namespace src.Extensions
                         NormalizedEmail = "hoxuanhuong@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234573"
                     },
                     new ApplicationUser
                     {
@@ -364,7 +377,8 @@ namespace src.Extensions
                         NormalizedEmail = "nguyenhue@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234574"
                     },
                     new ApplicationUser
                     {
@@ -377,7 +391,8 @@ namespace src.Extensions
                         NormalizedEmail = "phungthanhdo@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234575"
                     },
                     new ApplicationUser
                     {
@@ -390,7 +405,8 @@ namespace src.Extensions
                         NormalizedEmail = "phantantrung@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234576"
                     },
                     new ApplicationUser
                     {
@@ -403,7 +419,8 @@ namespace src.Extensions
                         NormalizedEmail = "truongtuantu@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234577"
                     },
                     new ApplicationUser
                     {
@@ -416,7 +433,8 @@ namespace src.Extensions
                         NormalizedEmail = "truongthimaitram@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234578"
                     },
                     new ApplicationUser
                     {
@@ -429,7 +447,8 @@ namespace src.Extensions
                         NormalizedEmail = "nguyenbuuvinh@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234579"
                     },
                     new ApplicationUser
                     {
@@ -442,7 +461,8 @@ namespace src.Extensions
                         NormalizedEmail = "lequangduy@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234580"
                     },
                     new ApplicationUser
                     {
@@ -455,7 +475,8 @@ namespace src.Extensions
                         NormalizedEmail = "luubaominh@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234581"
                     },
                     new ApplicationUser
                     {
@@ -468,7 +489,8 @@ namespace src.Extensions
                         NormalizedEmail = "duonghoanphong@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234582"
                     },
                     new ApplicationUser
                     {
@@ -481,7 +503,8 @@ namespace src.Extensions
                         NormalizedEmail = "chuvietdung@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234583"
                     },
                     new ApplicationUser
                     {
@@ -494,7 +517,8 @@ namespace src.Extensions
                         NormalizedEmail = "buibichphuong@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234584"
                     },
                     new ApplicationUser
                     {
@@ -507,7 +531,8 @@ namespace src.Extensions
                         NormalizedEmail = "tranphuongly@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234585"
                     },
                     new ApplicationUser
                     {
@@ -520,7 +545,8 @@ namespace src.Extensions
                         NormalizedEmail = "luongtulinh@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234586"
                     },
                     new ApplicationUser
                     {
@@ -533,7 +559,8 @@ namespace src.Extensions
                         NormalizedEmail = "malephixuan@gmail.com".ToUpper(),
                         EmailConfirmed = true,
                         PasswordHash = hasher.HashPassword(null, "12345678"),
-                        SecurityStamp = string.Empty
+                        SecurityStamp = string.Empty,
+                        PhoneNumber = "0901234587"
                     }
                 );
 
