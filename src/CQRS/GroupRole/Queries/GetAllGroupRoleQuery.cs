@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -32,6 +33,10 @@ namespace src.CQRS.GroupRole.Queries
         public async Task<Result<PagedResponse<GroupRoleResponse>>> Handle(GetAllGroupRoleQuery query, CancellationToken cancellationToken)
         {
             var queryable = _context.GroupRole.AsQueryable();
+
+            queryable = queryable.Where(
+                gr => gr.IsDeleted == false
+            );
 
             var result = await _paginationHelper.Paginate<E.GroupRole, GroupRoleResponse>(
                 queryable, query
