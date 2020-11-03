@@ -82,6 +82,7 @@ namespace src.Contracts.V1
             public const string GetGroupCostsOfGroup = Base + "/groups/{groupId}/groupCosts";
             public const string GetStaffsOfGroup = Base + "/groups/{groupId}/staffs";
             public const string GetStaffsWithoutRoleOfGroup = Base + "/groups/{groupId}/staffsWithoutRole";
+            public const string DeleteStaffOfGroup = Base + "/groups/staff";
         }
 
         public static class GroupDetail
