@@ -14,6 +14,7 @@ using src.CQRS.Group.Commands.CreateGroup;
 using src.CQRS.Group.Commands.DeleteGroup;
 using src.CQRS.Group.Commands.UpdateGroup;
 using src.CQRS.Group.Queries;
+using src.CQRS.StaffGroupRole.Commands.DeleteStaffGroupRole;
 
 namespace src.Controllers.V1
 {
@@ -171,6 +172,22 @@ namespace src.Controllers.V1
                 data => Ok(new Response<PagedResponse<UserResponse>>(
                     data
                 )),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
+
+        [HttpDelete(ApiRoutes.Group.DeleteStaffOfGroup)]
+        public async Task<IActionResult> Delete(
+            [FromBody] DeleteStaffOfGroupCommand command
+        )
+        {
+            var result = await _mediator.Send(command);
+
+            return result.Match<IActionResult>(
+                staffGroupRoleResponse => NoContent(),
                 exp =>
                 {
                     throw exp;
