@@ -11,6 +11,7 @@ using src.Contracts.V1.ResponseModels.Group;
 using src.Contracts.V1.ResponseModels.Tour;
 using src.Contracts.V1.ResponseModels.TourPrice;
 using src.CQRS.Tour.Commands.CreateTour;
+using src.CQRS.Tour.Commands.DeleteTour;
 using src.CQRS.Tour.Commands.UpdateTour;
 using src.CQRS.Tour.Queries;
 
@@ -82,6 +83,23 @@ namespace src.Controllers.V1
         {
             command.Id = tourId;
             var result = await _mediator.Send(command);
+
+            return result.Match<IActionResult>(
+                tourResponse => NoContent(),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
+
+        [HttpDelete(ApiRoutes.Tour.Delete)]
+        public async Task<IActionResult> Delete(
+            [FromRoute] int tourId
+        )
+        {
+            var deleteGroup = new DeleteTourCommand(tourId);
+            var result = await _mediator.Send(deleteGroup);
 
             return result.Match<IActionResult>(
                 tourResponse => NoContent(),
