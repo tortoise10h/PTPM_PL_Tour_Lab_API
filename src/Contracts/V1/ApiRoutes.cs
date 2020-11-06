@@ -127,5 +127,10 @@ namespace src.Contracts.V1
             public const string GetById = Base + "/staffGroupRoles/{staffGroupRoleId}";
             public const string Delete = Base + "/staffGroupRoles/{staffGroupRoleId}";
         }
+
+        public static class Statistic
+        {
+            public const string GetAllTourArrival = Base + "/tours/tourArrival";
+        }
     }
 }
