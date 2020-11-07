@@ -13,24 +13,24 @@ using src.Helpers;
 
 namespace src.CQRS.Statistic.Queries
 {
-    public class GetAllToursByDateTimeQuery : IRequest<Result<List<TourWithGroupStatisticResponse>>>
+    public class GetAllTourPriceByDateTimeQuery : IRequest<Result<List<TourWithPriceStatisticResponse>>>
     {
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
     }
 
-    public class GetAllToursByDateTimeHandler : IRequestHandler<GetAllToursByDateTimeQuery, Result<List<TourWithGroupStatisticResponse>>>
+    public class GetAllTourPriceByDateTimeHandler : IRequestHandler<GetAllTourPriceByDateTimeQuery, Result<List<TourWithPriceStatisticResponse>>>
     {
         private readonly DataContext _context;
         private readonly IMapper _mapper;
 
-        public GetAllToursByDateTimeHandler(DataContext context, IMapper mapper)
+        public GetAllTourPriceByDateTimeHandler(DataContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
-        public async Task<Result<List<TourWithGroupStatisticResponse>>> Handle(GetAllToursByDateTimeQuery query, CancellationToken cancellationToken)
+        public async Task<Result<List<TourWithPriceStatisticResponse>>> Handle(GetAllTourPriceByDateTimeQuery query, CancellationToken cancellationToken)
         {
             var tour = await _context.Tours
                 .Where(
@@ -38,28 +38,22 @@ namespace src.CQRS.Statistic.Queries
                 )
                 .Include(t => t.Groups)
                 .OrderBy(t => t.Id)
-                .Select(t => new TourWithGroupStatisticResponse
+                .Select(t => new TourWithPriceStatisticResponse
                 {
                     Id = t.Id,
                     Name = t.Name,
                     TourCategory = t.TourCategory.Name,
-                    TourArrival = t.Groups.Count(
+                    TotalPrice = t.Groups.Where(
                         g => g.StartDate >= query.FromDate &&
                             g.StartDate <= query.ToDate &&
-                            (g.Status == GroupStatusEnum.Processing || g.Status == GroupStatusEnum.Done)
-                    ),
-                    TourCancel = t.Groups.Count(
-                    g => g.LastModifiedAt >= query.FromDate &&
-                        g.LastModifiedAt <= query.ToDate &&
-                        g.Status == GroupStatusEnum.Canceled
-                    )
+                            g.Status == GroupStatusEnum.Done
+                    ).Sum(g => g.Price)
                 })
                 .ToListAsync();
 
-            return new Result<List<TourWithGroupStatisticResponse>>(
-                _mapper.Map<List<TourWithGroupStatisticResponse>>(tour)
+            return new Result<List<TourWithPriceStatisticResponse>>(
+                _mapper.Map<List<TourWithPriceStatisticResponse>>(tour)
             );
-
         }
     }
 }

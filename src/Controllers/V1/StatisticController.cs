@@ -33,5 +33,37 @@ namespace src.Controllers.V1
                 }
             );
         }
+
+        [HttpGet(ApiRoutes.Statistic.GetAllTourPrice)]
+        public async Task<IActionResult> GetAll([FromQuery] GetAllTourPriceByDateTimeQuery query)
+        {
+            var result = await _mediator.Send(query);
+
+            return result.Match<IActionResult>(
+                data => Ok(new Response<List<TourWithPriceStatisticResponse>>(
+                    data
+                )),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
+
+        [HttpGet(ApiRoutes.Statistic.GetAllStaff)]
+        public async Task<IActionResult> GetAll([FromQuery] GetAllStaffArrivalQuery query)
+        {
+            var result = await _mediator.Send(query);
+
+            return result.Match<IActionResult>(
+                data => Ok(new Response<List<TourWithStaffStatisticResponse>>(
+                    data
+                )),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
     }
 }

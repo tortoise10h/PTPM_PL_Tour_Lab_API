@@ -107,6 +107,7 @@ namespace src.CQRS.StaffGroupRole.Commands.CreateStaffGroupRole
             var existStaffGroupRoles = await _context.StaffGroupRole
                 .Where(
                     sgr => sgr.StaffId == request.StaffId &&
+                    sgr.GroupId == request.GroupId &&
                     roles.Contains(sgr.GroupRoleId)
                 )
                 .ToListAsync();
