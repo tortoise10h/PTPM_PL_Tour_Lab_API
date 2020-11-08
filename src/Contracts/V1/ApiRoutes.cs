@@ -131,6 +131,7 @@ namespace src.Contracts.V1
         public static class Statistic
         {
             public const string GetAllTourArrival = Base + "/tours/tourArrivalStatistic";
+            public const string GetAllTourCategoryArrival = Base + "/tours/tourCategoryArrivalStatistic";
             public const string GetAllTourPrice = Base + "/tours/tourPriceStatistic";
             public const string GetAllStaff = Base + "/tours/staffStatistic";
         }

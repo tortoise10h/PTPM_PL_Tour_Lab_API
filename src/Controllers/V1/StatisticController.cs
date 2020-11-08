@@ -65,5 +65,21 @@ namespace src.Controllers.V1
                 }
             );
         }
+
+        [HttpGet(ApiRoutes.Statistic.GetAllTourCategoryArrival)]
+        public async Task<IActionResult> GetAll([FromQuery] GetAllTourCategoryArrivalQuery query)
+        {
+            var result = await _mediator.Send(query);
+
+            return result.Match<IActionResult>(
+                data => Ok(new Response<List<TourCategoryStatisticResponse>>(
+                    data
+                )),
+                exp =>
+                {
+                    throw exp;
+                }
+            );
+        }
     }
 }
