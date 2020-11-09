@@ -5,6 +5,7 @@ using AutoMapper;
 using LanguageExt.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using src.Common.Enums;
 using src.Contracts.V1.Exceptions;
 using src.Contracts.V1.ResponseModels.Group;
 using src.Helpers;
@@ -43,6 +44,13 @@ namespace src.CQRS.Group.Commands.DeleteGroup
             {
                 return new Result<GroupResponse>(
                     new NotFoundException()
+                );
+            }
+
+            if (group.Status != GroupStatusEnum.New)
+            {
+                return new Result<GroupResponse>(
+                    new BadRequestException(new ApiError("Can't delete this Group when status is not New"))
                 );
             }
 

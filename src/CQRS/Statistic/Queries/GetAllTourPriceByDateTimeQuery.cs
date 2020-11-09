@@ -32,11 +32,13 @@ namespace src.CQRS.Statistic.Queries
 
         public async Task<Result<List<TourWithPriceStatisticResponse>>> Handle(GetAllTourPriceByDateTimeQuery query, CancellationToken cancellationToken)
         {
+            var groupCost = _context.GroupCost.AsQueryable();
             var tour = await _context.Tours
                 .Where(
                    t => t.IsDeleted == false
                 )
                 .Include(t => t.Groups)
+                .ThenInclude(g => g.GroupCosts)
                 .OrderBy(t => t.Id)
                 .Select(t => new TourWithPriceStatisticResponse
                 {
@@ -47,7 +49,18 @@ namespace src.CQRS.Statistic.Queries
                         g => g.StartDate >= query.FromDate &&
                             g.StartDate <= query.ToDate &&
                             g.Status == GroupStatusEnum.Done
-                    ).Sum(g => g.Price)
+                    ).Sum(g => g.Price),
+                    GroupCostList = t.Groups
+                        .Select(g =>
+                             g.GroupCosts.Sum(gd => gd.Price)
+                        ).ToList(),
+                })
+                .Select(x => new TourWithPriceStatisticResponse
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    TourCategory = x.TourCategory,
+                    TotalPrice = x.TotalPrice - x.GroupCostList.Sum()
                 })
                 .ToListAsync();
 
