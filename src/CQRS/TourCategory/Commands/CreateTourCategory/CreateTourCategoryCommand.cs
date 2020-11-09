@@ -44,7 +44,7 @@ namespace src.CQRS.TourCategory.Commands.CreateTourCategory
             }
 
             return new Result<TourCategoryResponse>(
-                new BadRequestException(new ApiError("Create Tour Category failed, please try again"))
+                new BadRequestException(new ApiError("Thêm thể loại tour thất bại, vui lòng thử lại"))
             );
         }
     }

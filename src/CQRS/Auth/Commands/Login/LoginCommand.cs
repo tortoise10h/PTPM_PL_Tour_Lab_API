@@ -36,7 +36,7 @@ namespace src.CQRS.Auth.Commands.Login
             if (user == null)
             {
                 return new Result<LoginResult>(
-                    new BadRequestException(new ApiError("Use does not exist"))
+                    new BadRequestException(new ApiError("Tài khoản không tồn tại"))
                 );
             }
 
@@ -45,7 +45,7 @@ namespace src.CQRS.Auth.Commands.Login
             if (!userHasValidPassword)
             {
                 return new Result<LoginResult>(
-                    new BadRequestException(new ApiError("Email or password is incorrect"))
+                    new BadRequestException(new ApiError("Email hoặc mật khẩu không chính xác"))
                 );
             }
 

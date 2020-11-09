@@ -75,7 +75,7 @@ namespace src.CQRS.TourPrice.Commands.CreateTourPrice
 
             return new Result<TourPriceResponse>(
                 new BadRequestException(
-                    new ApiError("Create Tour Price failed, please try again"))
+                    new ApiError("Thêm giá tour thất bại, vui lòng thử lại"))
             );
         }
     }

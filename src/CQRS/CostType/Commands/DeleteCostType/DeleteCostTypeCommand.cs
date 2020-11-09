@@ -53,7 +53,7 @@ namespace src.CQRS.CostType.Commands.DeleteCostType
             if (costTypeInGroupCost != null)
             {
                 return new Result<CostTypeResponse>(
-                    new BadRequestException(new ApiError("Can't delete this cost type because it is already in use in Group Cost"))
+                    new BadRequestException(new ApiError("Không thể xoá loại chi phí đã được áp dụng vào đoàn"))
                 );
             }
 
@@ -69,7 +69,7 @@ namespace src.CQRS.CostType.Commands.DeleteCostType
             }
 
             return new Result<CostTypeResponse>(
-                new BadRequestException(new ApiError("Delete Cost Type failed, please try again"))
+                new BadRequestException(new ApiError("Xoá loại chi phí thất bại, vui lòng thử lại"))
             );
         }
     }

@@ -99,7 +99,7 @@ namespace src.CQRS.TourDetail.Commands.CreateTourDetail
             }
 
             return new Result<List<TourDetailResponse>>(
-                new BadRequestException(new ApiError("Create Tour Detail failed, please try again"))
+                new BadRequestException(new ApiError("Thêm địa điểm tour thất bại, vui lòng thử lại"))
             );
         }
     }

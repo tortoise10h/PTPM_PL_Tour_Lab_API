@@ -40,7 +40,7 @@ namespace src.CQRS.TouristAttraction.Commands.CreateTouristAttraction
             }
 
             return new Result<TouristAttractionResponse>(
-                new BadRequestException(new ApiError("Create Tourist Attraction failed, please try again"))
+                new BadRequestException(new ApiError("Thêm địa điểm thất bại, vui lòng thử lại"))
             );
         }
     }

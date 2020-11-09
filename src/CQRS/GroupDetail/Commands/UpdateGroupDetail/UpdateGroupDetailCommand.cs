@@ -54,7 +54,7 @@ namespace src.CQRS.GroupDetail.Commands.UpdateGroupDetail
             }
 
             return new Result<GroupDetailResponse>(
-                new BadRequestException(new ApiError("Update Group Detail failed, please try again"))
+                new BadRequestException(new ApiError("Sửa chi tiết đoàn thất bại, vui lòng thử lại"))
             );
         }
     }

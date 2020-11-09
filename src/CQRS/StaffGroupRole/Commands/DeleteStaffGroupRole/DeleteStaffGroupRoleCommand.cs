@@ -54,7 +54,7 @@ namespace src.CQRS.StaffGroupRole.Commands.DeleteStaffGroupRole
             {
                 return new Result<StaffGroupRoleResponse>(
                     new BadRequestException(
-                        new ApiError("Can't delete Staff when group status is not New and Processing")
+                        new ApiError("Chỉ có thể xoá khi trạng thái của đoàn là Mới và Đang Khởi Hành")
                     )
                 );
             }
@@ -70,7 +70,7 @@ namespace src.CQRS.StaffGroupRole.Commands.DeleteStaffGroupRole
             }
 
             return new Result<StaffGroupRoleResponse>(
-                new BadRequestException(new ApiError("Delete Staff from Group failed, please try again"))
+                new BadRequestException(new ApiError("Xoá công việc thất bại, vui lòng thử lại"))
             );
         }
     }

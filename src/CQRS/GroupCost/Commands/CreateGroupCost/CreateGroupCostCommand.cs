@@ -43,7 +43,7 @@ namespace src.CQRS.GroupCost.Commands.CreateGroupCost
             {
                 return new Result<GroupCostResponse>(
                     new BadRequestException(
-                        new ApiError("Group does not exist")
+                        new ApiError("Đoàn không tồn tại")
                     )
                 );
             }
@@ -51,7 +51,7 @@ namespace src.CQRS.GroupCost.Commands.CreateGroupCost
             {
                 return new Result<GroupCostResponse>(
                     new BadRequestException(
-                        new ApiError("Can't add Group Cost when group status is not New and Processing")
+                        new ApiError("Chỉ có thể thêm khi trạng thái của đoàn là Mới và Đang Khởi Hành")
                     )
                 );
             }
@@ -64,7 +64,7 @@ namespace src.CQRS.GroupCost.Commands.CreateGroupCost
             {
                 return new Result<GroupCostResponse>(
                     new BadRequestException(
-                        new ApiError("Cost Type does not exist")
+                        new ApiError("Loại chi phí không tồn tại")
                     )
                 );
             }
@@ -81,7 +81,7 @@ namespace src.CQRS.GroupCost.Commands.CreateGroupCost
             }
 
             return new Result<GroupCostResponse>(
-                new BadRequestException(new ApiError("Create Group Cost failed, please try again"))
+                new BadRequestException(new ApiError("Thêm chi phí đoàn thất bại, vui lòng thử lại"))
             );
         }
     }

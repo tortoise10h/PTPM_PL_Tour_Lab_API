@@ -45,7 +45,7 @@ namespace src.CQRS.GroupDetail.Commands.CreateGroupDetail
             {
                 return new Result<List<GroupDetailResponse>>(
                     new BadRequestException(
-                        new ApiError("Group does not exist")
+                        new ApiError("Đoàn không tồn tại")
                     )
                 );
             }
@@ -53,7 +53,7 @@ namespace src.CQRS.GroupDetail.Commands.CreateGroupDetail
             {
                 return new Result<List<GroupDetailResponse>>(
                     new BadRequestException(
-                        new ApiError("Can't add Customer when group status is not New")
+                        new ApiError("Chỉ có thể thêm khách hàng khi trạng thái của đoàn là Mới")
                     )
                 );
             }
@@ -90,7 +90,7 @@ namespace src.CQRS.GroupDetail.Commands.CreateGroupDetail
             {
                 return new Result<List<GroupDetailResponse>>(
                     new BadRequestException(
-                        new ApiError("Some User already exists in Group")
+                        new ApiError("Khách hàng đã tồn tại trong đoàn, vui lòng thử lại")
                     )
                 );
             }
@@ -136,7 +136,7 @@ namespace src.CQRS.GroupDetail.Commands.CreateGroupDetail
             }
 
             return new Result<List<GroupDetailResponse>>(
-                new BadRequestException(new ApiError("Create Group Detail failed, please try again"))
+                new BadRequestException(new ApiError("Thêm chi tiết đoàn thất bại, vui lòng thử lại"))
             );
         }
     }

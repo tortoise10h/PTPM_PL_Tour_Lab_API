@@ -56,7 +56,7 @@ namespace src.CQRS.TourCategory.Commands.UpdateTourCategory
             }
 
             return new Result<TourCategoryResponse>(
-                new BadRequestException(new ApiError("Update Tour Category error, please try again"))
+                new BadRequestException(new ApiError("Sửa thể loại tour thất bại, vui lòng thử lại"))
             );
         }
     }

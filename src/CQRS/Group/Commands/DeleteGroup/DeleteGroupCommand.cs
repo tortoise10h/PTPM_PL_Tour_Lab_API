@@ -50,7 +50,7 @@ namespace src.CQRS.Group.Commands.DeleteGroup
             if (group.Status != GroupStatusEnum.New)
             {
                 return new Result<GroupResponse>(
-                    new BadRequestException(new ApiError("Can't delete this Group when status is not New"))
+                    new BadRequestException(new ApiError("Chỉ có thể xoá khi trạng thái của đoàn là Mới"))
                 );
             }
 
@@ -69,21 +69,21 @@ namespace src.CQRS.Group.Commands.DeleteGroup
             if (groupInGroupDetail != null)
             {
                 return new Result<GroupResponse>(
-                    new BadRequestException(new ApiError("Can't delete this Group because it is already in use in Group Detail"))
+                    new BadRequestException(new ApiError("Không thể xoá đoàn đã được áp dụng vào chi tiết đoàn"))
                 );
             }
 
             if (groupInGroupCost != null)
             {
                 return new Result<GroupResponse>(
-                    new BadRequestException(new ApiError("Can't delete this Group because it is already in use in Group Cost"))
+                    new BadRequestException(new ApiError("Không thể xoá đoàn đã được áp dụng vào chi phí đoàn"))
                 );
             }
 
             if (groupInStaffGroupRole != null)
             {
                 return new Result<GroupResponse>(
-                    new BadRequestException(new ApiError("Can't delete this Group because it is already in use in Staff Group Role"))
+                    new BadRequestException(new ApiError("Không thể xoá đoàn đã được áp dụng vào nhân viên đoàn"))
                 );
             }
 
@@ -99,7 +99,7 @@ namespace src.CQRS.Group.Commands.DeleteGroup
             }
 
             return new Result<GroupResponse>(
-                new BadRequestException(new ApiError("Delete Group failed, please try again"))
+                new BadRequestException(new ApiError("Xoá đoàn thất bại, vui lòng thử lại"))
             );
         }
     }

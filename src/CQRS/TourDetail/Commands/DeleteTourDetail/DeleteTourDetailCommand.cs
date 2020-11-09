@@ -94,7 +94,7 @@ namespace src.CQRS.TourDetail.Commands.DeleteTourDetail
             }
 
             return new Result<List<TourDetailResponse>>(
-                new BadRequestException(new ApiError("Delete Tourist Attraction failed, please try again"))
+                new BadRequestException(new ApiError("Xoá địa điểm tour thất bại, vui lòng thử lại"))
             );
         }
     }

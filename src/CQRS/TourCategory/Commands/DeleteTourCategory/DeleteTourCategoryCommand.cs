@@ -51,7 +51,7 @@ namespace src.CQRS.TourCategory.Commands.DeleteTourCategory
             if (tourCategoryInTour != null)
             {
                 return new Result<TourCategoryResponse>(
-                    new BadRequestException(new ApiError("Can't delete Tour Category because it is already in use in Tour"))
+                    new BadRequestException(new ApiError("Không thể xoá thể loại tour vì đã được áp dụng vào tour"))
                 );
             }
 
@@ -68,7 +68,7 @@ namespace src.CQRS.TourCategory.Commands.DeleteTourCategory
             }
 
             return new Result<TourCategoryResponse>(
-                new BadRequestException(new ApiError("Delete Tour Category failed, please try again"))
+                new BadRequestException(new ApiError("Xoá thể loại tour thất bại, vui lòng thử lại"))
             );
         }
     }

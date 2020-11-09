@@ -81,7 +81,7 @@ namespace src.CQRS.Tour.Commands.UpdateTour
 
             return new Result<TourResponse>(
                 new BadRequestException(
-                    new ApiError("Update Tour failed, please try again"))
+                    new ApiError("Sửa tour thất bại, vui lòng thử lại"))
             );
         }
     }

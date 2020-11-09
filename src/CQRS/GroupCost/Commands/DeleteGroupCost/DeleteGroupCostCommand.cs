@@ -54,7 +54,7 @@ namespace src.CQRS.GroupCost.Commands.DeleteGroupCost
             {
                 return new Result<GroupCostResponse>(
                     new BadRequestException(
-                        new ApiError("Can't delete Group Cost when group status is not New and Processing")
+                        new ApiError("Chỉ có thể xoá khi trạng thái của đoàn là Mới và Đang Khởi Hành")
                     )
                 );
             }
@@ -70,7 +70,7 @@ namespace src.CQRS.GroupCost.Commands.DeleteGroupCost
             }
 
             return new Result<GroupCostResponse>(
-                new BadRequestException(new ApiError("Delete Group Cost failed, please try again"))
+                new BadRequestException(new ApiError("Xoá chi phí đoàn thất bại, vui lòng thử lại"))
             );
         }
     }

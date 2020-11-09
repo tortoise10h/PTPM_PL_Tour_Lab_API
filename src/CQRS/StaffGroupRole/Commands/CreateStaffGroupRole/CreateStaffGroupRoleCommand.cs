@@ -47,7 +47,7 @@ namespace src.CQRS.StaffGroupRole.Commands.CreateStaffGroupRole
             {
                 return new Result<List<StaffGroupRoleResponse>>(
                     new BadRequestException(
-                        new ApiError("Group does not exist")
+                        new ApiError("Đoàn không tồn tại")
                     )
                 );
             }
@@ -56,7 +56,7 @@ namespace src.CQRS.StaffGroupRole.Commands.CreateStaffGroupRole
             {
                 return new Result<List<StaffGroupRoleResponse>>(
                     new BadRequestException(
-                        new ApiError("Can't add Staff when group status is not New and Processing")
+                        new ApiError("Chỉ có thể thêm khi trạng thái của đoàn là Mới và Đang Khởi Hành")
                     )
                 );
             }
@@ -116,7 +116,7 @@ namespace src.CQRS.StaffGroupRole.Commands.CreateStaffGroupRole
             {
                 return new Result<List<StaffGroupRoleResponse>>(
                     new BadRequestException(
-                        new ApiError("Staff must have each role once time")
+                        new ApiError("Mỗi công việc chỉ áp dụng một lần cho mỗi nhân viên")
                     )
                 );
             }
@@ -145,7 +145,7 @@ namespace src.CQRS.StaffGroupRole.Commands.CreateStaffGroupRole
             }
 
             return new Result<List<StaffGroupRoleResponse>>(
-                new BadRequestException(new ApiError("Create Staff to Group failed, please try again"))
+                new BadRequestException(new ApiError("Thêm công việc của nhân viên thất bại, vui lòng thử lại"))
             );
         }
     }

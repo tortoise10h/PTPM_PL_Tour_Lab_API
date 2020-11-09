@@ -55,7 +55,7 @@ namespace src.CQRS.GroupDetail.Commands.DeleteGroupDetail
             {
                 return new Result<GroupDetailResponse>(
                     new BadRequestException(
-                        new ApiError("Can't delete Customer when Group Status is not New")
+                        new ApiError("Chỉ có thể xoá khi trạng thái của đoàn là Mới")
                     )
                 );
             }
@@ -71,7 +71,7 @@ namespace src.CQRS.GroupDetail.Commands.DeleteGroupDetail
             }
 
             return new Result<GroupDetailResponse>(
-                new BadRequestException(new ApiError("Delete Group Detail failed, please try again"))
+                new BadRequestException(new ApiError("Thêm chi tiết đoàn thất bại, vui lòng thử lại"))
             );
         }
     }

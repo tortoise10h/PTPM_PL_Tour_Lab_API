@@ -64,7 +64,7 @@ namespace src.CQRS.Tour.Commands.DeleteTour
             if (tourDetail != null)
             {
                 return new Result<TourResponse>(
-                    new BadRequestException(new ApiError("Can't delete this Tour because it is already in use in Tour Detail"))
+                    new BadRequestException(new ApiError("Không thể xoá tour vì đã được áp dụng vào chi tiết tour"))
                 );
             }
 
@@ -72,7 +72,7 @@ namespace src.CQRS.Tour.Commands.DeleteTour
             if (tourPrice != null)
             {
                 return new Result<TourResponse>(
-                    new BadRequestException(new ApiError("Can't delete this Tour because it is already in use in Tour Price"))
+                    new BadRequestException(new ApiError("Không thể xoá tour vì đã được áp dụng vào giá tour"))
                 );
             }
 
@@ -80,7 +80,7 @@ namespace src.CQRS.Tour.Commands.DeleteTour
             if (groupInTour != null)
             {
                 return new Result<TourResponse>(
-                    new BadRequestException(new ApiError("Can't delete this Tour because it is already in use in Group"))
+                    new BadRequestException(new ApiError("Không thể xoá tour vì đã được áp dụng vào đoàn"))
                 );
             }
 
@@ -96,7 +96,7 @@ namespace src.CQRS.Tour.Commands.DeleteTour
             }
 
             return new Result<TourResponse>(
-                new BadRequestException(new ApiError("Delete Group failed, please try again"))
+                new BadRequestException(new ApiError("Xoá tour thất bại, vui lòng thử lại"))
             );
         }
     }

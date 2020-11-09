@@ -55,7 +55,7 @@ namespace src.CQRS.CostType.Commands.UpdateCostType
             }
 
             return new Result<CostTypeResponse>(
-                new BadRequestException(new ApiError("Update Cost Type failed, please try again"))
+                new BadRequestException(new ApiError("Sửa loại chi phí thất bại, vui lòng thử lại"))
             );
         }
     }

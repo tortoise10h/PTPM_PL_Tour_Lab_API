@@ -51,7 +51,7 @@ namespace src.CQRS.TouristAttraction.Commands.DeleteTouristAttraction
             if (touristAttractionInTourDetail != null)
             {
                 return new Result<TouristAttractionResponse>(
-                    new BadRequestException(new ApiError("Can't delete Tourist Attraction because it is already in use in Tour Detail"))
+                    new BadRequestException(new ApiError("Không thể xoá địa điểm vì đã được áp dụng vào tour"))
                 );
             }
 
@@ -68,7 +68,7 @@ namespace src.CQRS.TouristAttraction.Commands.DeleteTouristAttraction
             }
 
             return new Result<TouristAttractionResponse>(
-                new BadRequestException(new ApiError("Delete Tourist Attraction failed, please try again"))
+                new BadRequestException(new ApiError("Xoá địa điểm thất bại, vui lòng thử lại"))
             );
         }
     }

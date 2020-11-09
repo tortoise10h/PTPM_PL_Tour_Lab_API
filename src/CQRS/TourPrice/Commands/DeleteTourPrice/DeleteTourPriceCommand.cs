@@ -56,7 +56,7 @@ namespace src.CQRS.TourPrice.Commands.DeleteTourPrice
                 );
             }
             return new Result<TourPriceResponse>(
-                new BadRequestException(new ApiError("Delete Tour Price failed, please try again"))
+                new BadRequestException(new ApiError("Xoá giá tour thất bại, vui lòng thử lại"))
             );
         }
     }

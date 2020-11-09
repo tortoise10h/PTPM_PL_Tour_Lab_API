@@ -118,7 +118,7 @@ namespace src.CQRS.TourDetail.Commands.UpdateTourDetail
             }
 
             return new Result<List<TourDetailResponse>>(
-                new BadRequestException(new ApiError("Update Tour Detail failed, please try again"))
+                new BadRequestException(new ApiError("Sửa địa điểm tour thất bại, vui lòng thử lại"))
             );
         }
     }

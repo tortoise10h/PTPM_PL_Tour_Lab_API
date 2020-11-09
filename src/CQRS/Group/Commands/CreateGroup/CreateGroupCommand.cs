@@ -47,7 +47,7 @@ namespace src.CQRS.Group.Commands.CreateGroup
             {
                 return new Result<GroupResponse>(
                     new BadRequestException(
-                        new ApiError("Tour does not exist"))
+                        new ApiError("Tour không tồn tại, vui lòng thử lại"))
                 );
             }
 
@@ -61,7 +61,7 @@ namespace src.CQRS.Group.Commands.CreateGroup
             {
                 return new Result<GroupResponse>(
                     new BadRequestException(
-                        new ApiError("This name already exists, please try another name"))
+                        new ApiError("Tên đoàn trong một Tour không được trùng, vui lòng sử dụng tên khác"))
                 );
             }
 
@@ -86,7 +86,7 @@ namespace src.CQRS.Group.Commands.CreateGroup
 
             return new Result<GroupResponse>(
                 new BadRequestException(
-                    new ApiError("Create Group failed, please try again"))
+                    new ApiError("Thêm đoàn thất bại, vui lòng thử lại"))
             );
         }
     }

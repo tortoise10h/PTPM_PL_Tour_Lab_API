@@ -52,7 +52,7 @@ namespace src.CQRS.GroupCost.Commands.UpdateGroupCost
             {
                 return new Result<GroupCostResponse>(
                     new BadRequestException(
-                        new ApiError("Can't edit Group Cost when group status is not New and Processing")
+                        new ApiError("Chỉ có thể sửa khi trạng thái của đoàn là Mới và Đang Khởi Hành")
                     )
                 );
             }
@@ -70,7 +70,7 @@ namespace src.CQRS.GroupCost.Commands.UpdateGroupCost
             }
 
             return new Result<GroupCostResponse>(
-                new BadRequestException(new ApiError("Update Group Cost failed, please try again"))
+                new BadRequestException(new ApiError("Sửa chi phí đoàn thất bại, vui lòng thử lại"))
             );
         }
     }
