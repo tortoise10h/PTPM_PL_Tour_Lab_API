@@ -13,11 +13,13 @@ namespace src.CQRS.Group.Commands.UpdateGroup
 
             RuleFor(x => x.StartDate)
                 .NotNull()
-                .GreaterThanOrEqualTo(DateTime.Now);
+                .GreaterThanOrEqualTo(DateTime.Now)
+                .WithMessage($"Ngày bắt đầu phải lớn hơn hoặc bằng {DateTime.Now}");
 
             RuleFor(x => x.EndDate)
                 .NotNull()
-                .GreaterThan(x => x.StartDate);
+                .GreaterThan(x => x.StartDate)
+                .WithMessage($"Ngày kết thúc phải lớn hơn {DateTime.Now}");
 
             RuleFor(x => x.Price)
                 .NotNull()
