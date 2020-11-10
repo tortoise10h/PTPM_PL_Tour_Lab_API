@@ -84,7 +84,8 @@ namespace src.CQRS.GroupDetail.Commands.CreateGroupDetail
 
             /** Make sure each User in Group 1 time **/
             var existUsers = await _context.GroupDetail
-                .Where(gd => uniqueUserIds.Contains(gd.UserId))
+                .Where(gd => uniqueUserIds.Contains(gd.UserId) &&
+                    gd.GroupId == group.Id)
                 .ToListAsync();
             if (existUsers.Count() > 0)
             {
