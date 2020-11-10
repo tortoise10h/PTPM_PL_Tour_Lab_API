@@ -9,5 +9,6 @@ namespace src.Contracts.V1.ResponseModels.Tour
         public string TourCategory { get; set; }
         public long TotalPrice { get; set; }
         public List<long> GroupCostList { get; set; }
+        public List<long> GroupCustomerList { get; set; }
     }
 }
