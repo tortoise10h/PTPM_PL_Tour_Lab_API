@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -55,7 +56,33 @@ namespace src.CQRS.Group.Commands.UpdateGroup
                 );
             }
 
+            var groupDetail = await _context.GroupDetail.Where(
+                gd => gd.GroupId == request.Id
+            ).ToListAsync();
+
+            if (!(groupDetail.Count() > 0) && request.Status == GroupStatusEnum.Done)
+            {
+                return new Result<GroupResponse>(
+                   new BadRequestException(new ApiError("Không thể thay đổi trạng thái sang Hoàn Thành khi không có khách hàng nào"))
+               );
+            }
+
+            var tour = await _context.Tours.SingleOrDefaultAsync(
+                    t => t.Id == group.TourId &&
+                    t.IsDeleted == false
+            );
+
+            /** Get price from tour to group */
+            var tourPrice = await _context.TourPrice
+                .Where(tp => request.StartDate >= tp.StartDate &&
+                    request.StartDate <= tp.EndDate &&
+                    tp.TourId == group.TourId &&
+                    tp.IsDeleted == false)
+                .FirstOrDefaultAsync();
+
             _mapper.Map<UpdateGroupCommand, E.Group>(request, group);
+
+            group.Price = tourPrice != null ? tourPrice.Price : tour.Price;
             _context.Group.Update(group);
             var updated = await _context.SaveChangesAsync();
 
