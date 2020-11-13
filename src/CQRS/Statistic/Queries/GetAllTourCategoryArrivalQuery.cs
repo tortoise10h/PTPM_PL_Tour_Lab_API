@@ -47,7 +47,7 @@ namespace src.CQRS.Statistic.Queries
                     .Count(
                         g => g.StartDate >= query.FromDate &&
                             g.StartDate <= query.ToDate &&
-                            (g.Status == GroupStatusEnum.Processing || g.Status == GroupStatusEnum.Done)
+                            g.Status == GroupStatusEnum.Done
                     )
                 })
                 .ToListAsync();

@@ -46,7 +46,7 @@ namespace src.CQRS.Statistic.Queries
                     TourArrival = t.Groups.Count(
                         g => g.StartDate >= query.FromDate &&
                             g.StartDate <= query.ToDate &&
-                            (g.Status == GroupStatusEnum.Processing || g.Status == GroupStatusEnum.Done)
+                            g.Status == GroupStatusEnum.Done
                     ),
                     TourCancel = t.Groups.Count(
                     g => g.LastModifiedAt >= query.FromDate &&

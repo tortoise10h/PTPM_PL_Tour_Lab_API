@@ -51,11 +51,11 @@ namespace src.CQRS.StaffGroupRole.Commands.DeleteStaffGroupRole
                 && g.IsDeleted == false
             );
 
-            if (group.Status != GroupStatusEnum.New && group.Status != GroupStatusEnum.Processing)
+            if (group.Status != GroupStatusEnum.New)
             {
                 return new Result<List<StaffGroupRoleResponse>>(
                     new BadRequestException(
-                        new ApiError("Can't delete Staff when group status is not New and Processing")
+                        new ApiError("Can't delete Staff when group status is not New")
                     )
                 );
             }

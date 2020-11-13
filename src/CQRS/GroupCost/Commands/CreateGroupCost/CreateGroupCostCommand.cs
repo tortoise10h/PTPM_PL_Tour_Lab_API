@@ -47,11 +47,11 @@ namespace src.CQRS.GroupCost.Commands.CreateGroupCost
                     )
                 );
             }
-            if (group.Status != GroupStatusEnum.New && group.Status != GroupStatusEnum.Processing)
+            if (group.Status != GroupStatusEnum.New)
             {
                 return new Result<GroupCostResponse>(
                     new BadRequestException(
-                        new ApiError("Chỉ có thể thêm khi trạng thái của đoàn là Mới và Đang Khởi Hành")
+                        new ApiError("Chỉ có thể thêm khi trạng thái của đoàn là Mới")
                     )
                 );
             }

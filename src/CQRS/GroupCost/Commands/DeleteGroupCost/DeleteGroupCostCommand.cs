@@ -50,11 +50,11 @@ namespace src.CQRS.GroupCost.Commands.DeleteGroupCost
                 g => g.Id == groupCost.GroupId
             );
 
-            if (group.Status != GroupStatusEnum.New && group.Status != GroupStatusEnum.Processing)
+            if (group.Status != GroupStatusEnum.New)
             {
                 return new Result<GroupCostResponse>(
                     new BadRequestException(
-                        new ApiError("Chỉ có thể xoá khi trạng thái của đoàn là Mới và Đang Khởi Hành")
+                        new ApiError("Chỉ có thể xoá khi trạng thái của đoàn là Mới")
                     )
                 );
             }
